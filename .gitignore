@@ -1,0 +1,29 @@
+# Temporary files and directories
+tmp/
+*.tmp
+*.temp
+.tmp/
+**/tmp/
+
+# Cache directories
+cache/
+.cache/
+**/cache/
+**/.cache/
+
+# Build artifacts
+build/
+**/build/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
