@@ -19,3 +19,6 @@
 [submodule "Aurora-OS-Client"]
 	path = Aurora-OS-Client
 	url = git@github.com:Helix-Track/Aurora-Client.git
+[submodule "Screensaver"]
+	path = Screensaver
+	url = git@github.com:Helix-Track/Screensaver.git
