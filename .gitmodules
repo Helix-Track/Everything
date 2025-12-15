@@ -16,3 +16,6 @@
 [submodule "Harmony-OS-Client"]
 	path = Harmony-OS-Client
 	url = git@github.com:Helix-Track/Harmony-OS-Client.git
+[submodule "Aurora-OS-Client"]
+	path = Aurora-OS-Client
+	url = git@github.com:Helix-Track/Aurora-Client.git
