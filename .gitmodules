@@ -4,3 +4,6 @@
 [submodule "Web-Client"]
 	path = Web-Client
 	url = git@github.com:Helix-Track/Web-Client.git
+[submodule "Desktop-Client"]
+	path = Desktop-Client
+	url = git@github.com:Helix-Track/Desktop-Client.git
