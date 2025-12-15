@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Markdown editor syntax highlighting colors -->
+    <color name="markdown_header">#0066cc</color>
+    <color name="markdown_code">#d73a49</color>
+    <color name="markdown_code_bg">#f6f8fa</color>
+    <color name="markdown_link">#0366d6</color>
+    <color name="markdown_list">#6a737d</color>
+    <color name="markdown_quote">#6a737d</color>
+    <color name="markdown_rule">#e1e4e8</color>
+</resources>
