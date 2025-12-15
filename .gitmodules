@@ -7,3 +7,6 @@
 [submodule "Desktop-Client"]
 	path = Desktop-Client
 	url = git@github.com:Helix-Track/Desktop-Client.git
+[submodule "Android-Client"]
+	path = Android-Client
+	url = git@github.com:Helix-Track/Android-Client.git
