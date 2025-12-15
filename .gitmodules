@@ -13,3 +13,6 @@
 [submodule "iOS-Client"]
 	path = iOS-Client
 	url = git@github.com:Helix-Track/iOS-Client.git
+[submodule "Harmony-OS-Client"]
+	path = Harmony-OS-Client
+	url = git@github.com:Helix-Track/Harmony-OS-Client.git
