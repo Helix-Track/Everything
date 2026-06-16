@@ -22,3 +22,6 @@
 [submodule "Screensaver"]
 	path = Screensaver
 	url = git@github.com:Helix-Track/Screensaver.git
+[submodule "constitution"]
+	path = constitution
+	url = git@github.com:HelixDevelopment/HelixConstitution.git

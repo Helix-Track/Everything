@@ -1,5 +1,10 @@
 # HelixTrack Agent Guidelines
 
+> Base agent rules: `constitution/AGENTS.md` — READ IT FIRST.
+> The base file is authoritative for any topic not covered here.
+> Project-specific rules below extend them; they never weaken them.
+> Full universal policy: `constitution/Constitution.md` (the constitution wins on any conflict).
+
 ## Build Commands
 - **Quick build**: `go build -o htCore main.go`
 - **Full build**: `./scripts/build.sh`
