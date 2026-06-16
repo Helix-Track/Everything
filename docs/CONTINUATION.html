@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>CONTINUATION</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">CONTINUATION</h1>
+</header>
+<h1 id="continuation-helix-track-everything">CONTINUATION — Helix-Track
+/ Everything</h1>
+<p>Revision: 1 · Last modified: 2026-06-16</p>
+<p>Cross-session handoff (Constitution §12.10 / §11.4.131). Read this
+FIRST, then <code>git fetch --all</code> before resuming.</p>
+<h2 id="current-phase">Current phase</h2>
+<p>Constitution-inheritance wiring: <strong>COMPLETE and pushed</strong>
+to all GitHub remotes; full audit done.</p>
+<h2 id="live-state-anchors">Live-state anchors</h2>
+<ul>
+<li>Parent <code>Helix-Track/Everything</code> HEAD =
+<code>e10cbdf</code> (== <code>origin/main</code>, verified).</li>
+<li><code>constitution/</code> submodule pinned at <code>1d408cb</code>
+(HelixDevelopment/HelixConstitution <code>main</code>; no
+<code>v1.0.0</code> tag exists).</li>
+<li>8 owned submodules committed + pushed (gitlink == local == remote,
+all verified): Core <code>6aae01f</code> · Web-Client
+<code>45e8530</code> · Desktop-Client <code>a2b3e29</code> ·
+Android-Client <code>850b96e</code> · iOS-Client <code>0719e57</code> ·
+Harmony-OS-Client <code>d1d45d0</code> · Aurora-OS-Client
+<code>2c786fd</code> · Screensaver <code>093fd8e</code>.</li>
+<li><code>.git</code> hardlink backup:
+<code>helix_track_git_backups/20260616-225044/repo.git.mirror</code>.</li>
+</ul>
+<h2 id="verify-the-inheritance-is-intact">Verify the inheritance is
+intact</h2>
+<pre><code>bash tests/test_constitution_inheritance.sh                 # expect rc 0
+bash scripts/testing/meta_test_false_positive_proof.sh      # expect rc 0 (anti-bluff §1.1)</code></pre>
+<h2 id="binding-constraints">Binding constraints</h2>
+<p>Anti-bluff §11.4; no <code>--force</code> / <code>--no-verify</code>
+(§11.4.113); no credentials in <code>constitution/</code> (§11.4.10);
+parent commits via <code>./commit</code> wrapper (§2). System
+<code>/tmp</code> volume was 100% full — keep
+<code>TMPDIR=/Volumes/T7/tmp</code> for git ops.</p>
+<h2
+id="open-operator-decisions-from-constitution_compliance_audit.md">Open
+operator decisions (from CONSTITUTION_COMPLIANCE_AUDIT.md)</h2>
+<p>§11.4.78 CodeGraph index · §11.4.109 PreToolUse guard hook ·
+§11.4.12/.60/.65 Markdown HTML/PDF export pipeline · §11.4.157
+GEMINI.md/QWEN.md carriers. None blocking; each needs an explicit
+go/no-go.</p>
+<h2 id="ready-to-paste-resumption-prompt-11.4.127">Ready-to-paste
+resumption prompt (§11.4.127)</h2>
+<blockquote>
+<p>Resume Helix-Track. Constitution inheritance is wired + pushed
+(parent <code>e10cbdf</code>, constitution pinned <code>1d408cb</code>,
+all 8 submodules pushed). First run <code>git fetch --all</code> then
+<code>bash tests/test_constitution_inheritance.sh</code> and
+<code>bash scripts/testing/meta_test_false_positive_proof.sh</code>
+(both must be rc 0). Then address the open operator decisions in
+<code>CONSTITUTION_COMPLIANCE_AUDIT.md</code> (CodeGraph index,
+PreToolUse guard hook, Markdown export pipeline, GEMINI/QWEN carriers).
+Obey anti-bluff §11.4, no –force/–no-verify,
+<code>TMPDIR=/Volumes/T7/tmp</code>.</p>
+</blockquote>
+</body>
+</html>

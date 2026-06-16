@@ -27,3 +27,6 @@ Thumbs.db
 *~
 .vscode/
 .idea/
+
+# CodeGraph index (generated, §11.4.78)
+.codegraph/
