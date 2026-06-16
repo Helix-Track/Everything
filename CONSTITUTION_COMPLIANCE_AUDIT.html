@@ -262,44 +262,46 @@ continuity):</strong> <code>docs/CONTINUATION.md</code> written
 this audit + <code>CONSTITUTION_INHERITANCE_SETUP.md</code> record the
 change set; revision headers present.</li>
 </ul>
-<h3
-id="deferred-operator-decision-required-flagged-not-silently-dropped">DEFERRED
-— operator decision required (flagged, NOT silently dropped)</h3>
+<h3 id="closed-this-session-operator-authorized-do-it-all">CLOSED this
+session (operator authorized “do it all”)</h3>
 <ul>
-<li><strong>§11.4.78 (CodeGraph index):</strong> workspace has no
-<code>.codegraph/</code>; the CodeGraph MCP states indexing is the
-operator’s decision. Run <code>codegraph init</code> in repo root + new
-session to comply. <strong>Operator action.</strong></li>
+<li><strong>§11.4.78 (CodeGraph index):</strong> ✅
+<code>codegraph init</code> run (exit 0); <code>.codegraph/</code> index
+created and gitignored (generated artifact). MCP tools activate next
+session.</li>
 <li><strong>§11.4.109 (anti-forgetting PreToolUse guard hook):</strong>
-wiring a <code>guard-forbidden-commands.sh</code> PreToolUse hook into
-<code>.claude/settings.json</code> changes harness behaviour.
-<strong>Recommended operator action</strong> (use
-<code>/update-config</code> or the hookify skill).</li>
-<li><strong>§11.4.12 / §11.4.60 / §11.4.65 (Markdown → HTML/PDF export
-sync):</strong> this project ships <strong>no</strong> markdown-export
-toolchain and its existing docs have no
-<code>.html</code>/<code>.pdf</code> siblings. Introducing pandoc/export
-tooling unasked would itself violate “no project-specific scope creep”.
-<strong>Operator decision</strong> whether to adopt the export
-pipeline.</li>
-<li><strong>§11.4.157 (GEMINI.md/QWEN.md lockstep):</strong> the project
-maintains <strong>no</strong> GEMINI.md/QWEN.md carriers (verified —
-only the constitution submodule ships them). Its carrier set is
-<code>{CLAUDE.md, AGENTS.md}</code>, both wired. Adding GEMINI/QWEN
-carriers across parent + 8 submodules is a new-carrier expansion.
-<strong>Recommended if the project adopts those agents.</strong></li>
-<li><strong>§11.4.18 (script companion docs):</strong> the new scripts
-carry thorough in-source header docs (purpose, invariants, usage,
+✅ <code>.claude/hooks/guard-forbidden-commands.sh</code> +
+<code>.claude/settings.json</code> (PreToolUse matcher=Bash) +
+<code>docs/AGENT_GUARDRAILS.md</code> added. Tested: force-push → rc 2
+(blocked), <code>--no-verify</code> → rc 2 (blocked), safe cmd → rc 0
+(allowed).</li>
+<li><strong>§11.4.12 / §11.4.60 / §11.4.65 (Markdown → HTML/PDF
+export):</strong> ✅ <code>scripts/export_markdown.sh</code> (pandoc +
+weasyprint regeneration mechanism, §11.4.77) added; generated real
+<code>.html</code> + valid PDF-1.7 siblings for all three governance
+docs (6 artifacts, byte-sized + <code>file</code>-validated).</li>
+<li><strong>§11.4.157 (GEMINI.md/QWEN.md lockstep):</strong> ✅
+GEMINI.md + QWEN.md carriers created in parent (<span class="citation"
+data-cites="import">@import</span> form) + all 8 submodules (nested
+<code>find_constitution.sh</code> form) = 18 files; submodules
+committed+pushed, parent committed+pushed. 9/9 locations carry
+both.</li>
+</ul>
+<h3 id="remaining-minor-low-severity-non-blocking">REMAINING minor
+(low-severity, non-blocking)</h3>
+<ul>
+<li><strong>§11.4.18 (script companion docs):</strong> new scripts carry
+thorough in-source header docs (purpose, invariants, usage,
 paired-mutation reference); separate
-<code>docs/scripts/&lt;name&gt;.md</code> companions are deferred as a
-minor doc-hygiene item.</li>
+<code>docs/scripts/&lt;name&gt;.md</code> companions remain a minor
+doc-hygiene nicety.</li>
 <li><strong>§11.4.26 (constitution-submodule update workflow):</strong>
 initial add performed; the fetch→pin-bump→validate pipeline applies on
-future updates, not the first add.</li>
+future <em>updates</em>, not the first add.</li>
 <li><strong>§11.4.150 (deep multi-angle web research per
 change):</strong> the 2 defects were shell-semantics bugs root-caused
 from captured local evidence (no external unknowns); web research was
-not required. Flagged for completeness.</li>
+not required. Noted for completeness.</li>
 </ul>
 <h2 id="verdict">Verdict</h2>
 <p>No <strong>blocking</strong> violation. Every anti-bluff,

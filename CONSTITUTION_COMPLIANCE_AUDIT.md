@@ -37,14 +37,16 @@ All anti-bluff / safety / push-integrity core clauses are **COMPLIANT**:
 - **§11.4.127 / §11.4.131 / §12.10 (session continuity):** `docs/CONTINUATION.md` written (continuation + embedded ready-to-paste resumption prompt); `.remember/remember.md` handoff updated.
 - **§6.1 / §11.4.44 (change record + revision header):** this audit + `CONSTITUTION_INHERITANCE_SETUP.md` record the change set; revision headers present.
 
-### DEFERRED — operator decision required (flagged, NOT silently dropped)
-- **§11.4.78 (CodeGraph index):** workspace has no `.codegraph/`; the CodeGraph MCP states indexing is the operator's decision. Run `codegraph init` in repo root + new session to comply. **Operator action.**
-- **§11.4.109 (anti-forgetting PreToolUse guard hook):** wiring a `guard-forbidden-commands.sh` PreToolUse hook into `.claude/settings.json` changes harness behaviour. **Recommended operator action** (use `/update-config` or the hookify skill).
-- **§11.4.12 / §11.4.60 / §11.4.65 (Markdown → HTML/PDF export sync):** this project ships **no** markdown-export toolchain and its existing docs have no `.html`/`.pdf` siblings. Introducing pandoc/export tooling unasked would itself violate "no project-specific scope creep". **Operator decision** whether to adopt the export pipeline.
-- **§11.4.157 (GEMINI.md/QWEN.md lockstep):** the project maintains **no** GEMINI.md/QWEN.md carriers (verified — only the constitution submodule ships them). Its carrier set is `{CLAUDE.md, AGENTS.md}`, both wired. Adding GEMINI/QWEN carriers across parent + 8 submodules is a new-carrier expansion. **Recommended if the project adopts those agents.**
-- **§11.4.18 (script companion docs):** the new scripts carry thorough in-source header docs (purpose, invariants, usage, paired-mutation reference); separate `docs/scripts/<name>.md` companions are deferred as a minor doc-hygiene item.
-- **§11.4.26 (constitution-submodule update workflow):** initial add performed; the fetch→pin-bump→validate pipeline applies on future updates, not the first add.
-- **§11.4.150 (deep multi-angle web research per change):** the 2 defects were shell-semantics bugs root-caused from captured local evidence (no external unknowns); web research was not required. Flagged for completeness.
+### CLOSED this session (operator authorized "do it all")
+- **§11.4.78 (CodeGraph index):** ✅ `codegraph init` run (exit 0); `.codegraph/` index created and gitignored (generated artifact). MCP tools activate next session.
+- **§11.4.109 (anti-forgetting PreToolUse guard hook):** ✅ `.claude/hooks/guard-forbidden-commands.sh` + `.claude/settings.json` (PreToolUse matcher=Bash) + `docs/AGENT_GUARDRAILS.md` added. Tested: force-push → rc 2 (blocked), `--no-verify` → rc 2 (blocked), safe cmd → rc 0 (allowed).
+- **§11.4.12 / §11.4.60 / §11.4.65 (Markdown → HTML/PDF export):** ✅ `scripts/export_markdown.sh` (pandoc + weasyprint regeneration mechanism, §11.4.77) added; generated real `.html` + valid PDF-1.7 siblings for all three governance docs (6 artifacts, byte-sized + `file`-validated).
+- **§11.4.157 (GEMINI.md/QWEN.md lockstep):** ✅ GEMINI.md + QWEN.md carriers created in parent (@import form) + all 8 submodules (nested `find_constitution.sh` form) = 18 files; submodules committed+pushed, parent committed+pushed. 9/9 locations carry both.
+
+### REMAINING minor (low-severity, non-blocking)
+- **§11.4.18 (script companion docs):** new scripts carry thorough in-source header docs (purpose, invariants, usage, paired-mutation reference); separate `docs/scripts/<name>.md` companions remain a minor doc-hygiene nicety.
+- **§11.4.26 (constitution-submodule update workflow):** initial add performed; the fetch→pin-bump→validate pipeline applies on future *updates*, not the first add.
+- **§11.4.150 (deep multi-angle web research per change):** the 2 defects were shell-semantics bugs root-caused from captured local evidence (no external unknowns); web research was not required. Noted for completeness.
 
 ## Verdict
 
