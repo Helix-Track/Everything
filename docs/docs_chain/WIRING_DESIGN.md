@@ -123,16 +123,14 @@ Core submodule's own index; the parent `git ls-files` shows only the gitlink).
 (`Database/Test/Test.Postgres.sql` is a test fixture, not a schema definition —
 excluded from the definitions chain by design.)
 
-### 4.2 Post-rename path (`core/` not `Core/`)
+### 4.2 Path resolution (snake_case `core/`)
 
-The main stream is renaming the `Core` submodule gitlink to `core` right now.
-docs_chain node `path:` values are **project-root-relative**; a submodule's
-internal files are reachable from the parent root at
+The `Core` submodule gitlink has been renamed to `core` (snake_case migration
+§11.4.29, landed). docs_chain node `path:` values are **project-root-relative**;
+a submodule's internal files are reachable from the parent root at
 `<gitlink>/Database/DDL/...`. The context therefore references the
-**POST-RENAME** path `core/Database/DDL/...` per the task instruction. **These
-paths are WRONG until the rename lands** — `doctor` will flag missing files
-against the pre-rename `Core/` tree. This is intentional and honest (§11.4.6):
-the design targets the post-rename layout the project is converging to.
+current path `core/Database/DDL/...` — these resolve now that the rename
+has landed.
 
 ### 4.3 Bidirectional modelling
 
