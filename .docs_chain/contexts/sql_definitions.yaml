@@ -16,20 +16,28 @@
 #       `core`. The paths below are written for the POST-RENAME `core/` layout
 #       (per task instruction) and will be WRONG until the rename completes.
 #
-#   (2) The bidirectional SQL<->doc transform pair is NOT a docs_chain builtin.
-#       The builtins md-to-sqlite / sqlite-to-md operate on TABULAR markdown
-#       pipe-tables <-> a sqlite DB; they do NOT understand DDL `CREATE TABLE`
-#       statements. The bidirectional SQL-definition <-> System-doc sync needs a
-#       project-owned `exec:` transform pair (sql-to-doc / doc-to-sql) that does
-#       NOT yet exist. Those scripts are declared below as `exec:` placeholders
-#       under scripts/dc/ and MUST be authored + 100%-test-covered (§11.4.27)
-#       before this context can `sync`/`verify` green. See
-#       docs/docs_chain/WIRING_DESIGN.md for the open question on whether the
-#       authoritative direction is doc->sql or sql->doc.
+#   (2) The forward SQL->doc transform is a project-owned `exec:` transform
+#       (docs_chain builtins md-to-sqlite / sqlite-to-md operate on TABULAR
+#       markdown pipe-tables <-> a sqlite DB; they do NOT understand DDL
+#       `CREATE TABLE` statements). The forward direction is now IMPLEMENTED +
+#       100%-test-covered (§11.4.27):
+#         scripts/dc/sql_to_doc.sh        — the `sql-to-doc` exec transform
+#         scripts/dc/test_sql_to_doc.sh   — 29 assertions, PASS=29 FAIL=0,
+#                                           byte-stable (§11.4.50), real Core DDL
+#       The transform honours the exec contract in CONFIG_SCHEMA.md §5.2
+#       (verified against docs_chain/internal/runner/runner.go:300-354): inputs
+#       staged in sorted-node-id order, then the staged output path, then args.
 #
-# Until (1) and (2) are resolved this file is registered-but-inert: `doctor`
-# will parse it (schema-valid), but `sync` cannot run because the exec
-# transforms are not yet implemented. NO faked transform (§11.4.106).
+#       AUTHORITY DIRECTION (SAFE DEFAULT, operator-recommended, lowest blast
+#       radius): the .sql DDL files are the SOLE AUTHORITY; the System
+#       SQL-reference doc is DERIVED from them (one-way sql -> doc). The reverse
+#       projection (doc -> sql) is INTENTIONALLY NOT IMPLEMENTED — a doc edit
+#       must never silently rewrite authoritative schema. Wiring it requires a
+#       §11.4.133 target-System safety review; see docs/scripts/sql_to_doc.md.
+#
+# Status: the forward sql -> doc derive-from edge is implemented and green; only
+# the optional reverse doc -> sql projection remains deliberately unwired
+# pending the §11.4.133 review. NO faked transform (§11.4.106).
 
 context: sql_definitions
 description: >-
@@ -106,15 +114,19 @@ edges:
   - { type: derive-from, from: sql_reference_html, to: sql_reference_pdf,  transform: html-to-pdf }
 
 transforms:
-  # DRAFT exec placeholders — NOT YET IMPLEMENTED. Must be authored + 100%
-  # test-covered (§11.4.27) and must be byte-stable (§11.4.50) before sync.
-  # Contract (CONFIG_SCHEMA §5.2): Docs Chain passes staged input temp path(s)
-  # then the staged output temp path; `args:` entries are appended after those.
+  # sql-to-doc: IMPLEMENTED + 100%-test-covered (§11.4.27) + byte-stable
+  # (§11.4.50). Contract (CONFIG_SCHEMA §5.2, verified against
+  # docs_chain/internal/runner/runner.go:300-354): Docs Chain passes the staged
+  # input temp path(s) in sorted-node-id order, then the staged output temp
+  # path; `args:` entries are appended after those. The script reads ONLY the
+  # staged inputs and writes ONLY the staged output (Docs Chain owns the atomic
+  # rename, §8). Tests: scripts/dc/test_sql_to_doc.sh (PASS=29 FAIL=0).
   sql-to-doc: { exec: "scripts/dc/sql_to_doc.sh" }
-  # The reverse projection (doc -> sql) is intentionally NOT wired in this DRAFT
-  # until the operator decides whether the doc may be authoritative for schema
-  # (open question Q1 in WIRING_DESIGN.md). When approved, convert the
-  # multi-input derive-from above to per-file `sync` edges with:
-  #   doc-to-sql: { exec: "scripts/dc/doc_to_sql.sh" }
+  # The reverse projection (doc -> sql) is INTENTIONALLY NOT WIRED — the SAFE
+  # DEFAULT authority direction is sql -> doc (the .sql DDL is the sole
+  # authority). Wiring doc -> sql (which would let a doc edit rewrite
+  # authoritative schema) requires a §11.4.133 target-System safety review.
+  # When approved, convert the multi-input derive-from above to per-file `sync`
+  # edges adding:  doc-to-sql: { exec: "scripts/dc/doc_to_sql.sh" }
   md-to-html: { builtin: pandoc-html }
   html-to-pdf: { builtin: weasyprint-pdf }

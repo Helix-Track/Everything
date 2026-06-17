@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SQL_REFERENCE</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">SQL_REFERENCE</h1>
+</header>
+<h1 id="system-sql-reference">System SQL Reference</h1>
+<p>Derived from the Core SQL DDL definitions by the Docs Chain
+<code>sql-to-doc</code> transform (§11.4.106). The <code>.sql</code> DDL
+files are the sole authority; this document is generated from them and
+MUST NOT be hand-edited (doc -&gt; sql is intentionally unimplemented
+pending a §11.4.133 review). Regenerate via <code>docs_chain sync</code>
+on the <code>sql_definitions</code> context.</p>
+<!-- GENERATED FILE — do not edit by hand. Source of truth: core/Database/DDL/*.sql -->
+<h2 id="table-inventory-all-ddl-blocks">Table Inventory (all DDL
+blocks)</h2>
+<p>Total distinct tables across all DDL sources:
+<strong>162</strong></p>
+<ul>
+<li><code>account</code></li>
+<li><code>asset</code></li>
+<li><code>asset_comment_mapping</code></li>
+<li><code>asset_project_mapping</code></li>
+<li><code>asset_team_mapping</code></li>
+<li><code>asset_ticket_mapping</code></li>
+<li><code>audit</code></li>
+<li><code>audit_meta_data</code></li>
+<li><code>automated_documentation_rule</code></li>
+<li><code>board</code></li>
+<li><code>board_column</code></li>
+<li><code>board_history</code></li>
+<li><code>board_meta_data</code></li>
+<li><code>board_quick_filter</code></li>
+<li><code>board_swimlane</code></li>
+<li><code>chat</code></li>
+<li><code>chat_external_integration</code></li>
+<li><code>chat_google_mapping</code></li>
+<li><code>chat_participant</code></li>
+<li><code>chat_room</code></li>
+<li><code>chat_slack_mapping</code></li>
+<li><code>chat_telegram_mapping</code></li>
+<li><code>chat_whatsapp_mapping</code></li>
+<li><code>chat_yandex_mapping</code></li>
+<li><code>comment</code></li>
+<li><code>comment_document_mapping</code></li>
+<li><code>comment_history</code></li>
+<li><code>comment_mention_mapping</code></li>
+<li><code>comment_ticket_mapping</code></li>
+<li><code>component</code></li>
+<li><code>component_meta_data</code></li>
+<li><code>component_ticket_mapping</code></li>
+<li><code>configuration_data_extension_mapping</code></li>
+<li><code>content_document_mapping</code></li>
+<li><code>cross_entity_search_index</code></li>
+<li><code>custom_field</code></li>
+<li><code>custom_field_option</code></li>
+<li><code>cycle</code></li>
+<li><code>cycle_project_mapping</code></li>
+<li><code>dashboard</code></li>
+<li><code>dashboard_history</code></li>
+<li><code>dashboard_share_mapping</code></li>
+<li><code>dashboard_widget</code></li>
+<li><code>document</code></li>
+<li><code>document_analytics</code></li>
+<li><code>document_attachment</code></li>
+<li><code>document_blueprint</code></li>
+<li><code>document_comment</code></li>
+<li><code>document_comment_thread</code></li>
+<li><code>document_content</code></li>
+<li><code>document_entity_link</code></li>
+<li><code>document_inline_comment</code></li>
+<li><code>document_label</code></li>
+<li><code>document_label_mapping</code></li>
+<li><code>document_mention</code></li>
+<li><code>document_reaction</code></li>
+<li><code>document_relationship</code></li>
+<li><code>document_space</code></li>
+<li><code>document_tag</code></li>
+<li><code>document_tag_mapping</code></li>
+<li><code>document_template</code></li>
+<li><code>document_type</code></li>
+<li><code>document_version</code></li>
+<li><code>document_version_comment</code></li>
+<li><code>document_version_diff</code></li>
+<li><code>document_version_label</code></li>
+<li><code>document_version_mention</code></li>
+<li><code>document_version_tag</code></li>
+<li><code>document_view_history</code></li>
+<li><code>document_watcher</code></li>
+<li><code>entity_document_mapping</code></li>
+<li><code>entity_lock</code></li>
+<li><code>extension</code></li>
+<li><code>extension_meta_data</code></li>
+<li><code>filter</code></li>
+<li><code>filter_share_mapping</code></li>
+<li><code>label</code></li>
+<li><code>label_asset_mapping</code></li>
+<li><code>label_category</code></li>
+<li><code>label_document_mapping</code></li>
+<li><code>label_label_category_mapping</code></li>
+<li><code>label_project_mapping</code></li>
+<li><code>label_team_mapping</code></li>
+<li><code>label_ticket_mapping</code></li>
+<li><code>languages</code></li>
+<li><code>localization_audit_log</code></li>
+<li><code>localization_cache_keys</code></li>
+<li><code>localization_catalogs</code></li>
+<li><code>localization_keys</code></li>
+<li><code>localization_versions</code></li>
+<li><code>localizations</code></li>
+<li><code>message</code></li>
+<li><code>message_attachment</code></li>
+<li><code>message_reaction</code></li>
+<li><code>message_read_receipt</code></li>
+<li><code>notification_event</code></li>
+<li><code>notification_rule</code></li>
+<li><code>notification_scheme</code></li>
+<li><code>organization</code></li>
+<li><code>organization_account_mapping</code></li>
+<li><code>permission</code></li>
+<li><code>permission_cache</code></li>
+<li><code>permission_context</code></li>
+<li><code>permission_team_mapping</code></li>
+<li><code>permission_user_mapping</code></li>
+<li><code>priority</code></li>
+<li><code>project</code></li>
+<li><code>project_category</code></li>
+<li><code>project_document_template_mapping</code></li>
+<li><code>project_history</code></li>
+<li><code>project_organization_mapping</code></li>
+<li><code>project_role</code></li>
+<li><code>project_role_user_mapping</code></li>
+<li><code>project_wiki</code></li>
+<li><code>report</code></li>
+<li><code>report_meta_data</code></li>
+<li><code>repository</code></li>
+<li><code>repository_commit_ticket_mapping</code></li>
+<li><code>repository_project_mapping</code></li>
+<li><code>repository_type</code></li>
+<li><code>resolution</code></li>
+<li><code>schema_version</code></li>
+<li><code>security_audit</code></li>
+<li><code>security_level</code></li>
+<li><code>security_level_permission_mapping</code></li>
+<li><code>statements</code></li>
+<li><code>system_info</code></li>
+<li><code>team</code></li>
+<li><code>team_knowledge_base</code></li>
+<li><code>team_organization_mapping</code></li>
+<li><code>team_project_mapping</code></li>
+<li><code>ticket</code></li>
+<li><code>ticket_affected_version_mapping</code></li>
+<li><code>ticket_board_mapping</code></li>
+<li><code>ticket_custom_field_value</code></li>
+<li><code>ticket_cycle_mapping</code></li>
+<li><code>ticket_documentation_requirement</code></li>
+<li><code>ticket_fix_version_mapping</code></li>
+<li><code>ticket_history</code></li>
+<li><code>ticket_meta_data</code></li>
+<li><code>ticket_project_mapping</code></li>
+<li><code>ticket_relationship</code></li>
+<li><code>ticket_relationship_type</code></li>
+<li><code>ticket_status</code></li>
+<li><code>ticket_type</code></li>
+<li><code>ticket_type_project_mapping</code></li>
+<li><code>ticket_vote_mapping</code></li>
+<li><code>ticket_watcher_mapping</code></li>
+<li><code>time_tracking</code></li>
+<li><code>time_unit</code></li>
+<li><code>typing_indicator</code></li>
+<li><code>user_default_mapping</code></li>
+<li><code>user_organization_mapping</code></li>
+<li><code>user_presence</code></li>
+<li><code>user_team_mapping</code></li>
+<li><code>users</code></li>
+<li><code>version</code></li>
+<li><code>vote_mapping</code></li>
+<li><code>work_log</code></li>
+<li><code>workflow</code></li>
+<li><code>workflow_documentation_step</code></li>
+<li><code>workflow_step</code></li>
+</ul>
+<h2 id="block-01">Block 01</h2>
+<p>Tables defined in this DDL block: <strong>60</strong></p>
+<ul>
+<li><code>account</code></li>
+<li><code>asset</code></li>
+<li><code>asset_comment_mapping</code></li>
+<li><code>asset_project_mapping</code></li>
+<li><code>asset_team_mapping</code></li>
+<li><code>asset_ticket_mapping</code></li>
+<li><code>audit</code></li>
+<li><code>audit_meta_data</code></li>
+<li><code>board</code></li>
+<li><code>board_meta_data</code></li>
+<li><code>comment</code></li>
+<li><code>comment_ticket_mapping</code></li>
+<li><code>component</code></li>
+<li><code>component_meta_data</code></li>
+<li><code>component_ticket_mapping</code></li>
+<li><code>configuration_data_extension_mapping</code></li>
+<li><code>cycle</code></li>
+<li><code>cycle_project_mapping</code></li>
+<li><code>extension</code></li>
+<li><code>extension_meta_data</code></li>
+<li><code>label</code></li>
+<li><code>label_asset_mapping</code></li>
+<li><code>label_category</code></li>
+<li><code>label_label_category_mapping</code></li>
+<li><code>label_project_mapping</code></li>
+<li><code>label_team_mapping</code></li>
+<li><code>label_ticket_mapping</code></li>
+<li><code>organization</code></li>
+<li><code>organization_account_mapping</code></li>
+<li><code>permission</code></li>
+<li><code>permission_context</code></li>
+<li><code>permission_team_mapping</code></li>
+<li><code>permission_user_mapping</code></li>
+<li><code>project</code></li>
+<li><code>project_organization_mapping</code></li>
+<li><code>report</code></li>
+<li><code>report_meta_data</code></li>
+<li><code>repository</code></li>
+<li><code>repository_commit_ticket_mapping</code></li>
+<li><code>repository_project_mapping</code></li>
+<li><code>repository_type</code></li>
+<li><code>system_info</code></li>
+<li><code>team</code></li>
+<li><code>team_organization_mapping</code></li>
+<li><code>team_project_mapping</code></li>
+<li><code>ticket</code></li>
+<li><code>ticket_board_mapping</code></li>
+<li><code>ticket_cycle_mapping</code></li>
+<li><code>ticket_meta_data</code></li>
+<li><code>ticket_project_mapping</code></li>
+<li><code>ticket_relationship</code></li>
+<li><code>ticket_relationship_type</code></li>
+<li><code>ticket_status</code></li>
+<li><code>ticket_type</code></li>
+<li><code>ticket_type_project_mapping</code></li>
+<li><code>user_default_mapping</code></li>
+<li><code>user_organization_mapping</code></li>
+<li><code>user_team_mapping</code></li>
+<li><code>workflow</code></li>
+<li><code>workflow_step</code></li>
+</ul>
+<h2 id="block-02">Block 02</h2>
+<p>Tables defined in this DDL block: <strong>12</strong></p>
+<ul>
+<li><code>custom_field</code></li>
+<li><code>custom_field_option</code></li>
+<li><code>filter</code></li>
+<li><code>filter_share_mapping</code></li>
+<li><code>priority</code></li>
+<li><code>resolution</code></li>
+<li><code>statements</code></li>
+<li><code>ticket_affected_version_mapping</code></li>
+<li><code>ticket_custom_field_value</code></li>
+<li><code>ticket_fix_version_mapping</code></li>
+<li><code>ticket_watcher_mapping</code></li>
+<li><code>version</code></li>
+</ul>
+<h2 id="block-03">Block 03</h2>
+<p>Tables defined in this DDL block: <strong>17</strong></p>
+<ul>
+<li><code>board_column</code></li>
+<li><code>board_quick_filter</code></li>
+<li><code>board_swimlane</code></li>
+<li><code>comment_mention_mapping</code></li>
+<li><code>dashboard</code></li>
+<li><code>dashboard_share_mapping</code></li>
+<li><code>dashboard_widget</code></li>
+<li><code>notification_event</code></li>
+<li><code>notification_rule</code></li>
+<li><code>notification_scheme</code></li>
+<li><code>project_category</code></li>
+<li><code>project_role</code></li>
+<li><code>project_role_user_mapping</code></li>
+<li><code>security_level</code></li>
+<li><code>security_level_permission_mapping</code></li>
+<li><code>ticket_vote_mapping</code></li>
+<li><code>work_log</code></li>
+</ul>
+<h2 id="block-04">Block 04</h2>
+<p>Tables defined in this DDL block: <strong>6</strong></p>
+<ul>
+<li><code>board_history</code></li>
+<li><code>comment_history</code></li>
+<li><code>dashboard_history</code></li>
+<li><code>entity_lock</code></li>
+<li><code>project_history</code></li>
+<li><code>ticket_history</code></li>
+</ul>
+<h2 id="block-05">Block 05</h2>
+<p>Tables defined in this DDL block: <strong>11</strong></p>
+<ul>
+<li><code>automated_documentation_rule</code></li>
+<li><code>comment_document_mapping</code></li>
+<li><code>cross_entity_search_index</code></li>
+<li><code>entity_document_mapping</code></li>
+<li><code>label_document_mapping</code></li>
+<li><code>project_document_template_mapping</code></li>
+<li><code>project_wiki</code></li>
+<li><code>team_knowledge_base</code></li>
+<li><code>ticket_documentation_requirement</code></li>
+<li><code>vote_mapping</code></li>
+<li><code>workflow_documentation_step</code></li>
+</ul>
+<h2 id="block-06">Block 06</h2>
+<p>Tables defined in this DDL block: <strong>11</strong></p>
+<ul>
+<li><code>custom_field</code></li>
+<li><code>custom_field_option</code></li>
+<li><code>filter</code></li>
+<li><code>filter_share_mapping</code></li>
+<li><code>priority</code></li>
+<li><code>resolution</code></li>
+<li><code>ticket_affected_version_mapping</code></li>
+<li><code>ticket_custom_field_value</code></li>
+<li><code>ticket_fix_version_mapping</code></li>
+<li><code>ticket_watcher_mapping</code></li>
+<li><code>version</code></li>
+</ul>
+<h2 id="block-07">Block 07</h2>
+<p>Tables defined in this DDL block: <strong>17</strong></p>
+<ul>
+<li><code>board_column</code></li>
+<li><code>board_quick_filter</code></li>
+<li><code>board_swimlane</code></li>
+<li><code>comment_mention_mapping</code></li>
+<li><code>dashboard</code></li>
+<li><code>dashboard_share_mapping</code></li>
+<li><code>dashboard_widget</code></li>
+<li><code>notification_event</code></li>
+<li><code>notification_rule</code></li>
+<li><code>notification_scheme</code></li>
+<li><code>project_category</code></li>
+<li><code>project_role</code></li>
+<li><code>project_role_user_mapping</code></li>
+<li><code>security_level</code></li>
+<li><code>security_level_permission_mapping</code></li>
+<li><code>ticket_vote_mapping</code></li>
+<li><code>work_log</code></li>
+</ul>
+<h2 id="block-08">Block 08</h2>
+<p>Tables defined in this DDL block: <strong>6</strong></p>
+<ul>
+<li><code>board_history</code></li>
+<li><code>comment_history</code></li>
+<li><code>dashboard_history</code></li>
+<li><code>entity_lock</code></li>
+<li><code>project_history</code></li>
+<li><code>ticket_history</code></li>
+</ul>
+<h2 id="block-09">Block 09</h2>
+<p>Tables defined in this DDL block: <strong>2</strong></p>
+<ul>
+<li><code>permission_cache</code></li>
+<li><code>security_audit</code></li>
+</ul>
+<h2 id="block-10">Block 10</h2>
+<p>Tables defined in this DDL block: <strong>0</strong></p>
+<p><em>No <code>CREATE TABLE</code> statements in this block.</em></p>
+<h2 id="block-11">Block 11</h2>
+<p>Tables defined in this DDL block: <strong>0</strong></p>
+<p><em>No <code>CREATE TABLE</code> statements in this block.</em></p>
+<h2 id="block-12">Block 12</h2>
+<p>Tables defined in this DDL block: <strong>6</strong></p>
+<ul>
+<li><code>chat</code></li>
+<li><code>chat_google_mapping</code></li>
+<li><code>chat_slack_mapping</code></li>
+<li><code>chat_telegram_mapping</code></li>
+<li><code>chat_whatsapp_mapping</code></li>
+<li><code>chat_yandex_mapping</code></li>
+</ul>
+<h2 id="block-13">Block 13</h2>
+<p>Tables defined in this DDL block: <strong>9</strong></p>
+<ul>
+<li><code>chat_external_integration</code></li>
+<li><code>chat_participant</code></li>
+<li><code>chat_room</code></li>
+<li><code>message</code></li>
+<li><code>message_attachment</code></li>
+<li><code>message_reaction</code></li>
+<li><code>message_read_receipt</code></li>
+<li><code>typing_indicator</code></li>
+<li><code>user_presence</code></li>
+</ul>
+<h2 id="block-14">Block 14</h2>
+<p>Tables defined in this DDL block: <strong>9</strong></p>
+<ul>
+<li><code>chat_external_integration</code></li>
+<li><code>chat_participant</code></li>
+<li><code>chat_room</code></li>
+<li><code>message</code></li>
+<li><code>message_attachment</code></li>
+<li><code>message_reaction</code></li>
+<li><code>message_read_receipt</code></li>
+<li><code>typing_indicator</code></li>
+<li><code>user_presence</code></li>
+</ul>
+<h2 id="block-15">Block 15</h2>
+<p>Tables defined in this DDL block: <strong>2</strong></p>
+<ul>
+<li><code>content_document_mapping</code></li>
+<li><code>document</code></li>
+</ul>
+<h2 id="block-16">Block 16</h2>
+<p>Tables defined in this DDL block: <strong>21</strong></p>
+<ul>
+<li><code>document</code></li>
+<li><code>document_analytics</code></li>
+<li><code>document_attachment</code></li>
+<li><code>document_blueprint</code></li>
+<li><code>document_content</code></li>
+<li><code>document_entity_link</code></li>
+<li><code>document_inline_comment</code></li>
+<li><code>document_relationship</code></li>
+<li><code>document_space</code></li>
+<li><code>document_tag</code></li>
+<li><code>document_tag_mapping</code></li>
+<li><code>document_template</code></li>
+<li><code>document_type</code></li>
+<li><code>document_version</code></li>
+<li><code>document_version_comment</code></li>
+<li><code>document_version_diff</code></li>
+<li><code>document_version_label</code></li>
+<li><code>document_version_mention</code></li>
+<li><code>document_version_tag</code></li>
+<li><code>document_view_history</code></li>
+<li><code>document_watcher</code></li>
+</ul>
+<h2 id="block-17">Block 17</h2>
+<p>Tables defined in this DDL block: <strong>27</strong></p>
+<ul>
+<li><code>document</code></li>
+<li><code>document_analytics</code></li>
+<li><code>document_attachment</code></li>
+<li><code>document_blueprint</code></li>
+<li><code>document_comment</code></li>
+<li><code>document_comment_thread</code></li>
+<li><code>document_content</code></li>
+<li><code>document_entity_link</code></li>
+<li><code>document_inline_comment</code></li>
+<li><code>document_label</code></li>
+<li><code>document_label_mapping</code></li>
+<li><code>document_mention</code></li>
+<li><code>document_reaction</code></li>
+<li><code>document_relationship</code></li>
+<li><code>document_space</code></li>
+<li><code>document_tag</code></li>
+<li><code>document_tag_mapping</code></li>
+<li><code>document_template</code></li>
+<li><code>document_type</code></li>
+<li><code>document_version</code></li>
+<li><code>document_version_comment</code></li>
+<li><code>document_version_diff</code></li>
+<li><code>document_version_label</code></li>
+<li><code>document_version_mention</code></li>
+<li><code>document_version_tag</code></li>
+<li><code>document_view_history</code></li>
+<li><code>document_watcher</code></li>
+</ul>
+<h2 id="block-18">Block 18</h2>
+<p>Tables defined in this DDL block: <strong>2</strong></p>
+<ul>
+<li><code>time_tracking</code></li>
+<li><code>time_unit</code></li>
+</ul>
+<h2 id="block-19">Block 19</h2>
+<p>Tables defined in this DDL block: <strong>1</strong></p>
+<ul>
+<li><code>users</code></li>
+</ul>
+<h2 id="block-20">Block 20</h2>
+<p>Tables defined in this DDL block: <strong>7</strong></p>
+<ul>
+<li><code>languages</code></li>
+<li><code>localization_audit_log</code></li>
+<li><code>localization_cache_keys</code></li>
+<li><code>localization_catalogs</code></li>
+<li><code>localization_keys</code></li>
+<li><code>localizations</code></li>
+<li><code>schema_version</code></li>
+</ul>
+<h2 id="block-21">Block 21</h2>
+<p>Tables defined in this DDL block: <strong>1</strong></p>
+<ul>
+<li><code>localization_versions</code></li>
+</ul>
+</body>
+</html>
