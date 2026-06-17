@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>helix_deps_manifest_audit</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">helix_deps_manifest_audit</h1>
+</header>
+<h1
+id="submodule-dependency-manifest-11.4.31-debt-audit">Submodule-Dependency-Manifest
+(§11.4.31) Debt Audit</h1>
+<p><strong>Revision:</strong> 1 <strong>Last modified:</strong>
+2026-06-17T05:01:35Z</p>
+<p>Per HelixConstitution <strong>§11.4.31 —
+Submodule-Dependency-Manifest Mandate</strong>: every owned-by-us
+submodule MUST ship a machine-readable dependency manifest at the
+canonical path <code>helix-deps.yaml</code> (or <code>.json</code> /
+<code>.toml</code>) at its root, declaring its own-org Git SSH
+dependencies.</p>
+<p>This audit is <strong>read-only, evidence-backed</strong> (§11.4
+anti-bluff, §11.4.6 no-guessing). Each row below is derived from
+<code>test -f &lt;path&gt;/helix-deps.{yaml,json,toml}</code> against
+the live working tree at the timestamp above.</p>
+<h2 id="scope">Scope</h2>
+<ul>
+<li><strong>Source of submodule paths:</strong>
+<code>git config -f .gitmodules --get-regexp 'path'</code>.</li>
+<li><strong>Excluded (non-contention carve-out — main stream
+concurrently renaming):</strong> <code>Core</code>,
+<code>Web-Client</code>, <code>Desktop-Client</code>,
+<code>Android-Client</code>, <code>iOS-Client</code>,
+<code>Screensaver</code>, and <code>constitution</code> (constitution
+submodule itself).</li>
+<li><strong>Manifest filenames checked:</strong>
+<code>helix-deps.yaml</code>, <code>helix-deps.json</code>,
+<code>helix-deps.toml</code>.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Submodules audited (in scope)</td>
+<td><strong>47</strong></td>
+</tr>
+<tr>
+<td>WITH manifest</td>
+<td><strong>14</strong></td>
+</tr>
+<tr>
+<td>MISSING manifest (the §11.4.31 debt)</td>
+<td><strong>33</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="per-submodule-audit-table">Per-submodule audit table</h2>
+<table>
+<thead>
+<tr>
+<th>Submodule</th>
+<th>Manifest present?</th>
+<th>Manifest file</th>
+<th>Declared-deps count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>harmony_os_client</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>aurora_os_client</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>containers</td>
+<td>YES</td>
+<td>helix-deps.yaml</td>
+<td>0 (leaf)</td>
+</tr>
+<tr>
+<td>docs_chain</td>
+<td>YES</td>
+<td>helix-deps.yaml</td>
+<td>0 (leaf)</td>
+</tr>
+<tr>
+<td>challenges</td>
+<td>YES</td>
+<td>helix-deps.yaml</td>
+<td>2</td>
+</tr>
+<tr>
+<td>helix_qa</td>
+<td>YES</td>
+<td>helix-deps.yaml</td>
+<td>8</td>
+</tr>
+<tr>
+<td>helix_agent</td>
+<td>YES</td>
+<td>helix-deps.yaml</td>
+<td>42</td>
+</tr>
+<tr>
+<td>panoptic</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>doc_processor</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>llm_orchestrator</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>llm_provider</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>llms_verifier</td>
+<td>YES</td>
+<td>helix-deps.yaml</td>
+<td>1</td>
+</tr>
+<tr>
+<td>security</td>
+<td>YES</td>
+<td>helix-deps.yaml</td>
+<td>0 (leaf)</td>
+</tr>
+<tr>
+<td>vision_engine</td>
+<td>YES</td>
+<td>helix-deps.yaml</td>
+<td>0 (leaf)</td>
+</tr>
+<tr>
+<td>dag_orchestrator</td>
+<td>YES</td>
+<td>helix-deps.yaml</td>
+<td>0 (leaf)</td>
+</tr>
+<tr>
+<td>agentic</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>auth</td>
+<td>YES</td>
+<td>helix-deps.yaml</td>
+<td>0 (leaf)</td>
+</tr>
+<tr>
+<td>background_tasks</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>benchmark</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>concurrency</td>
+<td>YES</td>
+<td>helix-deps.yaml</td>
+<td>0 (leaf)</td>
+</tr>
+<tr>
+<td>database</td>
+<td>YES</td>
+<td>helix-deps.yaml</td>
+<td>0 (leaf)</td>
+</tr>
+<tr>
+<td>debate_orchestrator</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>embeddings</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>event_bus</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>formatters</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>helix_memory</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>helix_specifier</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>llm_ops</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>mcp_module</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>memory</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>messaging</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>models</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>normalize</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>observability</td>
+<td>YES</td>
+<td>helix-deps.yaml</td>
+<td>0 (leaf)</td>
+</tr>
+<tr>
+<td>optimization</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>planning</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>plugins</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>rag</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>red_team</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>self_improve</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>skill_registry</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>storage</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>streaming</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>tool_schema</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>vector_db</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>conversation</td>
+<td>NO</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>cache</td>
+<td>YES</td>
+<td>helix-deps.yaml</td>
+<td>0 (leaf)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="debt-list-submodules-missing-a-helix-deps.-manifest-33">Debt
+list — submodules MISSING a <code>helix-deps.*</code> manifest (33)</h2>
+<p>These 33 in-scope own-org submodules carry NO
+<code>helix-deps.yaml</code> / <code>.json</code> / <code>.toml</code>
+at their root and are therefore in violation of §11.4.31 until a
+manifest is authored:</p>
+<ol type="1">
+<li>harmony_os_client</li>
+<li>aurora_os_client</li>
+<li>panoptic</li>
+<li>doc_processor</li>
+<li>llm_orchestrator</li>
+<li>llm_provider</li>
+<li>agentic</li>
+<li>background_tasks</li>
+<li>benchmark</li>
+<li>debate_orchestrator</li>
+<li>embeddings</li>
+<li>event_bus</li>
+<li>formatters</li>
+<li>helix_memory</li>
+<li>helix_specifier</li>
+<li>llm_ops</li>
+<li>mcp_module</li>
+<li>memory</li>
+<li>messaging</li>
+<li>models</li>
+<li>normalize</li>
+<li>optimization</li>
+<li>planning</li>
+<li>plugins</li>
+<li>rag</li>
+<li>red_team</li>
+<li>self_improve</li>
+<li>skill_registry</li>
+<li>storage</li>
+<li>streaming</li>
+<li>tool_schema</li>
+<li>vector_db</li>
+<li>conversation</li>
+</ol>
+<p><strong>Note (forensic, §11.4.6):</strong> several of these
+(<code>agentic</code>, <code>auth</code>-class peers,
+<code>background_tasks</code>, <code>models</code>, etc.) are referenced
+as declared deps inside <code>helix_agent/helix-deps.yaml</code> (42
+declared own-org deps via <code>go.mod replace</code>), so the absence
+of their OWN manifest is a concrete cross-reconstruction gap — a
+consumer cloning <code>helix_agent</code> cannot recurse into these
+peers to learn THEIR transitive own-org deps (§11.4.31
+<code>transitive_handling.recursive: true</code>).</p>
+<h2 id="has-manifest-section-14">Has-manifest section (14)</h2>
+<p>The following in-scope submodules satisfy §11.4.31. The declared-deps
+count is the count of <code>- name:</code> entries under the manifest
+<code>deps:</code> block (<code>0 (leaf)</code> = explicit
+<code>deps: []</code> honest leaf manifest):</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Submodule</th>
+<th>Declared-deps count</th>
+<th>Notes (from manifest header / deps)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>containers</td>
+<td>0 (leaf)</td>
+<td>Leaf Go submodule, <code>deps: []</code>.</td>
+</tr>
+<tr>
+<td>docs_chain</td>
+<td>0 (leaf)</td>
+<td>Leaf Go submodule (digital.vasic.docs_chain),
+<code>deps: []</code>.</td>
+</tr>
+<tr>
+<td>challenges</td>
+<td>2</td>
+<td><code>containers</code> (vasic-digital), <code>Panoptic</code>
+(vasic-digital) — Panoptic flagged as the tracked §11.4.28
+nested-own-org violation to flatten.</td>
+</tr>
+<tr>
+<td>helix_qa</td>
+<td>8</td>
+<td>Challenges, Containers, DocProcessor, LLMOrchestrator, LLMProvider,
+LLMsVerifier, security, VisionEngine — matches go.mod
+<code>replace</code> block.</td>
+</tr>
+<tr>
+<td>helix_agent</td>
+<td>42</td>
+<td><code>dev.helix.dag</code> (DagOrchestrator) + 41
+<code>digital.vasic.*</code> modules via go.mod replace; manifest header
+notes some <code>why:</code> lines are <code>[inferred]</code>.</td>
+</tr>
+<tr>
+<td>llms_verifier</td>
+<td>1</td>
+<td><code>Challenges</code> (vasic-digital) — corrected 2026-06-08 to
+match actual go.mod replace blocks.</td>
+</tr>
+<tr>
+<td>security</td>
+<td>0 (leaf)</td>
+<td>Leaf Go submodule, <code>deps: []</code>.</td>
+</tr>
+<tr>
+<td>vision_engine</td>
+<td>0 (leaf)</td>
+<td>Leaf Go submodule (digital.vasic.visionengine),
+<code>deps: []</code>.</td>
+</tr>
+<tr>
+<td>dag_orchestrator</td>
+<td>0 (leaf)</td>
+<td>Standalone Go module (dev.helix.dag), <code>deps: []</code>
+scaffold.</td>
+</tr>
+<tr>
+<td>auth</td>
+<td>0 (leaf)</td>
+<td>Leaf Go submodule (digital.vasic.auth), <code>deps: []</code>.</td>
+</tr>
+<tr>
+<td>concurrency</td>
+<td>0 (leaf)</td>
+<td>Leaf Go submodule, <code>deps: []</code>.</td>
+</tr>
+<tr>
+<td>database</td>
+<td>0 (leaf)</td>
+<td>Leaf Go submodule, <code>deps: []</code>.</td>
+</tr>
+<tr>
+<td>observability</td>
+<td>0 (leaf)</td>
+<td>Leaf Go submodule, <code>deps: []</code>.</td>
+</tr>
+<tr>
+<td>cache</td>
+<td>0 (leaf)</td>
+<td>Leaf Go submodule, <code>deps: []</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="captured-evidence-verbatim-command-output">Captured evidence
+(verbatim command output)</h2>
+<h3 id="manifest-presence-check-per-submodule-in-scope">1. Manifest
+presence check (per-submodule, in scope)</h3>
+<pre class="text"><code>MISSING|harmony_os_client|-
+MISSING|aurora_os_client|-
+HAS|containers|helix-deps.yaml
+HAS|docs_chain|helix-deps.yaml
+HAS|challenges|helix-deps.yaml
+HAS|helix_qa|helix-deps.yaml
+HAS|helix_agent|helix-deps.yaml
+MISSING|panoptic|-
+MISSING|doc_processor|-
+MISSING|llm_orchestrator|-
+MISSING|llm_provider|-
+HAS|llms_verifier|helix-deps.yaml
+HAS|security|helix-deps.yaml
+HAS|vision_engine|helix-deps.yaml
+HAS|dag_orchestrator|helix-deps.yaml
+MISSING|agentic|-
+HAS|auth|helix-deps.yaml
+MISSING|background_tasks|-
+MISSING|benchmark|-
+HAS|concurrency|helix-deps.yaml
+HAS|database|helix-deps.yaml
+MISSING|debate_orchestrator|-
+MISSING|embeddings|-
+MISSING|event_bus|-
+MISSING|formatters|-
+MISSING|helix_memory|-
+MISSING|helix_specifier|-
+MISSING|llm_ops|-
+MISSING|mcp_module|-
+MISSING|memory|-
+MISSING|messaging|-
+MISSING|models|-
+MISSING|normalize|-
+HAS|observability|helix-deps.yaml
+MISSING|optimization|-
+MISSING|planning|-
+MISSING|plugins|-
+MISSING|rag|-
+MISSING|red_team|-
+MISSING|self_improve|-
+MISSING|skill_registry|-
+MISSING|storage|-
+MISSING|streaming|-
+MISSING|tool_schema|-
+MISSING|vector_db|-
+MISSING|conversation|-
+HAS|cache|helix-deps.yaml</code></pre>
+<h3 id="declared-deps-counts-grep--ce-s-sname-per-manifest">2.
+Declared-deps counts (<code>grep -cE '^\s*-\s*name:'</code> per
+manifest)</h3>
+<pre class="text"><code>DEPS_COUNT(containers)=0
+DEPS_COUNT(docs_chain)=0
+DEPS_COUNT(challenges)=2
+DEPS_COUNT(helix_qa)=8
+DEPS_COUNT(helix_agent)=42
+DEPS_COUNT(llms_verifier)=1
+DEPS_COUNT(security)=0
+DEPS_COUNT(vision_engine)=0
+DEPS_COUNT(dag_orchestrator)=0
+DEPS_COUNT(auth)=0
+DEPS_COUNT(concurrency)=0
+DEPS_COUNT(database)=0
+DEPS_COUNT(observability)=0
+DEPS_COUNT(cache)=0</code></pre>
+<h3 id="totals">3. Totals</h3>
+<pre class="text"><code>AUDITED_TOTAL: 47
+HAS_MANIFEST: 14
+MISSING: 33</code></pre>
+<hr />
+<p><em>Generated read-only per §11.4.31 audit. No git staging performed.
+This document is a point-in-time snapshot at the Last-modified
+timestamp; re-run the presence check to refresh.</em></p>
+</body>
+</html>

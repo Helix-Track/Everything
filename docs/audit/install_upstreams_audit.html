@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>install_upstreams_audit</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">install_upstreams_audit</h1>
+</header>
+<h1
+id="install_upstreams-upstream-remote-audit-11.4.36">install_upstreams
+Upstream-Remote Audit (§11.4.36)</h1>
+<p><strong>Revision:</strong> 1 <strong>Last modified:</strong>
+2026-06-17T05:00:58Z <strong>Authority:</strong> §11.4.36 (mandatory
+<code>install_upstreams</code> on clone/add) · §6.W (GitHub + GitLab
+only; GitFlic/GitVerse retired) · §2.1 (multi-upstream push is the norm)
+· §11.4 anti-bluff (all rows backed by real captured
+<code>git remote -v</code> output) <strong>Scope:</strong> Own-org
+submodules newly added to the <code>helix_track</code> monorepo,
+EXCLUDING the six in-flight client dirs being renamed by the concurrent
+main stream (<code>Core</code>,
+<code>Web-Client</code>/<code>web_client</code>,
+<code>Desktop-Client</code>, <code>Android-Client</code>,
+<code>iOS-Client</code>,
+<code>Screensaver</code>/<code>screensaver</code>) and
+<code>constitution</code>.</p>
+<h2 id="summary">Summary</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Submodules in scope (audited)</td>
+<td>49</td>
+</tr>
+<tr>
+<td>Have BOTH a GitHub remote AND a GitLab remote</td>
+<td>40</td>
+</tr>
+<tr>
+<td>Have GitHub only (GitLab MIRROR GAP)</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Have GitHub only AND no <code>upstreams/</code> recipe dir</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Have GitHub only DESPITE having an <code>upstreams/</code> recipe
+dir</td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>install_upstreams</code> on PATH</td>
+<td>yes
+(<code>/Volumes/T7/Projects/Red_Elf/Project_Toolkit/Upstreamable/install_upstreams</code>)</td>
+</tr>
+<tr>
+<td>§6.W violation — retired GitFlic/GitVerse remotes configured</td>
+<td>1 (<code>models</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><code>install_upstreams</code> was run from the root of every
+in-scope submodule that contained an <code>upstreams/</code> (or legacy
+<code>Upstreams/</code>) directory with <code>*.sh</code> recipe files.
+It only modifies that submodule’s own <code>.git/config</code> remotes
+(safe; no parent-repo or <code>.gitmodules</code> mutation).</p>
+<h2 id="per-submodule-table">Per-submodule table</h2>
+<p><code>install_upstreams-run-result</code> legend: -
+<code>ran→gitlab-added</code> — recipe dir present, tool ran, a
+<code>gitlab</code> remote is now configured. -
+<code>ran→NO-gitlab</code> — recipe dir present, tool ran, but no GitLab
+recipe / tool aborted before reaching one ⇒ still GitHub-only. -
+<code>not-run(no-recipes)</code> — no
+<code>upstreams/</code>+<code>*.sh</code> recipes present, so
+<code>install_upstreams</code> is a no-op for §11.4.36.</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>path</th>
+<th>has-github-remote</th>
+<th>has-gitlab-remote</th>
+<th>upstreams-dir?</th>
+<th>install_upstreams-run-result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>harmony_os_client</td>
+<td>yes</td>
+<td><strong>no</strong></td>
+<td>none</td>
+<td>not-run(no-recipes)</td>
+</tr>
+<tr>
+<td>aurora_os_client</td>
+<td>yes</td>
+<td><strong>no</strong></td>
+<td>none</td>
+<td>not-run(no-recipes)</td>
+</tr>
+<tr>
+<td>containers</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>docs_chain</td>
+<td>yes</td>
+<td>yes</td>
+<td>Upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>challenges</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>helix_qa</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>helix_agent</td>
+<td>yes</td>
+<td><strong>no</strong></td>
+<td>upstreams/</td>
+<td>ran→NO-gitlab (recipes are GitHub-only: GitHub.sh +
+GitHubHelixDevelopment.sh)</td>
+</tr>
+<tr>
+<td>panoptic</td>
+<td>yes</td>
+<td><strong>no</strong></td>
+<td>upstreams/</td>
+<td>ran→NO-gitlab (only recipe is GitHub.sh)</td>
+</tr>
+<tr>
+<td>doc_processor</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>llm_orchestrator</td>
+<td>yes</td>
+<td><strong>no</strong></td>
+<td>upstreams/</td>
+<td>ran→NO-gitlab (push-all.sh ran + errored before
+VasicDigitalGitLab.sh)</td>
+</tr>
+<tr>
+<td>llm_provider</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>llms_verifier</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>security</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>vision_engine</td>
+<td>yes</td>
+<td><strong>no</strong></td>
+<td>upstreams/</td>
+<td>ran→NO-gitlab (push-all.sh aborted on bad remote name before GitLab
+recipe)</td>
+</tr>
+<tr>
+<td>dag_orchestrator</td>
+<td>yes</td>
+<td><strong>no</strong></td>
+<td>none</td>
+<td>not-run(no-recipes)</td>
+</tr>
+<tr>
+<td>agentic</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>auth</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>background_tasks</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>benchmark</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>concurrency</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>database</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>debate_orchestrator</td>
+<td>yes</td>
+<td><strong>no</strong></td>
+<td>none</td>
+<td>not-run(no-recipes)</td>
+</tr>
+<tr>
+<td>embeddings</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>event_bus</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>formatters</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>helix_memory</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>helix_specifier</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>llm_ops</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>mcp_module</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>memory</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>messaging</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>models</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added (<strong>§6.W VIOLATION: also configured gitflic +
+gitverse</strong>)</td>
+</tr>
+<tr>
+<td>normalize</td>
+<td>yes</td>
+<td><strong>no</strong></td>
+<td>none</td>
+<td>not-run(no-recipes)</td>
+</tr>
+<tr>
+<td>observability</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>optimization</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>planning</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>plugins</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>rag</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>red_team</td>
+<td>yes</td>
+<td><strong>no</strong></td>
+<td>none</td>
+<td>not-run(no-recipes)</td>
+</tr>
+<tr>
+<td>self_improve</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>skill_registry</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>storage</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>streaming</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>tool_schema</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>vector_db</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>conversation</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+<tr>
+<td>cache</td>
+<td>yes</td>
+<td>yes</td>
+<td>upstreams/</td>
+<td>ran→gitlab-added</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note: <code>web_client</code> and <code>screensaver</code> appear in
+the raw evidence below only because their <code>.gitmodules</code> path
+tokens are lowercase (the main stream already renamed
+<code>Web-Client</code>→<code>web_client</code> and
+<code>Screensaver</code>→<code>screensaver</code>). They are part of the
+six EXCLUDED client dirs and are NOT in audit scope; only read-only
+<code>git remote -v</code> was issued against them. They are excluded
+from the table and from all summary counts.</p>
+</blockquote>
+<h2 id="findings">Findings</h2>
+<h3
+id="f1-gitlab-mirror-gaps-6.w-requires-github-gitlab-9-submodules">F1 —
+GitLab-mirror gaps (§6.W requires GitHub + GitLab) — 9 submodules</h3>
+<p>These 9 in-scope submodules currently have a GitHub remote but
+<strong>no GitLab remote</strong>, so a §2.1 multi-upstream push would
+land only on GitHub:</p>
+<ul>
+<li><strong>No recipes at all (6)</strong> —
+<code>harmony_os_client</code>, <code>aurora_os_client</code>,
+<code>dag_orchestrator</code>, <code>debate_orchestrator</code>,
+<code>normalize</code>, <code>red_team</code>. These have no
+<code>upstreams/</code> directory, so <code>install_upstreams</code>
+cannot configure any mirror. They need an <code>upstreams/</code> dir
+with <code>GitHub.sh</code> + <code>GitLab.sh</code> recipes authored
+(and the GitLab repo created) before §6.W is satisfied.</li>
+<li><strong>Recipe dir present but no GitLab recipe ran (3)</strong> —
+<code>helix_agent</code> (recipes are GitHub-only:
+<code>GitHub.sh</code> + <code>GitHubHelixDevelopment.sh</code>),
+<code>panoptic</code> (only <code>GitHub.sh</code>),
+<code>llm_orchestrator</code> and <code>vision_engine</code> (their
+<code>upstreams/</code> dirs contain non-recipe action scripts —
+<code>push-all.sh</code>, <code>setup-remotes.sh</code>,
+<code>sync-all.sh</code>, <code>push-*.sh</code> — which
+<code>install_upstreams</code> executed; those scripts errored/aborted
+the run before any GitLab recipe was reached). NOTE:
+<code>llm_orchestrator</code> DOES ship a
+<code>VasicDigitalGitLab.sh</code> recipe that was never processed
+because <code>push-all.sh</code> (alphabetically earlier) ran first and
+the run ended; <code>vision_engine</code> has no
+<code>GitLab.sh</code>/<code>VasicDigitalGitLab.sh</code> recipe at
+all.</li>
+</ul>
+<h3 id="f2-6.w-violation-retired-carriers-still-configured-models">F2 —
+§6.W violation: retired carriers still configured —
+<code>models</code></h3>
+<p><code>models</code> ships <code>GitFlic.sh</code> +
+<code>GitVerse.sh</code> recipes (alongside <code>GitHub.sh</code> +
+<code>GitLab.sh</code>). <code>install_upstreams</code> therefore
+configured <code>gitflic git@gitflic.ru:vasic-digital/Models.git</code>
+and <code>gitverse git@gitverse.ru:vasic-digital/Models.git</code>
+remotes, and added both to the <code>origin</code> multi-push fan-out.
+Per §6.W these carriers are RETIRED (GitHub + GitLab only). REMEDIATION:
+remove the <code>GitFlic.sh</code> + <code>GitVerse.sh</code> recipes
+from <code>models/upstreams/</code> and drop the
+<code>gitflic</code>/<code>gitverse</code> remotes + their
+<code>origin</code> pushurls.</p>
+<h3
+id="f3-non-recipe-action-scripts-inside-upstreams-mis-executed-by-install_upstreams">F3
+— Non-recipe action scripts inside <code>upstreams/</code> mis-executed
+by <code>install_upstreams</code></h3>
+<p><code>llm_orchestrator/upstreams/</code> and
+<code>vision_engine/upstreams/</code> contain operational scripts
+(<code>push-all.sh</code>, <code>setup-remotes.sh</code>,
+<code>sync-all.sh</code>, <code>push-helix-github.sh</code>,
+<code>push-vasic-digital-gitlab.sh</code>, etc.) that are NOT
+upstream-recipe declarations. <code>install_upstreams</code> treats
+every <code>*.sh</code> in the dir as a recipe and ran them, causing
+<code>ERROR: No upstream repository provided</code> (llm_orchestrator)
+and
+<code>fatal: 'vasic-digital-github' does not appear to be a git repository</code>
+(vision_engine). These action scripts should be relocated out of
+<code>upstreams/</code> (e.g. to <code>scripts/</code>) so the recipe
+set is clean.</p>
+<h2 id="raw-captured-evidence-git-remote--v">Raw captured evidence
+(<code>git remote -v</code>)</h2>
+<p>The fenced blocks below are the verbatim
+post-<code>install_upstreams</code> <code>git remote -v</code> output
+for every in-scope submodule, captured 2026-06-17T05:00–05:01Z. (The
+leading <code>web_client</code> block is the excluded client dir,
+retained here only to show the raw read-only capture; it is out of
+scope.)</p>
+<pre class="text"><code>### web_client
+github  git@github.com:Helix-Track/Web-Client.git (fetch)
+github  git@github.com:Helix-Track/Web-Client.git (push)
+origin  git@github.com:Helix-Track/Web-Client.git (fetch)
+origin  git@github.com:Helix-Track/Web-Client.git (push)
+upstream    git@github.com:Helix-Track/Web-Client.git (fetch)
+upstream    git@github.com:Helix-Track/Web-Client.git (push)
+
+### harmony_os_client
+origin  git@github.com:Helix-Track/Harmony-OS-Client.git (fetch)
+origin  git@github.com:Helix-Track/Harmony-OS-Client.git (push)
+
+### aurora_os_client
+origin  git@github.com:Helix-Track/Aurora-Client.git (fetch)
+origin  git@github.com:Helix-Track/Aurora-Client.git (push)
+
+### containers
+github  git@github.com:vasic-digital/Containers.git (fetch)
+github  git@github.com:vasic-digital/Containers.git (push)
+gitlab  git@gitlab.com:vasic-digital/containers.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/containers.git (push)
+origin  git@github.com:vasic-digital/containers.git (fetch)
+origin  git@github.com:vasic-digital/Containers.git (push)
+origin  git@gitlab.com:vasic-digital/containers.git (push)
+origin  git@gitlab.com:vasic-digital/Containers.git (push)
+upstream    git@github.com:vasic-digital/Containers.git (fetch)
+upstream    git@github.com:vasic-digital/Containers.git (push)
+vasicdigitalgitlab  git@gitlab.com:vasic-digital/Containers.git (fetch)
+vasicdigitalgitlab  git@gitlab.com:vasic-digital/Containers.git (push)
+
+### docs_chain
+github  git@github.com:vasic-digital/docs_chain.git (fetch)
+github  git@github.com:vasic-digital/docs_chain.git (push)
+gitlab  git@gitlab.com:vasic-digital/docs_chain.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/docs_chain.git (push)
+origin  git@github.com:vasic-digital/docs_chain.git (fetch)
+origin  git@github.com:vasic-digital/docs_chain.git (push)
+origin  git@gitlab.com:vasic-digital/docs_chain.git (push)
+upstream    git@github.com:vasic-digital/docs_chain.git (fetch)
+upstream    git@github.com:vasic-digital/docs_chain.git (push)
+
+### challenges
+github  git@github.com:vasic-digital/Challenges.git (fetch)
+github  git@github.com:vasic-digital/Challenges.git (push)
+gitlab  git@gitlab.com:vasic-digital/challenges.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/challenges.git (push)
+origin  git@github.com:vasic-digital/challenges.git (fetch)
+origin  git@github.com:vasic-digital/Challenges.git (push)
+origin  git@gitlab.com:vasic-digital/challenges.git (push)
+origin  git@github.com:vasic-digital/challenges.git (push)
+upstream    git@github.com:vasic-digital/Challenges.git (fetch)
+upstream    git@github.com:vasic-digital/Challenges.git (push)
+vasicdigitalgithub  git@github.com:vasic-digital/challenges.git (fetch)
+vasicdigitalgithub  git@github.com:vasic-digital/challenges.git (push)
+
+### helix_qa
+github  git@github.com:HelixDevelopment/helixqa.git (fetch)
+github  git@github.com:HelixDevelopment/helixqa.git (push)
+gitlab  git@gitlab.com:vasic-digital/HelixQA.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/HelixQA.git (push)
+origin  git@github.com:HelixDevelopment/HelixQA.git (fetch)
+origin  git@github.com:HelixDevelopment/helixqa.git (push)
+origin  git@gitlab.com:vasic-digital/HelixQA.git (push)
+origin  git@github.com:vasic-digital/HelixQA.git (push)
+upstream    git@github.com:HelixDevelopment/helixqa.git (fetch)
+upstream    git@github.com:HelixDevelopment/helixqa.git (push)
+vasicdigitalgithub  git@github.com:vasic-digital/HelixQA.git (fetch)
+vasicdigitalgithub  git@github.com:vasic-digital/HelixQA.git (push)
+
+### helix_agent
+github  git@github.com:vasic-digital/HelixAgent.git (fetch)
+github  git@github.com:vasic-digital/HelixAgent.git (push)
+githubhelixdevelopment  git@github.com:HelixDevelopment/HelixAgent.git (fetch)
+githubhelixdevelopment  git@github.com:HelixDevelopment/HelixAgent.git (push)
+origin  git@github.com:HelixDevelopment/HelixAgent.git (fetch)
+origin  git@github.com:vasic-digital/HelixAgent.git (push)
+origin  git@github.com:HelixDevelopment/HelixAgent.git (push)
+upstream    git@github.com:vasic-digital/HelixAgent.git (fetch)
+upstream    git@github.com:vasic-digital/HelixAgent.git (push)
+
+### panoptic
+github  git@github.com:vasic-digital/Panoptic.git (fetch)
+github  git@github.com:vasic-digital/Panoptic.git (push)
+origin  git@github.com:vasic-digital/Panoptic.git (fetch)
+origin  git@github.com:vasic-digital/Panoptic.git (push)
+upstream    git@github.com:vasic-digital/Panoptic.git (fetch)
+upstream    git@github.com:vasic-digital/Panoptic.git (push)
+
+### doc_processor
+github  git@github.com:HelixDevelopment/DocProcessor.git (fetch)
+github  git@github.com:HelixDevelopment/DocProcessor.git (push)
+gitlab  git@gitlab.com:helixdevelopment1/docprocessor.git (fetch)
+gitlab  git@gitlab.com:helixdevelopment1/docprocessor.git (push)
+origin  git@github.com:HelixDevelopment/DocProcessor.git (fetch)
+origin  git@github.com:HelixDevelopment/DocProcessor.git (push)
+origin  git@gitlab.com:helixdevelopment1/docprocessor.git (push)
+origin  git@github.com:vasic-digital/DocProcessor.git (push)
+origin  git@gitlab.com:vasic-digital/DocProcessor.git (push)
+upstream    git@github.com:HelixDevelopment/DocProcessor.git (fetch)
+upstream    git@github.com:HelixDevelopment/DocProcessor.git (push)
+vasicdigitalgithub  git@github.com:vasic-digital/DocProcessor.git (fetch)
+vasicdigitalgithub  git@github.com:vasic-digital/DocProcessor.git (push)
+vasicdigitalgitlab  git@gitlab.com:vasic-digital/DocProcessor.git (fetch)
+vasicdigitalgitlab  git@gitlab.com:vasic-digital/DocProcessor.git (push)
+
+### llm_orchestrator
+github  git@github.com:HelixDevelopment/LLMOrchestrator.git (fetch)
+github  git@github.com:HelixDevelopment/LLMOrchestrator.git (push)
+origin  git@github.com:HelixDevelopment/LLMOrchestrator.git (fetch)
+origin  git@github.com:HelixDevelopment/LLMOrchestrator.git (push)
+upstream    git@github.com:HelixDevelopment/LLMOrchestrator.git (fetch)
+upstream    git@github.com:HelixDevelopment/LLMOrchestrator.git (push)
+
+### llm_provider
+github  git@github.com:HelixDevelopment/LLMProvider.git (fetch)
+github  git@github.com:HelixDevelopment/LLMProvider.git (push)
+gitlab  git@gitlab.com:vasic-digital/LLMProvider.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/LLMProvider.git (push)
+origin  git@github.com:HelixDevelopment/LLMProvider.git (fetch)
+origin  git@github.com:HelixDevelopment/LLMProvider.git (push)
+origin  git@gitlab.com:vasic-digital/LLMProvider.git (push)
+origin  git@github.com:vasic-digital/LLMProvider.git (push)
+upstream    git@github.com:HelixDevelopment/LLMProvider.git (fetch)
+upstream    git@github.com:HelixDevelopment/LLMProvider.git (push)
+vasicdigitalgithub  git@github.com:vasic-digital/LLMProvider.git (fetch)
+vasicdigitalgithub  git@github.com:vasic-digital/LLMProvider.git (push)
+
+### llms_verifier
+github  git@github.com:vasic-digital/LLMsVerifier.git (fetch)
+github  git@github.com:vasic-digital/LLMsVerifier.git (push)
+gitlab  git@gitlab.com:vasic-digital/LLMsVerifier.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/LLMsVerifier.git (push)
+origin  git@github.com:vasic-digital/LLMsVerifier.git (fetch)
+origin  git@github.com:vasic-digital/LLMsVerifier.git (push)
+origin  git@gitlab.com:vasic-digital/LLMsVerifier.git (push)
+upstream    git@github.com:vasic-digital/LLMsVerifier.git (fetch)
+upstream    git@github.com:vasic-digital/LLMsVerifier.git (push)
+
+### security
+github  git@github.com:vasic-digital/Security.git (fetch)
+github  git@github.com:vasic-digital/Security.git (push)
+gitlab  git@gitlab.com:vasic-digital/Security.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/Security.git (push)
+origin  git@github.com:vasic-digital/security.git (fetch)
+origin  git@github.com:vasic-digital/Security.git (push)
+origin  git@gitlab.com:vasic-digital/Security.git (push)
+upstream    git@github.com:vasic-digital/Security.git (fetch)
+upstream    git@github.com:vasic-digital/Security.git (push)
+
+### vision_engine
+github  git@github.com:HelixDevelopment/VisionEngine.git (fetch)
+github  git@github.com:HelixDevelopment/VisionEngine.git (push)
+origin  git@github.com:HelixDevelopment/VisionEngine.git (fetch)
+origin  git@github.com:HelixDevelopment/VisionEngine.git (push)
+upstream    git@github.com:HelixDevelopment/VisionEngine.git (fetch)
+upstream    git@github.com:HelixDevelopment/VisionEngine.git (push)
+
+### dag_orchestrator
+origin  git@github.com:HelixDevelopment/DagOrchestrator.git (fetch)
+origin  git@github.com:HelixDevelopment/DagOrchestrator.git (push)
+
+### agentic
+github  git@github.com:vasic-digital/Agentic.git (fetch)
+github  git@github.com:vasic-digital/Agentic.git (push)
+gitlab  git@gitlab.com:vasic-digital/agentic.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/agentic.git (push)
+origin  git@github.com:vasic-digital/Agentic.git (fetch)
+origin  git@github.com:vasic-digital/Agentic.git (push)
+origin  git@gitlab.com:vasic-digital/agentic.git (push)
+upstream    git@github.com:vasic-digital/Agentic.git (fetch)
+upstream    git@github.com:vasic-digital/Agentic.git (push)
+
+### auth
+github  git@github.com:vasic-digital/Auth.git (fetch)
+github  git@github.com:vasic-digital/Auth.git (push)
+gitlab  git@gitlab.com:vasic-digital/Auth.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/Auth.git (push)
+origin  git@github.com:vasic-digital/Auth.git (fetch)
+origin  git@github.com:vasic-digital/Auth.git (push)
+origin  git@gitlab.com:vasic-digital/Auth.git (push)
+upstream    git@github.com:vasic-digital/Auth.git (fetch)
+upstream    git@github.com:vasic-digital/Auth.git (push)
+
+### background_tasks
+github  git@github.com:vasic-digital/BackgroundTasks.git (fetch)
+github  git@github.com:vasic-digital/BackgroundTasks.git (push)
+gitlab  git@gitlab.com:vasic-digital/BackgroundTasks.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/BackgroundTasks.git (push)
+origin  git@github.com:vasic-digital/BackgroundTasks.git (fetch)
+origin  git@github.com:vasic-digital/BackgroundTasks.git (push)
+origin  git@gitlab.com:vasic-digital/BackgroundTasks.git (push)
+upstream    git@github.com:vasic-digital/BackgroundTasks.git (fetch)
+upstream    git@github.com:vasic-digital/BackgroundTasks.git (push)
+
+### benchmark
+github  git@github.com:vasic-digital/Benchmark.git (fetch)
+github  git@github.com:vasic-digital/Benchmark.git (push)
+gitlab  git@gitlab.com:vasic-digital/benchmark.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/benchmark.git (push)
+origin  git@github.com:vasic-digital/Benchmark.git (fetch)
+origin  git@github.com:vasic-digital/Benchmark.git (push)
+origin  git@gitlab.com:vasic-digital/benchmark.git (push)
+upstream    git@github.com:vasic-digital/Benchmark.git (fetch)
+upstream    git@github.com:vasic-digital/Benchmark.git (push)
+
+### concurrency
+github  git@github.com:vasic-digital/Concurrency.git (fetch)
+github  git@github.com:vasic-digital/Concurrency.git (push)
+gitlab  git@gitlab.com:vasic-digital/Concurrency.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/Concurrency.git (push)
+origin  git@github.com:vasic-digital/Concurrency.git (fetch)
+origin  git@github.com:vasic-digital/Concurrency.git (push)
+origin  git@gitlab.com:vasic-digital/Concurrency.git (push)
+upstream    git@github.com:vasic-digital/Concurrency.git (fetch)
+upstream    git@github.com:vasic-digital/Concurrency.git (push)
+
+### database
+github  git@github.com:vasic-digital/Database.git (fetch)
+github  git@github.com:vasic-digital/Database.git (push)
+gitlab  git@gitlab.com:vasic-digital/Database.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/Database.git (push)
+origin  git@github.com:vasic-digital/Database.git (fetch)
+origin  git@github.com:vasic-digital/Database.git (push)
+origin  git@gitlab.com:vasic-digital/Database.git (push)
+upstream    git@github.com:vasic-digital/Database.git (fetch)
+upstream    git@github.com:vasic-digital/Database.git (push)
+
+### debate_orchestrator
+origin  git@github.com:HelixDevelopment/DebateOrchestrator.git (fetch)
+origin  git@github.com:HelixDevelopment/DebateOrchestrator.git (push)
+
+### embeddings
+github  git@github.com:vasic-digital/Embeddings.git (fetch)
+github  git@github.com:vasic-digital/Embeddings.git (push)
+gitlab  git@gitlab.com:vasic-digital/Embeddings.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/Embeddings.git (push)
+origin  git@github.com:vasic-digital/Embeddings.git (fetch)
+origin  git@github.com:vasic-digital/Embeddings.git (push)
+origin  git@gitlab.com:vasic-digital/Embeddings.git (push)
+upstream    git@github.com:vasic-digital/Embeddings.git (fetch)
+upstream    git@github.com:vasic-digital/Embeddings.git (push)
+
+### event_bus
+github  git@github.com:vasic-digital/EventBus.git (fetch)
+github  git@github.com:vasic-digital/EventBus.git (push)
+gitlab  git@gitlab.com:vasic-digital/EventBus.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/EventBus.git (push)
+origin  git@github.com:vasic-digital/EventBus.git (fetch)
+origin  git@github.com:vasic-digital/EventBus.git (push)
+origin  git@gitlab.com:vasic-digital/EventBus.git (push)
+upstream    git@github.com:vasic-digital/EventBus.git (fetch)
+upstream    git@github.com:vasic-digital/EventBus.git (push)
+
+### formatters
+github  git@github.com:vasic-digital/Formatters.git (fetch)
+github  git@github.com:vasic-digital/Formatters.git (push)
+gitlab  git@gitlab.com:vasic-digital/Formatters.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/Formatters.git (push)
+origin  git@github.com:vasic-digital/Formatters.git (fetch)
+origin  git@github.com:vasic-digital/Formatters.git (push)
+origin  git@gitlab.com:vasic-digital/Formatters.git (push)
+upstream    git@github.com:vasic-digital/Formatters.git (fetch)
+upstream    git@github.com:vasic-digital/Formatters.git (push)
+
+### helix_memory
+github  git@github.com:HelixDevelopment/HelixMemory.git (fetch)
+github  git@github.com:HelixDevelopment/HelixMemory.git (push)
+gitlab  git@gitlab.com:helixdevelopment1/HelixMemory.git (fetch)
+gitlab  git@gitlab.com:helixdevelopment1/HelixMemory.git (push)
+origin  git@github.com:HelixDevelopment/HelixMemory.git (fetch)
+origin  git@github.com:HelixDevelopment/HelixMemory.git (push)
+origin  git@gitlab.com:helixdevelopment1/HelixMemory.git (push)
+upstream    git@github.com:HelixDevelopment/HelixMemory.git (fetch)
+upstream    git@github.com:HelixDevelopment/HelixMemory.git (push)
+
+### helix_specifier
+github  git@github.com:HelixDevelopment/HelixSpecifier.git (fetch)
+github  git@github.com:HelixDevelopment/HelixSpecifier.git (push)
+gitlab  git@gitlab.com:helixdevelopment1/HelixSpecifier.git (fetch)
+gitlab  git@gitlab.com:helixdevelopment1/HelixSpecifier.git (push)
+origin  git@github.com:HelixDevelopment/HelixSpecifier.git (fetch)
+origin  git@github.com:HelixDevelopment/HelixSpecifier.git (push)
+origin  git@gitlab.com:helixdevelopment1/HelixSpecifier.git (push)
+upstream    git@github.com:HelixDevelopment/HelixSpecifier.git (fetch)
+upstream    git@github.com:HelixDevelopment/HelixSpecifier.git (push)
+
+### llm_ops
+github  git@github.com:vasic-digital/LLMOps.git (fetch)
+github  git@github.com:vasic-digital/LLMOps.git (push)
+gitlab  git@gitlab.com:vasic-digital/llmops.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/llmops.git (push)
+origin  git@github.com:vasic-digital/LLMOps.git (fetch)
+origin  git@github.com:vasic-digital/LLMOps.git (push)
+origin  git@gitlab.com:vasic-digital/llmops.git (push)
+upstream    git@github.com:vasic-digital/LLMOps.git (fetch)
+upstream    git@github.com:vasic-digital/LLMOps.git (push)
+
+### mcp_module
+github  git@github.com:vasic-digital/MCP_Module.git (fetch)
+github  git@github.com:vasic-digital/MCP_Module.git (push)
+gitlab  git@gitlab.com:vasic-digital/MCP_Module.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/MCP_Module.git (push)
+origin  git@github.com:vasic-digital/MCP_Module.git (fetch)
+origin  git@github.com:vasic-digital/MCP_Module.git (push)
+origin  git@gitlab.com:vasic-digital/MCP_Module.git (push)
+upstream    git@github.com:vasic-digital/MCP_Module.git (fetch)
+upstream    git@github.com:vasic-digital/MCP_Module.git (push)
+
+### memory
+github  git@github.com:vasic-digital/Memory.git (fetch)
+github  git@github.com:vasic-digital/Memory.git (push)
+gitlab  git@gitlab.com:vasic-digital/memory.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/memory.git (push)
+origin  git@github.com:vasic-digital/Memory.git (fetch)
+origin  git@github.com:vasic-digital/Memory.git (push)
+origin  git@gitlab.com:vasic-digital/memory.git (push)
+upstream    git@github.com:vasic-digital/Memory.git (fetch)
+upstream    git@github.com:vasic-digital/Memory.git (push)
+
+### messaging
+github  git@github.com:vasic-digital/Messaging.git (fetch)
+github  git@github.com:vasic-digital/Messaging.git (push)
+gitlab  git@gitlab.com:vasic-digital/Messaging.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/Messaging.git (push)
+origin  git@github.com:vasic-digital/Messaging.git (fetch)
+origin  git@github.com:vasic-digital/Messaging.git (push)
+origin  git@gitlab.com:vasic-digital/Messaging.git (push)
+upstream    git@github.com:vasic-digital/Messaging.git (fetch)
+upstream    git@github.com:vasic-digital/Messaging.git (push)
+
+### models
+gitflic git@gitflic.ru:vasic-digital/Models.git (fetch)
+gitflic git@gitflic.ru:vasic-digital/Models.git (push)
+github  git@github.com:vasic-digital/Models.git (fetch)
+github  git@github.com:vasic-digital/Models.git (push)
+gitlab  git@gitlab.com:vasic-digital/Models.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/Models.git (push)
+gitverse    git@gitverse.ru:vasic-digital/Models.git (fetch)
+gitverse    git@gitverse.ru:vasic-digital/Models.git (push)
+origin  git@github.com:vasic-digital/Models.git (fetch)
+origin  git@gitflic.ru:vasic-digital/Models.git (push)
+origin  git@github.com:vasic-digital/Models.git (push)
+origin  git@gitlab.com:vasic-digital/Models.git (push)
+origin  git@gitverse.ru:vasic-digital/Models.git (push)
+upstream    git@gitflic.ru:vasic-digital/Models.git (fetch)
+upstream    git@gitflic.ru:vasic-digital/Models.git (push)
+
+### normalize
+origin  git@github.com:vasic-digital/Normalize.git (fetch)
+origin  git@github.com:vasic-digital/Normalize.git (push)
+
+### observability
+github  git@github.com:vasic-digital/Observability.git (fetch)
+github  git@github.com:vasic-digital/Observability.git (push)
+gitlab  git@gitlab.com:vasic-digital/Observability.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/Observability.git (push)
+origin  git@github.com:vasic-digital/Observability.git (fetch)
+origin  git@github.com:vasic-digital/Observability.git (push)
+origin  git@gitlab.com:vasic-digital/Observability.git (push)
+upstream    git@github.com:vasic-digital/Observability.git (fetch)
+upstream    git@github.com:vasic-digital/Observability.git (push)
+
+### optimization
+github  git@github.com:vasic-digital/Optimization.git (fetch)
+github  git@github.com:vasic-digital/Optimization.git (push)
+gitlab  git@gitlab.com:vasic-digital/Optimization.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/Optimization.git (push)
+origin  git@github.com:vasic-digital/Optimization.git (fetch)
+origin  git@github.com:vasic-digital/Optimization.git (push)
+origin  git@gitlab.com:vasic-digital/Optimization.git (push)
+upstream    git@github.com:vasic-digital/Optimization.git (fetch)
+upstream    git@github.com:vasic-digital/Optimization.git (push)
+
+### planning
+github  git@github.com:vasic-digital/Planning.git (fetch)
+github  git@github.com:vasic-digital/Planning.git (push)
+gitlab  git@gitlab.com:vasic-digital/planning.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/planning.git (push)
+origin  git@github.com:vasic-digital/Planning.git (fetch)
+origin  git@github.com:vasic-digital/Planning.git (push)
+origin  git@gitlab.com:vasic-digital/planning.git (push)
+upstream    git@github.com:vasic-digital/Planning.git (fetch)
+upstream    git@github.com:vasic-digital/Planning.git (push)
+
+### plugins
+github  git@github.com:vasic-digital/Plugins.git (fetch)
+github  git@github.com:vasic-digital/Plugins.git (push)
+gitlab  git@gitlab.com:vasic-digital/plugins.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/plugins.git (push)
+origin  git@github.com:vasic-digital/Plugins.git (fetch)
+origin  git@github.com:vasic-digital/Plugins.git (push)
+origin  git@gitlab.com:vasic-digital/plugins.git (push)
+upstream    git@github.com:vasic-digital/Plugins.git (fetch)
+upstream    git@github.com:vasic-digital/Plugins.git (push)
+
+### rag
+github  git@github.com:vasic-digital/RAG.git (fetch)
+github  git@github.com:vasic-digital/RAG.git (push)
+gitlab  git@gitlab.com:vasic-digital/RAG.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/RAG.git (push)
+origin  git@github.com:vasic-digital/RAG.git (fetch)
+origin  git@github.com:vasic-digital/RAG.git (push)
+origin  git@gitlab.com:vasic-digital/RAG.git (push)
+upstream    git@github.com:vasic-digital/RAG.git (fetch)
+upstream    git@github.com:vasic-digital/RAG.git (push)
+
+### red_team
+origin  git@github.com:vasic-digital/RedTeam.git (fetch)
+origin  git@github.com:vasic-digital/RedTeam.git (push)
+
+### self_improve
+github  git@github.com:vasic-digital/SelfImprove.git (fetch)
+github  git@github.com:vasic-digital/SelfImprove.git (push)
+gitlab  git@gitlab.com:vasic-digital/selfimprove.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/selfimprove.git (push)
+origin  git@github.com:vasic-digital/SelfImprove.git (fetch)
+origin  git@github.com:vasic-digital/SelfImprove.git (push)
+origin  git@gitlab.com:vasic-digital/selfimprove.git (push)
+upstream    git@github.com:vasic-digital/SelfImprove.git (fetch)
+upstream    git@github.com:vasic-digital/SelfImprove.git (push)
+
+### skill_registry
+github  git@github.com:vasic-digital/SkillRegistry.git (fetch)
+github  git@github.com:vasic-digital/SkillRegistry.git (push)
+gitlab  git@gitlab.com:vasic-digital/SkillRegistry.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/SkillRegistry.git (push)
+origin  git@github.com:vasic-digital/SkillRegistry.git (fetch)
+origin  git@github.com:vasic-digital/SkillRegistry.git (push)
+origin  git@gitlab.com:vasic-digital/SkillRegistry.git (push)
+upstream    git@github.com:vasic-digital/SkillRegistry.git (fetch)
+upstream    git@github.com:vasic-digital/SkillRegistry.git (push)
+
+### storage
+github  git@github.com:vasic-digital/Storage.git (fetch)
+github  git@github.com:vasic-digital/Storage.git (push)
+gitlab  git@gitlab.com:vasic-digital/Storage.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/Storage.git (push)
+origin  git@github.com:vasic-digital/Storage.git (fetch)
+origin  git@github.com:vasic-digital/Storage.git (push)
+origin  git@gitlab.com:vasic-digital/Storage.git (push)
+upstream    git@github.com:vasic-digital/Storage.git (fetch)
+upstream    git@github.com:vasic-digital/Storage.git (push)
+
+### streaming
+github  git@github.com:vasic-digital/Streaming.git (fetch)
+github  git@github.com:vasic-digital/Streaming.git (push)
+gitlab  git@gitlab.com:vasic-digital/Streaming.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/Streaming.git (push)
+origin  git@github.com:vasic-digital/Streaming.git (fetch)
+origin  git@github.com:vasic-digital/Streaming.git (push)
+origin  git@gitlab.com:vasic-digital/Streaming.git (push)
+upstream    git@github.com:vasic-digital/Streaming.git (fetch)
+upstream    git@github.com:vasic-digital/Streaming.git (push)
+
+### tool_schema
+github  git@github.com:vasic-digital/ToolSchema.git (fetch)
+github  git@github.com:vasic-digital/ToolSchema.git (push)
+gitlab  git@gitlab.com:vasic-digital/ToolSchema.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/ToolSchema.git (push)
+origin  git@github.com:vasic-digital/ToolSchema.git (fetch)
+origin  git@github.com:vasic-digital/ToolSchema.git (push)
+origin  git@gitlab.com:vasic-digital/ToolSchema.git (push)
+upstream    git@github.com:vasic-digital/ToolSchema.git (fetch)
+upstream    git@github.com:vasic-digital/ToolSchema.git (push)
+
+### vector_db
+github  git@github.com:vasic-digital/VectorDB.git (fetch)
+github  git@github.com:vasic-digital/VectorDB.git (push)
+gitlab  git@gitlab.com:vasic-digital/VectorDB.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/VectorDB.git (push)
+origin  git@github.com:vasic-digital/VectorDB.git (fetch)
+origin  git@github.com:vasic-digital/VectorDB.git (push)
+origin  git@gitlab.com:vasic-digital/VectorDB.git (push)
+upstream    git@github.com:vasic-digital/VectorDB.git (fetch)
+upstream    git@github.com:vasic-digital/VectorDB.git (push)
+
+### conversation
+github  git@github.com:vasic-digital/conversation.git (fetch)
+github  git@github.com:vasic-digital/conversation.git (push)
+gitlab  git@gitlab.com:vasic-digital/conversation.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/conversation.git (push)
+origin  git@github.com:vasic-digital/conversation.git (fetch)
+origin  git@github.com:vasic-digital/conversation.git (push)
+origin  git@gitlab.com:vasic-digital/conversation.git (push)
+upstream    git@github.com:vasic-digital/conversation.git (fetch)
+upstream    git@github.com:vasic-digital/conversation.git (push)
+
+### cache
+github  git@github.com:vasic-digital/Cache.git (fetch)
+github  git@github.com:vasic-digital/Cache.git (push)
+gitlab  git@gitlab.com:vasic-digital/Cache.git (fetch)
+gitlab  git@gitlab.com:vasic-digital/Cache.git (push)
+origin  git@github.com:vasic-digital/Cache.git (fetch)
+origin  git@github.com:vasic-digital/Cache.git (push)
+origin  git@gitlab.com:vasic-digital/Cache.git (push)
+upstream    git@github.com:vasic-digital/Cache.git (fetch)
+upstream    git@github.com:vasic-digital/Cache.git (push)</code></pre>
+</body>
+</html>
