@@ -2,13 +2,13 @@
 
 **Date:** 2025-10-21
 **Status:** ✅ Complete
-**Location:** `Core/Website/docs/`
+**Location:** `core/Website/docs/`
 
 ---
 
 ## 🎯 Executive Summary
 
-The HelixTrack Website (Core/Website) has been successfully updated with comprehensive documentation covering all recent implementations:
+The HelixTrack Website (core/Website) has been successfully updated with comprehensive documentation covering all recent implementations:
 
 1. ✅ **HTTP/3 QUIC Documentation Page** - Complete protocol implementation guide
 2. ✅ **Localization System Documentation Page** - Multi-language system overview
@@ -20,7 +20,7 @@ The HelixTrack Website (Core/Website) has been successfully updated with compreh
 
 ### 1. HTTP/3 QUIC Protocol Documentation (`http3-quic.html`)
 
-**File:** `Core/Website/docs/http3-quic.html`
+**File:** `core/Website/docs/http3-quic.html`
 **Size:** 17,750 bytes
 **Created:** 2025-10-21
 
@@ -69,7 +69,7 @@ The HelixTrack Website (Core/Website) has been successfully updated with compreh
 
 ### 2. Localization System Documentation (`localization.html`)
 
-**File:** `Core/Website/docs/localization.html`
+**File:** `core/Website/docs/localization.html`
 **Size:** 34,411 bytes
 **Created:** 2025-10-21
 
@@ -153,7 +153,7 @@ The HelixTrack Website (Core/Website) has been successfully updated with compreh
 
 ### 3. Homepage Updates (`index.html`)
 
-**File:** `Core/Website/docs/index.html`
+**File:** `core/Website/docs/index.html`
 **Size:** 29,025 bytes
 **Updated:** 2025-10-21
 
@@ -182,7 +182,7 @@ Now includes 6 documentation links:
 ## 🗂️ Complete Website File Structure
 
 ```
-Core/Website/docs/
+core/Website/docs/
 ├── index.html                   # Homepage (updated with new links)
 ├── manual.html                  # User manual
 ├── api.html                     # API reference
@@ -206,10 +206,10 @@ Core/Website/docs/
 **Documentation Files:**
 1. ✅ `HTTP3_QUIC_IMPLEMENTATION_PLAN.md` (885 lines) - Detailed roadmap
 2. ✅ `HTTP3_QUIC_IMPLEMENTATION_COMPLETE.md` (comprehensive summary)
-3. ✅ `Core/Website/docs/http3-quic.html` (website page)
-4. ✅ `Core/Application/internal/server/http3_server.go` (implementation)
-5. ✅ `Core/Application/internal/client/http3_client.go` (client library)
-6. ✅ `Core/Application/tests/http3/http3_communication_test.go` (tests)
+3. ✅ `core/Website/docs/http3-quic.html` (website page)
+4. ✅ `core/Application/internal/server/http3_server.go` (implementation)
+5. ✅ `core/Application/internal/client/http3_client.go` (client library)
+6. ✅ `core/Application/tests/http3/http3_communication_test.go` (tests)
 7. ✅ `scripts/run-http3-tests.sh` (test automation)
 
 **Coverage:** Complete documentation from planning to implementation to testing
@@ -217,12 +217,12 @@ Core/Website/docs/
 ### Localization System
 **Documentation Files:**
 1. ✅ `LOCALIZATION_INTEGRATION_COMPLETE.md` (885 lines) - Complete summary
-2. ✅ `Core/Website/docs/localization.html` (website page)
-3. ✅ `Core/Services/Localization/USER_MANUAL.md` (technical manual)
-4. ✅ `Core/Services/Localization/CLIENT_INTEGRATIONS.md` (integration guide)
-5. ✅ `Web-Client/src/app/core/services/localization.service.ts` (implementation)
-6. ✅ `Core/Application/internal/services/localization_service.go` (backend client)
-7. ✅ `Core/Application/internal/models/response.go` (localization helpers)
+2. ✅ `core/Website/docs/localization.html` (website page)
+3. ✅ `core/Services/Localization/USER_MANUAL.md` (technical manual)
+4. ✅ `core/Services/Localization/CLIENT_INTEGRATIONS.md` (integration guide)
+5. ✅ `web_client/src/app/core/services/localization.service.ts` (implementation)
+6. ✅ `core/Application/internal/services/localization_service.go` (backend client)
+7. ✅ `core/Application/internal/models/response.go` (localization helpers)
 
 **Coverage:** Complete documentation from architecture to implementation to client integration
 
@@ -391,12 +391,12 @@ Both new pages follow consistent design principles:
 ### Files Created/Modified
 
 **Created:**
-- `Core/Website/docs/http3-quic.html` (17,750 bytes)
-- `Core/Website/docs/localization.html` (34,411 bytes)
+- `core/Website/docs/http3-quic.html` (17,750 bytes)
+- `core/Website/docs/localization.html` (34,411 bytes)
 - `WEBSITE_DOCUMENTATION_UPDATE_COMPLETE.md` (this file)
 
 **Modified:**
-- `Core/Website/docs/index.html` (added 2 new documentation links)
+- `core/Website/docs/index.html` (added 2 new documentation links)
 
 ### Documentation Quality
 

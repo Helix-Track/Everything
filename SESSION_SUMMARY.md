@@ -21,37 +21,37 @@ This session successfully completed a **comprehensive security implementation**,
   - Created `CertificatePinningDelegate.swift` (107 lines)
   - Integrated with URLSession
   - Production/development flag support
-  - File: `iOS-Client/Sources/HelixTrack/Services/CertificatePinningDelegate.swift`
+  - File: `ios_client/Sources/HelixTrack/Services/CertificatePinningDelegate.swift`
 
 - ✅ **Keychain Storage**: Secure token storage replacing UserDefaults
   - Created `KeychainManager.swift` (86 lines)
   - Implemented with `kSecAttrAccessibleAfterFirstUnlock`
   - Integrated with APIService
-  - File: `iOS-Client/Sources/HelixTrack/Services/KeychainManager.swift`
+  - File: `ios_client/Sources/HelixTrack/Services/KeychainManager.swift`
 
 #### Android Client Security
 - ✅ **Certificate Pinning**: OkHttp CertificatePinner framework
   - Configured in NetworkModule
   - Ready for production certificate pins
-  - File: `Android-Client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt:48-58`
+  - File: `android_client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt:48-58`
 
 - ✅ **Encrypted Storage**: EncryptedSharedPreferences with AES-256-GCM
   - Replaced plain SharedPreferences
   - MasterKey with AES256_GCM key scheme
-  - File: `Android-Client/app/src/main/java/com/helixtrack/android/data/repository/PreferencesRepository.kt`
+  - File: `android_client/app/src/main/java/com/helixtrack/android/data/repository/PreferencesRepository.kt`
 
 - ✅ **Keystore Integration**: Secure database passphrase management
   - Created `DatabasePassphraseManager.kt` (102 lines)
   - Hardware-backed AES-256 key generation
   - Encrypted passphrase storage
   - Memory cleanup after use
-  - File: `Android-Client/app/src/main/java/com/helixtrack/android/data/database/DatabasePassphraseManager.kt`
+  - File: `android_client/app/src/main/java/com/helixtrack/android/data/database/DatabasePassphraseManager.kt`
 
 - ✅ **Network Security Config**: HTTPS enforcement
   - Created `network_security_config.xml`
   - Disabled cleartext traffic in production
   - Localhost exceptions for development
-  - File: `Android-Client/app/src/main/res/xml/network_security_config.xml`
+  - File: `android_client/app/src/main/res/xml/network_security_config.xml`
 
 #### Web & Desktop Client Security
 - ✅ **JWT Decoding**: Fixed authentication across both clients
@@ -82,54 +82,54 @@ This session successfully completed a **comprehensive security implementation**,
   - Updated all statistics (372 API actions, 121 tables, 1,769 tests)
   - Added Documents V2 Extension information
   - Updated hero stats, features, API section
-  - File: `Core/Website/docs/index.html`
+  - File: `core/Website/docs/index.html`
 
 - ✅ **README.md**: Website documentation
   - Version 3.0 update
   - Documents V2 Extension details
-  - File: `Core/Website/README.md`
+  - File: `core/Website/README.md`
 
 - ✅ **manual.html**: User manual HTML
   - Complete statistics update
   - Version 4.0.0 references
-  - File: `Core/Website/docs/manual.html`
+  - File: `core/Website/docs/manual.html`
 
 - ✅ **api.html**: API reference HTML
   - 372 API endpoints (282 core + 90 Documents V2)
   - Version 4.0 with Documents V2 Extension
-  - File: `Core/Website/docs/api.html`
+  - File: `core/Website/docs/api.html`
 
 - ✅ **diagrams.html**: Architecture diagrams page
   - Updated all metrics
   - V4.0 references
-  - File: `Core/Website/docs/diagrams.html`
+  - File: `core/Website/docs/diagrams.html`
 
 - ✅ **implementation.html**: Implementation guide
   - 372 API actions
   - 121 database tables
   - V4.0 status
-  - File: `Core/Website/docs/implementation.html`
+  - File: `core/Website/docs/implementation.html`
 
 - ✅ **USER_MANUAL.md**: Comprehensive user manual
   - Version 4.0.0 - Full JIRA Parity + Documents V2 Extension
   - 372 API Actions (282 core + 90 Documents V2)
   - 1,769 tests (1,375 core @ 98.8% + 394 documents @ 100%)
-  - File: `Core/Website/docs/USER_MANUAL.md`
+  - File: `core/Website/docs/USER_MANUAL.md`
 
 - ✅ **API_REFERENCE_COMPLETE.md**: API reference markdown
   - 372 API endpoints
   - Documents V2 Extension noted
-  - File: `Core/Website/docs/API_REFERENCE_COMPLETE.md`
+  - File: `core/Website/docs/API_REFERENCE_COMPLETE.md`
 
 - ✅ **IMPLEMENTATION_SUMMARY.md**: Implementation summary
   - 100% JIRA Parity + 102% Confluence Parity
   - Current statistics
-  - File: `Core/Website/docs/IMPLEMENTATION_SUMMARY.md`
+  - File: `core/Website/docs/IMPLEMENTATION_SUMMARY.md`
 
 - ✅ **book/README.md**: User guide book
   - 372 API Endpoints
   - V4.0 with Documents V2 Extension
-  - File: `Core/Website/docs/book/README.md`
+  - File: `core/Website/docs/book/README.md`
 
 #### Architecture Diagrams (10 .drawio Files Updated)
 - ✅ **Application/docs/diagrams/*.drawio** (5 files)
@@ -283,7 +283,7 @@ This session successfully completed a **comprehensive security implementation**,
 - iOS-Client: 3 files (APIService.swift, KeychainManager.swift, CertificatePinningDelegate.swift, MainTabView.swift, Package.swift)
 
 #### Documentation
-- Core/Website: 10 files (HTML + Markdown)
+- core/Website: 10 files (HTML + Markdown)
 - Diagrams: 10 .drawio files + 2 new files (export script, README)
 
 #### TypeScript Fixes
@@ -458,9 +458,9 @@ This session successfully completed a **comprehensive security implementation**,
 - [HTTP3_IMPLEMENTATION_PLAN.md](HTTP3_IMPLEMENTATION_PLAN.md)
 
 ### Core Documentation
-- [Core/CLAUDE.md](Core/CLAUDE.md) - Backend development guide
-- [Core/Application/docs/USER_MANUAL.md](Core/Application/docs/USER_MANUAL.md) - Complete API reference
-- [Core/Website/README.md](Core/Website/README.md) - Website documentation
+- [core/CLAUDE.md](core/CLAUDE.md) - Backend development guide
+- [core/Application/docs/USER_MANUAL.md](core/Application/docs/USER_MANUAL.md) - Complete API reference
+- [core/Website/README.md](core/Website/README.md) - Website documentation
 
 ### External Resources
 - [Chrome HTTP/3 Support](https://chromestatus.com/feature/5663479813365760)

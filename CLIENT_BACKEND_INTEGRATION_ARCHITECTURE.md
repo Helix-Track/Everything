@@ -2384,7 +2384,7 @@ Desktop client **reuses Web Client components** with Tauri-specific enhancements
 #### 1. File System Commands
 
 ```rust
-// Desktop-Client/src-tauri/src/commands/filesystem.rs
+// desktop_client/src-tauri/src/commands/filesystem.rs
 use tauri::command;
 use std::fs;
 use std::path::Path;
@@ -2432,7 +2432,7 @@ pub async fn watch_file_changes(path: String) -> Result<(), String> {
 #### 2. Export Commands
 
 ```rust
-// Desktop-Client/src-tauri/src/commands/export.rs
+// desktop_client/src-tauri/src/commands/export.rs
 use tauri::command;
 use pulldown_cmark::{Parser, html};
 
@@ -2495,7 +2495,7 @@ pub async fn export_markdown_to_html(
 #### 3. Sync Engine
 
 ```rust
-// Desktop-Client/src-tauri/src/sync/mod.rs
+// desktop_client/src-tauri/src/sync/mod.rs
 use serde::{Deserialize, Serialize};
 use rusqlite::{Connection, params};
 
@@ -2563,7 +2563,7 @@ impl SyncEngine {
 #### 4. Frontend Integration
 
 ```typescript
-// Desktop-Client/src/app/services/desktop-document.service.ts
+// desktop_client/src/app/services/desktop-document.service.ts
 import { Injectable } from '@angular/core';
 import { invoke } from '@tauri-apps/api/tauri';
 import { listen } from '@tauri-apps/api/event';
@@ -2708,7 +2708,7 @@ export class DesktopDocumentService extends DocumentService {
 #### 1. Document Model
 
 ```swift
-// iOS-Client/Sources/Models/Document.swift
+// ios_client/Sources/Models/Document.swift
 import Foundation
 
 struct Document: Identifiable, Codable {
@@ -2777,7 +2777,7 @@ struct ApiResponse<T: Decodable>: Decodable {
 #### 2. API Service
 
 ```swift
-// iOS-Client/Sources/Services/DocumentAPIService.swift
+// ios_client/Sources/Services/DocumentAPIService.swift
 import Foundation
 import Combine
 
@@ -2937,7 +2937,7 @@ enum APIError: Error {
 #### 3. Markdown Service
 
 ```swift
-// iOS-Client/Sources/Services/MarkdownService.swift
+// ios_client/Sources/Services/MarkdownService.swift
 import Foundation
 import Down
 
@@ -2989,7 +2989,7 @@ class MarkdownService {
 #### 4. Document ViewModel
 
 ```swift
-// iOS-Client/Sources/ViewModels/DocumentViewModel.swift
+// ios_client/Sources/ViewModels/DocumentViewModel.swift
 import Foundation
 import Combine
 
@@ -3129,7 +3129,7 @@ class DocumentViewModel: ObservableObject {
 #### 5. Markdown Editor View
 
 ```swift
-// iOS-Client/Sources/Views/MarkdownEditorView.swift
+// ios_client/Sources/Views/MarkdownEditorView.swift
 import SwiftUI
 import WebKit
 
@@ -3370,7 +3370,7 @@ Local Change + Remote Change = Conflict
 #### Android Sync Service
 
 ```kotlin
-// Android-Client/app/src/main/java/com/helixtrack/sync/SyncService.kt
+// android_client/app/src/main/java/com/helixtrack/sync/SyncService.kt
 package com.helixtrack.sync
 
 import android.app.Service
@@ -3477,7 +3477,7 @@ fun scheduleSyncWork(context: Context) {
 #### Service Worker (Web/Desktop)
 
 ```typescript
-// Web-Client/src/service-worker.ts
+// web_client/src/service-worker.ts
 import { precacheAndRoute } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
 import { CacheFirst, NetworkFirst } from 'workbox-strategies';

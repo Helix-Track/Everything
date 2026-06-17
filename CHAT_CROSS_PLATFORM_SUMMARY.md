@@ -360,7 +360,7 @@ Labels: 11px, Uppercase, Semibold
 
 | Document | Lines | Purpose |
 |----------|-------|---------|
-| **Web-Client/README.md** | 900 | Feature overview, quick start, API docs |
+| **web_client/README.md** | 900 | Feature overview, quick start, API docs |
 | **IMPLEMENTATION_GUIDE.md** | 2,400 | Detailed component specifications |
 | **CHAT_SUPPORTING_COMPONENTS.md** | 900 | Emoji picker, reactions, presence, previews |
 | **DESKTOP_CHAT_IMPLEMENTATION.md** | 800 | Desktop-specific features and Tauri integration |

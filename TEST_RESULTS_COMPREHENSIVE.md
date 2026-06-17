@@ -22,9 +22,9 @@ Following extensive fixes across all HelixTrack modules, comprehensive testing w
 ## Test Execution Overview
 
 ### Modules Tested
-1. Core/Tools/KeyManager ✅
-2. Core/Services/Localization ✅
-3. Core/Application ✅
+1. core/Tools/KeyManager ✅
+2. core/Services/Localization ✅
+3. core/Application ✅
 4. Android-Client ✅
 5. Web-Client ✅
 6. Desktop-Client ✅
@@ -34,7 +34,7 @@ Following extensive fixes across all HelixTrack modules, comprehensive testing w
 
 ## Detailed Test Results by Module
 
-### 1. Core/Tools/KeyManager ✅ **100% SUCCESS**
+### 1. core/Tools/KeyManager ✅ **100% SUCCESS**
 
 **Status**: ✅ ALL TESTS PASSING
 **Tests**: 33/33 passing (100%)
@@ -58,7 +58,7 @@ Following extensive fixes across all HelixTrack modules, comprehensive testing w
 
 ---
 
-### 2. Core/Services/Localization ✅ **BUILD SUCCESSFUL**
+### 2. core/Services/Localization ✅ **BUILD SUCCESSFUL**
 
 **Status**: ✅ COMPILATION SUCCESSFUL
 **Build**: Successful
@@ -75,7 +75,7 @@ Following extensive fixes across all HelixTrack modules, comprehensive testing w
 
 ---
 
-### 3. Core/Application ✅ **EXCELLENT RESULTS**
+### 3. core/Application ✅ **EXCELLENT RESULTS**
 
 **Status**: ✅ 1,655 TESTS PASSING
 **Tests**: 1,655 passed, 17 failed, 22 skipped
@@ -420,37 +420,37 @@ BUILD SUCCESSFUL in 1s
 
 ### KeyManager
 ```bash
-cd Core/Tools/KeyManager
+cd core/Tools/KeyManager
 go test -v -cover ./...
 ```
 
 ### Localization
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 go build -v ./...
 ```
 
 ### Core Application
 ```bash
-cd Core/Application
+cd core/Application
 ./scripts/verify-tests.sh
 ```
 
 ### Android
 ```bash
-cd Android-Client
+cd android_client
 ./gradlew compileDebugKotlin
 ```
 
 ### Web-Client
 ```bash
-cd Web-Client
+cd web_client
 npm test
 ```
 
 ### Desktop-Client
 ```bash
-cd Desktop-Client
+cd desktop_client
 npm test
 ```
 

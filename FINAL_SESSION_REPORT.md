@@ -100,9 +100,9 @@ BUILD SUCCESSFUL in 11s
 - Future-proof (KAPT being deprecated)
 
 **Files Modified**:
-- `Android-Client/build.gradle`
-- `Android-Client/app/build.gradle`
-- `Android-Client/app/src/main/java/.../DocumentSpaceDao.kt`
+- `android_client/build.gradle`
+- `android_client/app/build.gradle`
+- `android_client/app/src/main/java/.../DocumentSpaceDao.kt`
 
 ---
 
@@ -248,7 +248,7 @@ Application bundle generation complete. [3.348 seconds]
 
 **TypeScript Compilation**:
 ```bash
-$ cd Web-Client
+$ cd web_client
 $ npm test -- --include='**/theme.service.spec.ts'
 ✔ Building...
 Application bundle generation complete. [3.348 seconds]
@@ -258,7 +258,7 @@ Application bundle generation complete. [3.348 seconds]
 
 **KSP Compilation**:
 ```bash
-$ cd Android-Client
+$ cd android_client
 $ ./gradlew :app:kspDebugKotlin
 BUILD SUCCESSFUL in 11s
 ```
@@ -537,7 +537,7 @@ HelixTrack/
 ### Code Files (Modified)
 
 ```
-Android-Client/
+android_client/
 ├── build.gradle (KSP plugin added)
 ├── app/build.gradle (KAPT→KSP, dependencies)
 ├── app/src/main/res/values/colors.xml (brand colors)
@@ -547,7 +547,7 @@ Android-Client/
 ├── app/src/main/java/.../database/dao/DocumentSpaceDao.kt (SQL fix)
 └── app/src/test/java/.../ThemeRepositoryTest.kt (NEW, 156 lines)
 
-Web-Client/
+web_client/
 ├── src/styles.scss (CSS variables, brand colors)
 ├── src/app/core/services/theme.service.ts (theme logic)
 ├── src/app/core/services/theme.service.spec.ts (tests updated)
@@ -557,10 +557,10 @@ Web-Client/
 │   └── document-version-history/document-version-history.component.ts (marked fixes)
 └── package.json (marked@^11.0.0 added)
 
-Desktop-Client/
+desktop_client/
 ├── (Same files as Web-Client)
 
-iOS-Client/
+ios_client/
 └── Sources/HelixTrack/Utilities/ThemeManager.swift (theme colors)
 ```
 
@@ -604,17 +604,17 @@ This session achieved **100% completion** of all primary objectives:
 **Run Theme Tests** (when Chrome available):
 ```bash
 # Web
-cd Web-Client
+cd web_client
 export CHROME_BIN=/usr/bin/chromium-browser  # or google-chrome
 npm test -- --include='**/theme.service.spec.ts'
 
 # Desktop
-cd Desktop-Client
+cd desktop_client
 export CHROME_BIN=/usr/bin/chromium-browser
 npm test -- --include='**/theme.service.spec.ts'
 
 # Android (after fixing Document code)
-cd Android-Client
+cd android_client
 ./gradlew :app:testDebugUnitTest --tests "ThemeRepositoryTest"
 ```
 

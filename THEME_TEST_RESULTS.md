@@ -17,7 +17,7 @@ Theme test suites have been created and updated for all HelixTrack client platfo
 
 ### ✅ Android Theme Tests
 
-**File**: `Android-Client/app/src/test/java/com/helixtrack/android/data/repository/ThemeRepositoryTest.kt`
+**File**: `android_client/app/src/test/java/com/helixtrack/android/data/repository/ThemeRepositoryTest.kt`
 
 **Status**: **Created** (new file, 10 comprehensive tests)
 
@@ -51,7 +51,7 @@ error: incompatible types: NonExistentClass cannot be converted to Annotation
 
 ### ✅ Web Theme Tests
 
-**File**: `Web-Client/src/app/core/services/theme.service.spec.ts`
+**File**: `web_client/src/app/core/services/theme.service.spec.ts`
 
 **Status**: **Updated** (existing file updated with new color values)
 
@@ -108,7 +108,7 @@ it('should update meta theme-color when system theme changes', () => {
 
 ### ✅ Desktop Theme Tests
 
-**File**: `Desktop-Client/src/app/core/services/theme.service.spec.ts`
+**File**: `desktop_client/src/app/core/services/theme.service.spec.ts`
 
 **Status**: **Updated** (existing file updated with new color values)
 
@@ -291,15 +291,15 @@ All theme tests now use the official HelixTrack brand colors:
 3. **Run Theme Test Suites** (Priority: Medium)
    ```bash
    # Android
-   cd Android-Client
+   cd android_client
    ./gradlew :app:test --tests "com.helixtrack.android.data.repository.ThemeRepositoryTest"
 
    # Web
-   cd Web-Client
+   cd web_client
    npm test -- --include='**/theme.service.spec.ts' --browsers=ChromeHeadless --watch=false
 
    # Desktop
-   cd Desktop-Client
+   cd desktop_client
    npm test -- --include='**/theme.service.spec.ts' --browsers=ChromeHeadless --watch=false
    ```
 
@@ -320,13 +320,13 @@ All theme tests now use the official HelixTrack brand colors:
 
 ### Files Created
 ```
-Android-Client/app/src/test/java/com/helixtrack/android/data/repository/ThemeRepositoryTest.kt (NEW)
+android_client/app/src/test/java/com/helixtrack/android/data/repository/ThemeRepositoryTest.kt (NEW)
 ```
 
 ### Files Modified
 ```
-Web-Client/src/app/core/services/theme.service.spec.ts (UPDATED)
-Desktop-Client/src/app/core/services/theme.service.spec.ts (UPDATED)
+web_client/src/app/core/services/theme.service.spec.ts (UPDATED)
+desktop_client/src/app/core/services/theme.service.spec.ts (UPDATED)
 ```
 
 ### Lines of Code

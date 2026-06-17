@@ -22,7 +22,7 @@ The HelixTrack Localization system is fully integrated across all services and c
 
 ### 1. **Localization Service** (✅ Production Ready)
 
-**Location:** `Core/Services/Localization/`
+**Location:** `core/Services/Localization/`
 
 **Features:**
 - HTTP/3 QUIC server (Port 8085-8095, auto-selection)
@@ -59,7 +59,7 @@ GET    /v1/admin/stats                 # Get statistics
 
 ### 2. **Seed Data System** (✅ Complete)
 
-**Location:** `Core/Services/Localization/seed-data/`
+**Location:** `core/Services/Localization/seed-data/`
 
 **Structure:**
 ```
@@ -97,7 +97,7 @@ seed-data/
 
 ### 3. **Core Backend Integration** (✅ Complete)
 
-**Location:** `Core/Application/internal/`
+**Location:** `core/Application/internal/`
 
 **Components:**
 - `services/localization_service.go` - HTTP client with caching
@@ -143,7 +143,7 @@ ErrorCodeToLocalizationKey = map[int]string{
 
 ### 4. **Web Client Integration** (✅ Complete)
 
-**Location:** `Web-Client/src/app/`
+**Location:** `web_client/src/app/`
 
 **Core Service:** `core/services/localization.service.ts`
 
@@ -198,7 +198,7 @@ await this.l10n.setLanguage('de');
 
 ### 5. **Desktop Client** (⏸️ Implementation Ready)
 
-**Location:** `Desktop-Client/src/app/core/services/`
+**Location:** `desktop_client/src/app/core/services/`
 
 **Status:** Client service template ready, needs Tauri-specific implementation
 
@@ -229,8 +229,8 @@ async fn get_localization_catalog(language: String) -> Result<HashMap<String, St
 
 ### 6. **Mobile Clients** (⏸️ Pending)
 
-**Android:** `Android-Client/`
-**iOS:** `iOS-Client/`
+**Android:** `android_client/`
+**iOS:** `ios_client/`
 
 **Recommended Implementation:**
 - Use native HTTP clients
@@ -245,7 +245,7 @@ async fn get_localization_catalog(language: String) -> Result<HashMap<String, St
 ### Starting the Localization Service
 
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 
 # Generate TLS certificates (required for HTTP/3)
 ./scripts/generate-certs.sh
@@ -408,7 +408,7 @@ Invalidate cache → Reload catalog
 ### Localization Service Tests
 
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 
 # Run all tests
 go test ./...
@@ -429,7 +429,7 @@ go test ./internal/handlers/...
 ### Core Backend Tests
 
 ```bash
-cd Core/Application
+cd core/Application
 
 # Test localization integration
 go test ./internal/services/localization_service_test.go
@@ -439,7 +439,7 @@ go test ./internal/services/localization_websocket_client_test.go
 ### Web Client Tests
 
 ```bash
-cd Web-Client
+cd web_client
 
 # Unit tests
 npm test
@@ -498,7 +498,7 @@ npm run test:integration
 3. **Import** to database:
 
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 ./scripts/populate-from-seed.sh
 ```
 
@@ -569,7 +569,7 @@ curl -X POST http://localhost:8085/v1/admin/import \
 
 ### Localization Service Configuration
 
-`Core/Services/Localization/configs/default.json`:
+`core/Services/Localization/configs/default.json`:
 
 ```json
 {
@@ -611,7 +611,7 @@ curl -X POST http://localhost:8085/v1/admin/import \
 
 ### Core Backend Configuration
 
-`Core/Application/Configurations/dev.json`:
+`core/Application/Configurations/dev.json`:
 
 Add localization service configuration:
 
@@ -672,7 +672,7 @@ export const environment = {
 
 **Automatic backups:**
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 ./scripts/periodic-backup.sh
 
 # Runs:
@@ -689,7 +689,7 @@ cd Core/Services/Localization
 ### Export to Seed Format
 
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 ./scripts/export-to-seed.sh
 
 # Exports:
@@ -702,7 +702,7 @@ cd Core/Services/Localization
 ### Populate from Seed
 
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 ./scripts/populate-from-seed.sh
 
 # Imports seed data to database
@@ -719,7 +719,7 @@ cd Core/Services/Localization
 
 **Solution:**
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 ./scripts/generate-certs.sh
 # Creates self-signed certificates in certs/
 ```
@@ -785,21 +785,21 @@ await l10n.loadCatalog('en', true);
 
 ### Localization Service
 
-- [README.md](Core/Services/Localization/README.md) - Service overview
-- [USER_MANUAL.md](Core/Services/Localization/USER_MANUAL.md) - Complete API reference
-- [CLIENT_INTEGRATIONS.md](Core/Services/Localization/CLIENT_INTEGRATIONS.md) - Client integration guides
-- [ARCHITECTURE.md](Core/Services/Localization/ARCHITECTURE.md) - Detailed architecture
+- [README.md](core/Services/Localization/README.md) - Service overview
+- [USER_MANUAL.md](core/Services/Localization/USER_MANUAL.md) - Complete API reference
+- [CLIENT_INTEGRATIONS.md](core/Services/Localization/CLIENT_INTEGRATIONS.md) - Client integration guides
+- [ARCHITECTURE.md](core/Services/Localization/ARCHITECTURE.md) - Detailed architecture
 
 ### Core Backend
 
-- [CLAUDE.md](Core/CLAUDE.md) - Complete Core backend guide
-- [Application/docs/USER_MANUAL.md](Core/Application/docs/USER_MANUAL.md) - API documentation
-- [Application/docs/DEPLOYMENT.md](Core/Application/docs/DEPLOYMENT.md) - Deployment guide
+- [CLAUDE.md](core/CLAUDE.md) - Complete Core backend guide
+- [Application/docs/USER_MANUAL.md](core/Application/docs/USER_MANUAL.md) - API documentation
+- [Application/docs/DEPLOYMENT.md](core/Application/docs/DEPLOYMENT.md) - Deployment guide
 
 ### Web Client
 
-- [README.md](Web-Client/README.md) - Web client overview
-- [TESTING.md](Web-Client/TESTING.md) - Testing guide
+- [README.md](web_client/README.md) - Web client overview
+- [TESTING.md](web_client/TESTING.md) - Testing guide
 
 ---
 
@@ -878,7 +878,7 @@ The HelixTrack Localization system is **fully integrated and production-ready** 
 5. Set up production deployment
 
 **Questions or Issues?**
-See troubleshooting guide above or check the comprehensive documentation in `Core/Services/Localization/`.
+See troubleshooting guide above or check the comprehensive documentation in `core/Services/Localization/`.
 
 ---
 

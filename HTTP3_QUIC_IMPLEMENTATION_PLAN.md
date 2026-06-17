@@ -108,7 +108,7 @@
 
 ### Phase 7: Documentation & Website Update
 
-#### 7.1 Update Core/Website
+#### 7.1 Update core/Website
 - [ ] Add HTTP/3 QUIC overview page
 - [ ] Add implementation guides per platform
 - [ ] Add performance benchmarks
@@ -121,7 +121,7 @@
 
 ### Core Application HTTP/3 Server
 
-**File:** `Core/Application/internal/server/http3_server.go`
+**File:** `core/Application/internal/server/http3_server.go`
 
 ```go
 package server
@@ -203,7 +203,7 @@ func (s *HTTP3Server) Shutdown(ctx context.Context) error {
 
 ### Core Application HTTP/3 Client
 
-**File:** `Core/Application/internal/client/http3_client.go`
+**File:** `core/Application/internal/client/http3_client.go`
 
 ```go
 package client
@@ -291,7 +291,7 @@ func (c *HTTP3Client) Close() error {
 
 ### Android Cronet Implementation
 
-**File:** `Android-Client/app/src/main/java/com/helixtrack/network/CronetClient.kt`
+**File:** `android_client/app/src/main/java/com/helixtrack/network/CronetClient.kt`
 
 ```kotlin
 package com.helixtrack.network
@@ -396,7 +396,7 @@ abstract class RequestCallback : UrlRequest.Callback() {
 
 ### Web Client HTTP/3 Detection
 
-**File:** `Web-Client/src/app/core/services/http3-client.service.ts`
+**File:** `web_client/src/app/core/services/http3-client.service.ts`
 
 ```typescript
 import { Injectable } from '@angular/core';
@@ -491,7 +491,7 @@ export class Http3ClientService {
 
 ### Core Backend HTTP/3 Tests
 
-**File:** `Core/Application/tests/http3/http3_communication_test.go`
+**File:** `core/Application/tests/http3/http3_communication_test.go`
 
 ```go
 package http3
@@ -646,7 +646,7 @@ func createHTTP3TestClient(t *testing.T) *http.Client {
 
 ### Android Cronet Tests
 
-**File:** `Android-Client/app/src/androidTest/java/com/helixtrack/network/CronetClientTest.kt`
+**File:** `android_client/app/src/androidTest/java/com/helixtrack/network/CronetClientTest.kt`
 
 ```kotlin
 package com.helixtrack.network
@@ -828,7 +828,7 @@ class CronetClientTest {
 - Day 5: Performance benchmarking
 
 ### Week 4: Documentation & Website
-- Day 1-2: Update Core/Website with HTTP/3 documentation
+- Day 1-2: Update core/Website with HTTP/3 documentation
 - Day 3-4: Create implementation guides
 - Day 5: Final review and deployment
 

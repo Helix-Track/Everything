@@ -10,16 +10,16 @@
 ### Start Everything
 ```bash
 # 1. Start Localization Service
-cd Core/Services/Localization
+cd core/Services/Localization
 docker-compose up -d
 
 # 2. Start Core Application
-cd Core/Application
+cd core/Application
 go build -o htCore main.go
 ./htCore --config=Configurations/default.json
 
 # 3. Start Web Client
-cd Web-Client
+cd web_client
 npm install
 npm start
 ```
@@ -107,7 +107,7 @@ npm start
 
 ### Backend
 ```
-Core/Services/Localization/
+core/Services/Localization/
 ├── cmd/main.go                      # Service entry point
 ├── internal/
 │   ├── handlers/                    # API handlers
@@ -119,7 +119,7 @@ Core/Services/Localization/
 ├── scripts/                         # Backup scripts
 └── docker-compose.yml               # Docker deployment
 
-Core/Application/
+core/Application/
 ├── internal/
 │   ├── services/
 │   │   ├── localization_service.go       # Localization client
@@ -131,7 +131,7 @@ Core/Application/
 
 ### Frontend
 ```
-Web-Client/src/app/features/localization-management/
+web_client/src/app/features/localization-management/
 ├── models/
 │   └── localization.models.ts       # 15+ interfaces
 ├── services/
@@ -162,12 +162,12 @@ Web-Client/src/app/features/localization-management/
 ### Backend
 ```bash
 # Localization Service
-cd Core/Services/Localization
+cd core/Services/Localization
 ./scripts/run-all-tests.sh
 # Result: 107 tests, 81.1% coverage
 
 # Core Application - Localization Client
-cd Core/Application
+cd core/Application
 go test ./internal/services/ -run "^TestLocaliz" -v
 # Result: 16 tests, 100% passing
 
@@ -178,7 +178,7 @@ go test ./... -v
 
 ### Frontend
 ```bash
-cd Web-Client
+cd web_client
 npm test
 # Pending: Phase 9
 ```
@@ -286,7 +286,7 @@ curl --insecure -X POST https://localhost:8085/v1/admin/cache/invalidate \
 ## 🔧 Configuration
 
 ### Localization Service
-**File:** `Core/Services/Localization/docker-compose.yml`
+**File:** `core/Services/Localization/docker-compose.yml`
 ```yaml
 environment:
   - PORT=8085
@@ -296,7 +296,7 @@ environment:
 ```
 
 ### Core Application
-**File:** `Core/Application/Configurations/default.json`
+**File:** `core/Application/Configurations/default.json`
 ```json
 {
   "services": {
@@ -310,7 +310,7 @@ environment:
 ```
 
 ### Web Client
-**File:** `Web-Client/src/app/features/localization-management/services/localization-admin.service.ts`
+**File:** `web_client/src/app/features/localization-management/services/localization-admin.service.ts`
 ```typescript
 // Set base URL
 localStorage.setItem('localization_service_url', 'https://localhost:8085');
@@ -361,9 +361,9 @@ tail -f /tmp/htCoreLogs/htCore.log
 ## 📞 Get Help
 
 ### Documentation
-- **User Manual:** `Core/Services/Localization/USER_MANUAL.md`
-- **Deployment:** `Core/Services/Localization/docs/DEPLOYMENT.md`
-- **Architecture:** `Core/Services/Localization/ARCHITECTURE.md`
+- **User Manual:** `core/Services/Localization/USER_MANUAL.md`
+- **Deployment:** `core/Services/Localization/docs/DEPLOYMENT.md`
+- **Architecture:** `core/Services/Localization/ARCHITECTURE.md`
 
 ### Status Documents
 - **This Guide:** `QUICK_REFERENCE_GUIDE.md`

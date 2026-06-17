@@ -23,7 +23,7 @@ Successfully integrated comprehensive real-time chat functionality across all He
 
 ### Database Schema (V2 - Already Existed)
 
-**Location**: `/Core/Database/DDL/Extensions/Chats/Definition.V2.sql`
+**Location**: `/core/Database/DDL/Extensions/Chats/Definition.V2.sql`
 
 **11 Tables Implemented**:
 1. `user_presence` - Online/offline/away/busy/dnd status tracking
@@ -38,7 +38,7 @@ Successfully integrated comprehensive real-time chat functionality across all He
 
 ### Go Models Created
 
-**Location**: `/Core/Application/internal/models/chat.go`
+**Location**: `/core/Application/internal/models/chat.go`
 
 **9 Complete Models**:
 ```go
@@ -86,7 +86,7 @@ type Message struct {
 
 ### API Actions Added
 
-**Location**: `/Core/Application/internal/models/request.go` (lines 497-575)
+**Location**: `/core/Application/internal/models/request.go` (lines 497-575)
 
 **64 Chat Actions**:
 
@@ -125,7 +125,7 @@ type Message struct {
 
 ### Unit Tests Created
 
-**Location**: `/Core/Application/internal/models/chat_test.go`
+**Location**: `/core/Application/internal/models/chat_test.go`
 
 **20 Comprehensive Tests** (All Passing ✅):
 1. `TestUserPresence_IsValidStatus` - 7 sub-tests
@@ -151,7 +151,7 @@ type Message struct {
 
 **Test Execution**:
 ```bash
-cd Core/Application
+cd core/Application
 go test ./internal/models/chat_test.go ./internal/models/chat.go -v
 # Result: PASS - all 20 tests passed (0.003s)
 ```
@@ -162,7 +162,7 @@ go test ./internal/models/chat_test.go ./internal/models/chat.go -v
 
 ### Chat Feature Structure
 
-**Location**: `/Web-Client/src/app/features/chat/`
+**Location**: `/web_client/src/app/features/chat/`
 
 **Complete Feature Module** (Already Implemented):
 ```
@@ -325,7 +325,7 @@ navigateToChat() {
 
 ### Status: ✅ Complete (Same as Web-Client)
 
-**Location**: `/Desktop-Client/src/app/features/chat/`
+**Location**: `/desktop_client/src/app/features/chat/`
 
 **Architecture**: Desktop-Client uses the **exact same Angular codebase** as Web-Client, so the chat feature is **automatically available** with no additional work required.
 
@@ -350,7 +350,7 @@ navigateToChat() {
 
 **Build & Run**:
 ```bash
-cd Desktop-Client
+cd desktop_client
 npm run tauri:dev      # Development with hot reload
 npm run tauri:build    # Production build (MSI, DMG, AppImage, DEB, RPM)
 ```
@@ -371,7 +371,7 @@ npm run tauri:build    # Production build (MSI, DMG, AppImage, DEB, RPM)
 
 ### Android (Kotlin/Java)
 
-**Location**: `/Android-Client/app/src/main/java/com/helixtrack/chat/`
+**Location**: `/android_client/app/src/main/java/com/helixtrack/chat/`
 
 **Components to Create**:
 1. **ChatService.kt** - HTTP API client
@@ -416,7 +416,7 @@ npm run tauri:build    # Production build (MSI, DMG, AppImage, DEB, RPM)
 
 ### iOS (Swift/SwiftUI)
 
-**Location**: `/iOS-Client/Sources/HelixTrack/Features/Chat/`
+**Location**: `/ios_client/Sources/HelixTrack/Features/Chat/`
 
 **Components to Create**:
 1. **ChatService.swift** - HTTP API client
@@ -641,7 +641,7 @@ enum ChatWebSocketEventType {
 
 ### Backend Tests
 
-**Location**: `/Core/Application/internal/models/chat_test.go`
+**Location**: `/core/Application/internal/models/chat_test.go`
 
 **Coverage**:
 - All model validation methods
@@ -651,7 +651,7 @@ enum ChatWebSocketEventType {
 
 **Run Tests**:
 ```bash
-cd Core/Application
+cd core/Application
 go test ./internal/models/chat_test.go ./internal/models/chat.go -v
 ```
 
@@ -672,7 +672,7 @@ ok  	command-line-arguments	0.003s
 
 **Run Tests**:
 ```bash
-cd Web-Client
+cd web_client
 npm test              # Unit tests
 npm run test:ci       # CI tests with coverage
 npm run test:e2e      # E2E tests
@@ -692,13 +692,13 @@ npm run test:e2e      # E2E tests
 **Database Migration**:
 ```bash
 # Import Chat V2 schema
-cd Core/Run/Db
+cd core/Run/Db
 ./import_Extension_Chats_Definition_to_Postgres.sh
 ```
 
 **Start Core Service**:
 ```bash
-cd Core/Application
+cd core/Application
 ./htCore --config=../Configurations/production.json
 ```
 
@@ -706,7 +706,7 @@ cd Core/Application
 
 **Build**:
 ```bash
-cd Web-Client
+cd web_client
 npm run build          # Production build
 ```
 
@@ -719,7 +719,7 @@ npm run build          # Production build
 
 **Build**:
 ```bash
-cd Desktop-Client
+cd desktop_client
 npm run tauri:build    # Builds for current OS
 ```
 
@@ -732,13 +732,13 @@ npm run tauri:build    # Builds for current OS
 
 **Android**:
 ```bash
-cd Android-Client
+cd android_client
 ./gradlew assembleRelease
 ```
 
 **iOS**:
 ```bash
-cd iOS-Client
+cd ios_client
 swift build --configuration release
 ```
 
@@ -748,7 +748,7 @@ swift build --configuration release
 
 ### Backend Configuration
 
-**File**: `Core/Configurations/production.json`
+**File**: `core/Configurations/production.json`
 
 ```json
 {
@@ -943,17 +943,17 @@ swift build --configuration release
 ## 14. Documentation Links
 
 ### Backend Documentation
-- `/Core/CLAUDE.md` - Core backend guide
-- `/Core/Application/docs/USER_MANUAL.md` - Complete API reference
-- `/Core/Application/docs/DEPLOYMENT.md` - Deployment guide
-- `/Core/Database/DDL/Extensions/Chats/Definition.V2.sql` - Database schema
+- `/core/CLAUDE.md` - Core backend guide
+- `/core/Application/docs/USER_MANUAL.md` - Complete API reference
+- `/core/Application/docs/DEPLOYMENT.md` - Deployment guide
+- `/core/Database/DDL/Extensions/Chats/Definition.V2.sql` - Database schema
 
 ### Frontend Documentation
-- `/Web-Client/README.md` - Web client documentation
-- `/Web-Client/TESTING.md` - Testing strategy
-- `/Desktop-Client/README.md` - Desktop client documentation
-- `/Android-Client/README.md` - Android documentation
-- `/iOS-Client/README.md` - iOS documentation
+- `/web_client/README.md` - Web client documentation
+- `/web_client/TESTING.md` - Testing strategy
+- `/desktop_client/README.md` - Desktop client documentation
+- `/android_client/README.md` - Android documentation
+- `/ios_client/README.md` - iOS documentation
 
 ### This Document
 - `/CHAT_INTEGRATION_COMPLETE.md` - This comprehensive summary
@@ -1020,13 +1020,13 @@ swift build --configuration release
 
 1. **Start Backend**:
    ```bash
-   cd Core/Application
+   cd core/Application
    ./htCore --config=../Configurations/dev.json
    ```
 
 2. **Start Web-Client**:
    ```bash
-   cd Web-Client
+   cd web_client
    npm install
    npm start
    ```
@@ -1042,7 +1042,7 @@ swift build --configuration release
 
 2. **Start Desktop-Client**:
    ```bash
-   cd Desktop-Client
+   cd desktop_client
    npm install
    npm run tauri:dev
    ```
@@ -1066,7 +1066,7 @@ swift build --configuration release
 
 ### Documentation
 - See `/docs/` directory for comprehensive documentation
-- API documentation in `/Core/Application/docs/USER_MANUAL.md`
+- API documentation in `/core/Application/docs/USER_MANUAL.md`
 
 ---
 

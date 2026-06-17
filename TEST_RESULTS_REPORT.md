@@ -565,7 +565,7 @@ jobs:
       - uses: actions/setup-go@v4
         with:
           go-version: '1.22'
-      - run: cd Core/Application && go test ./...
+      - run: cd core/Application && go test ./...
 
   web-client:
     runs-on: ubuntu-latest
@@ -574,14 +574,14 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - run: cd Web-Client && npm ci && npm test
+      - run: cd web_client && npm ci && npm test
 
   desktop-client:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - run: cd Desktop-Client && npm ci && npm test
+      - run: cd desktop_client && npm ci && npm test
 
   android-client:
     runs-on: ubuntu-latest
@@ -590,13 +590,13 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           java-version: '11'
-      - run: cd Android-Client && ./gradlew test
+      - run: cd android_client && ./gradlew test
 
   ios-client:
     runs-on: macos-latest  # ⚠️ Requires macOS runner
     steps:
       - uses: actions/checkout@v3
-      - run: cd iOS-Client && ./run-full-tests.sh
+      - run: cd ios_client && ./run-full-tests.sh
 ```
 
 ### Pre-commit Hooks
@@ -608,7 +608,7 @@ jobs:
 echo "Running pre-commit tests..."
 
 # Run linters
-cd Web-Client && npm run lint || exit 1
+cd web_client && npm run lint || exit 1
 cd ../Desktop-Client && npm run lint || exit 1
 
 # Run type checks
@@ -616,7 +616,7 @@ cd ../Web-Client && npx tsc --noEmit || exit 1
 cd ../Desktop-Client && npx tsc --noEmit || exit 1
 
 # Run quick unit tests
-cd ../Core/Application && go test -short ./... || exit 1
+cd ../core/Application && go test -short ./... || exit 1
 
 echo "All pre-commit checks passed!"
 ```

@@ -11,8 +11,8 @@ Successfully integrated chat functionality into both Web-Client and Desktop-Clie
 
 | Client | Status | Output Location |
 |--------|--------|----------------|
-| **Web-Client** | ✅ SUCCESS | `/home/milosvasic/Projects/HelixTrack/Web-Client/dist/helixtrack-client` |
-| **Desktop-Client** | ✅ SUCCESS | `/home/milosvasic/Projects/HelixTrack/Desktop-Client/dist/helixtrack-desktop-client` |
+| **Web-Client** | ✅ SUCCESS | `/home/milosvasic/Projects/HelixTrack/web_client/dist/helixtrack-client` |
+| **Desktop-Client** | ✅ SUCCESS | `/home/milosvasic/Projects/HelixTrack/desktop_client/dist/helixtrack-desktop-client` |
 | **Core Backend** | ✅ PRODUCTION READY | 20/20 tests passing |
 
 ---
@@ -30,14 +30,14 @@ Successfully integrated chat functionality into both Web-Client and Desktop-Clie
 - `MatDividerModule` - For mat-divider elements
 
 **Files Modified:**
-- `Web-Client/src/app/features/chat/components/chat-container/chat-container.component.ts`
-- `Web-Client/src/app/features/chat/components/chat-list/chat-list.component.ts`
-- `Web-Client/src/app/features/chat/components/chat-room/chat-room.component.ts`
-- `Web-Client/src/app/features/chat/components/message-reactions/message-reactions.component.ts`
-- `Desktop-Client/src/app/features/chat/components/chat-container/chat-container.component.ts`
-- `Desktop-Client/src/app/features/chat/components/chat-list/chat-list.component.ts`
-- `Desktop-Client/src/app/features/chat/components/chat-room/chat-room.component.ts`
-- `Desktop-Client/src/app/features/chat/components/message-reactions/message-reactions.component.ts`
+- `web_client/src/app/features/chat/components/chat-container/chat-container.component.ts`
+- `web_client/src/app/features/chat/components/chat-list/chat-list.component.ts`
+- `web_client/src/app/features/chat/components/chat-room/chat-room.component.ts`
+- `web_client/src/app/features/chat/components/message-reactions/message-reactions.component.ts`
+- `desktop_client/src/app/features/chat/components/chat-container/chat-container.component.ts`
+- `desktop_client/src/app/features/chat/components/chat-list/chat-list.component.ts`
+- `desktop_client/src/app/features/chat/components/chat-room/chat-room.component.ts`
+- `desktop_client/src/app/features/chat/components/message-reactions/message-reactions.component.ts`
 
 ---
 
@@ -67,8 +67,8 @@ const colorMap: Record<UserPresenceStatus, string> = {
 ```
 
 **Files Modified:**
-- `Web-Client/src/app/features/chat/components/presence-badge/presence-badge.component.ts`
-- `Desktop-Client/src/app/features/chat/components/presence-badge/presence-badge.component.ts`
+- `web_client/src/app/features/chat/components/presence-badge/presence-badge.component.ts`
+- `desktop_client/src/app/features/chat/components/presence-badge/presence-badge.component.ts`
 
 ---
 
@@ -98,12 +98,12 @@ ngOnInit(): void {
 ```
 
 **Files Modified:**
-- `Web-Client/src/app/features/chat/components/chat-container/chat-container.component.ts`
-- `Web-Client/src/app/features/chat/components/chat-list/chat-list.component.ts`
-- `Web-Client/src/app/features/chat/services/chat-websocket.service.ts`
-- `Desktop-Client/src/app/features/chat/components/chat-container/chat-container.component.ts`
-- `Desktop-Client/src/app/features/chat/components/chat-list/chat-list.component.ts`
-- `Desktop-Client/src/app/features/chat/services/chat-websocket.service.ts`
+- `web_client/src/app/features/chat/components/chat-container/chat-container.component.ts`
+- `web_client/src/app/features/chat/components/chat-list/chat-list.component.ts`
+- `web_client/src/app/features/chat/services/chat-websocket.service.ts`
+- `desktop_client/src/app/features/chat/components/chat-container/chat-container.component.ts`
+- `desktop_client/src/app/features/chat/components/chat-list/chat-list.component.ts`
+- `desktop_client/src/app/features/chat/services/chat-websocket.service.ts`
 
 ---
 
@@ -128,8 +128,8 @@ private getJWT(): string | null {
 ```
 
 **Files Modified:**
-- `Web-Client/src/app/features/chat/services/chat.service.ts`
-- `Desktop-Client/src/app/features/chat/services/chat.service.ts`
+- `web_client/src/app/features/chat/services/chat.service.ts`
+- `desktop_client/src/app/features/chat/services/chat.service.ts`
 
 ---
 
@@ -150,8 +150,8 @@ private getJWT(): string | null {
 ```
 
 **Files Modified:**
-- `Web-Client/src/app/features/chat/components/chat-container/chat-container.component.html`
-- `Desktop-Client/src/app/features/chat/components/chat-container/chat-container.component.html`
+- `web_client/src/app/features/chat/components/chat-container/chat-container.component.html`
+- `desktop_client/src/app/features/chat/components/chat-container/chat-container.component.html`
 
 ---
 
@@ -174,7 +174,7 @@ canActivate: [authGuard, chatEnabledGuard]
 ```
 
 **Files Modified:**
-- `Desktop-Client/src/app/features/chat/chat.routes.ts`
+- `desktop_client/src/app/features/chat/chat.routes.ts`
 
 ---
 
@@ -188,7 +188,7 @@ canActivate: [authGuard, chatEnabledGuard]
 **Fix:** Removed `ToastrModule.forRoot()` from component imports array.
 
 **Files Modified:**
-- `Desktop-Client/src/app/app.ts`
+- `desktop_client/src/app/app.ts`
 
 ---
 
@@ -224,9 +224,9 @@ getSafeUrl(): SafeResourceUrl {
 ```
 
 **Files Modified:**
-- `Desktop-Client/src/app/features/chat/components/attachment-preview/attachment-preview.component.ts`
-- `Desktop-Client/src/app/features/chat/components/attachment-preview/attachment-preview.component.html`
-- `Desktop-Client/src/app/features/chat/models/chat.models.ts` (added optional aliases)
+- `desktop_client/src/app/features/chat/components/attachment-preview/attachment-preview.component.ts`
+- `desktop_client/src/app/features/chat/components/attachment-preview/attachment-preview.component.html`
+- `desktop_client/src/app/features/chat/models/chat.models.ts` (added optional aliases)
 
 ---
 
@@ -247,7 +247,7 @@ import { AuthService } from '../../../../core/services/auth.service';
 ```
 
 **Files Modified:**
-- `Desktop-Client/src/app/features/chat/components/chat-list/chat-list.component.ts`
+- `desktop_client/src/app/features/chat/components/chat-list/chat-list.component.ts`
 
 ---
 
@@ -294,7 +294,7 @@ export class NotificationService {
 ```
 
 **Files Created:**
-- `Web-Client/src/app/core/services/notification.service.ts`
+- `web_client/src/app/core/services/notification.service.ts`
 
 ---
 
@@ -373,24 +373,24 @@ chatRoomMarkAsRead, messageMarkAsRead, messageReadReceiptList
 
 ✅ **Web-Client Build**
 ```bash
-cd Web-Client
+cd web_client
 npm run build
 # Result: SUCCESS
-# Output: /home/milosvasic/Projects/HelixTrack/Web-Client/dist/helixtrack-client
+# Output: /home/milosvasic/Projects/HelixTrack/web_client/dist/helixtrack-client
 ```
 
 ✅ **Desktop-Client Build**
 ```bash
-cd Desktop-Client
+cd desktop_client
 npm run build
 # Result: SUCCESS (warnings only)
-# Output: /home/milosvasic/Projects/HelixTrack/Desktop-Client/dist/helixtrack-desktop-client
+# Output: /home/milosvasic/Projects/HelixTrack/desktop_client/dist/helixtrack-desktop-client
 # Warnings: CSS budget exceeded (non-critical), CommonJS dependencies
 ```
 
 ✅ **Core Backend Tests**
 ```bash
-cd Core/Application
+cd core/Application
 go test ./...
 # Result: 20/20 tests passing
 # Coverage: Comprehensive test coverage across all packages

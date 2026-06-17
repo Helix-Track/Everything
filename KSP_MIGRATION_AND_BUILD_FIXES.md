@@ -17,7 +17,7 @@ Successfully migrated Android client from KAPT to KSP (Kotlin Symbol Processing)
 
 **1. Project-level build.gradle**
 - Added KSP plugin dependency: `com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:1.9.22-1.0.17`
-- File: `Android-Client/build.gradle:11`
+- File: `android_client/build.gradle:11`
 
 **2. App-level build.gradle**
 - Replaced plugin: `kotlin-kapt` → `com.google.devtools.ksp`
@@ -34,7 +34,7 @@ Successfully migrated Android client from KAPT to KSP (Kotlin Symbol Processing)
 - Replaced: `ORDER BY last_accessed_at DESC NULLS LAST`
 - With: `ORDER BY CASE WHEN last_accessed_at IS NULL THEN 1 ELSE 0 END, last_accessed_at DESC`
 - Reason: Room's SQL parser doesn't recognize `NULLS LAST/FIRST` syntax
-- File: `Android-Client/app/src/main/java/com/helixtrack/android/data/database/dao/DocumentSpaceDao.kt:19`
+- File: `android_client/app/src/main/java/com/helixtrack/android/data/database/dao/DocumentSpaceDao.kt:19`
 
 ###Migration Benefits
 
@@ -167,9 +167,9 @@ e: DocumentEditorScreen.kt:122: Unresolved reference: SplitScreen
 
 **Files Affected**:
 ```
-Web-Client/src/app/features/documents/components/document-editor/document-editor.component.ts (4 errors)
-Web-Client/src/app/features/documents/components/document-version-history/document-version-history.component.ts (11+ errors)
-Web-Client/src/app/app.spec.ts (1 error)
+web_client/src/app/features/documents/components/document-editor/document-editor.component.ts (4 errors)
+web_client/src/app/features/documents/components/document-version-history/document-version-history.component.ts (11+ errors)
+web_client/src/app/app.spec.ts (1 error)
 
 (Same errors in Desktop-Client)
 ```
@@ -358,15 +358,15 @@ After fixing the above errors:
 
 ```bash
 # Android
-cd Android-Client
+cd android_client
 ./gradlew :app:testDebugUnitTest --tests "com.helixtrack.android.data.repository.ThemeRepositoryTest"
 
 # Web
-cd Web-Client
+cd web_client
 npm test -- --include='**/theme.service.spec.ts' --browsers=ChromeHeadless --watch=false
 
 # Desktop
-cd Desktop-Client
+cd desktop_client
 npm test -- --include='**/theme.service.spec.ts' --browsers=ChromeHeadless --watch=false
 ```
 

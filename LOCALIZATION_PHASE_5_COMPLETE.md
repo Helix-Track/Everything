@@ -22,7 +22,7 @@ This completes the Web Client admin interface for the Localization system.
 ## ✅ Completed Components
 
 ### 1. Key Manager Component ✅
-**Location:** `Web-Client/src/app/features/localization-management/components/key-manager/`
+**Location:** `web_client/src/app/features/localization-management/components/key-manager/`
 **Files:** 3 (TS, HTML, SCSS)
 **Lines:** ~380
 
@@ -54,7 +54,7 @@ This completes the Web Client admin interface for the Localization system.
 - Pattern matching: `/^[a-z0-9._]+$/`
 
 ### 2. Import/Export UI Component ✅
-**Location:** `Web-Client/src/app/features/localization-management/components/import-export/`
+**Location:** `web_client/src/app/features/localization-management/components/import-export/`
 **Files:** 3 (TS, HTML, SCSS)
 **Lines:** ~480
 
@@ -92,7 +92,7 @@ This completes the Web Client admin interface for the Localization system.
 - Responsive design
 
 ### 3. Version History Component ✅
-**Location:** `Web-Client/src/app/features/localization-management/components/version-history/`
+**Location:** `web_client/src/app/features/localization-management/components/version-history/`
 **Files:** 3 (TS, HTML, SCSS)
 **Lines:** ~460
 
@@ -122,7 +122,7 @@ This completes the Web Client admin interface for the Localization system.
 - Restore creates new version (doesn't overwrite)
 
 ### 4. Dashboard Component ✅
-**Location:** `Web-Client/src/app/features/localization-management/components/dashboard/`
+**Location:** `web_client/src/app/features/localization-management/components/dashboard/`
 **Files:** 3 (TS, HTML, SCSS)
 **Lines:** ~500
 
@@ -179,7 +179,7 @@ Each card displays:
 - Parallel data loading for performance
 
 ### 5. Layout Component with Navigation ✅
-**Location:** `Web-Client/src/app/features/localization-management/components/layout/`
+**Location:** `web_client/src/app/features/localization-management/components/layout/`
 **Files:** 3 (TS, HTML, SCSS)
 **Lines:** ~180
 
@@ -207,7 +207,7 @@ Each card displays:
 - Smooth transitions
 
 ### 6. Routing Configuration ✅
-**Location:** `Web-Client/src/app/features/localization-management/localization-management.routes.ts`
+**Location:** `web_client/src/app/features/localization-management/localization-management.routes.ts`
 **Lines:** ~50
 
 **Routes Configured:**
@@ -261,7 +261,7 @@ approveKey(id): Observable<LocalizationKey>
 ## 📁 File Structure
 
 ```
-Web-Client/src/app/features/localization-management/
+web_client/src/app/features/localization-management/
 ├── components/
 │   ├── dashboard/
 │   │   ├── dashboard.component.ts         [220 lines]

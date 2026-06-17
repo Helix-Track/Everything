@@ -243,7 +243,7 @@ dependencies: [
 
 **Module Structure**:
 ```
-Android-Client/
+android_client/
 ├── app/src/main/java/com/helixtrack/
 │   ├── editor/
 │   │   ├── MarkdownEditorActivity.kt      # Main editor activity
@@ -319,7 +319,7 @@ class DocumentRepository(private val apiService: HelixTrackApiService) {
 
 **Module Structure**:
 ```
-Web-Client/src/app/
+web_client/src/app/
 ├── features/documents/
 │   ├── components/
 │   │   ├── markdown-editor/
@@ -554,7 +554,7 @@ export class DocumentApiService {
 **Approach**: Reuse Web Client components + Tauri enhancements
 
 ```typescript
-// Desktop-Client/src/app/features/documents/services/desktop-document.service.ts
+// desktop_client/src/app/features/documents/services/desktop-document.service.ts
 import { Injectable } from '@angular/core';
 import { invoke } from '@tauri-apps/api/tauri';
 
@@ -579,7 +579,7 @@ export class DesktopDocumentService {
 **Rust Backend** (Tauri):
 
 ```rust
-// Desktop-Client/src-tauri/src/commands.rs
+// desktop_client/src-tauri/src/commands.rs
 use std::fs;
 use tauri::command;
 
@@ -609,7 +609,7 @@ pub async fn export_markdown_pdf(content: String) -> Result<Vec<u8>, String> {
 
 **Module Structure**:
 ```
-iOS-Client/Sources/
+ios_client/Sources/
 ├── Features/
 │   └── Documents/
 │       ├── Views/

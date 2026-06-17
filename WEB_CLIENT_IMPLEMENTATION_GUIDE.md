@@ -553,4 +553,4 @@ npm install ngx-markdown
 ---
 
 **Reference Implementation**: Android-Client (`DOCUMENTS_ANDROID_INTEGRATION_STATUS.md`)
-**Backend API**: Core (`Core/Application/docs/USER_MANUAL.md` - Documents V2 section)
+**Backend API**: Core (`core/Application/docs/USER_MANUAL.md` - Documents V2 section)

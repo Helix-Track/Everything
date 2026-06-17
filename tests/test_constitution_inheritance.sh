@@ -37,7 +37,7 @@ echo "[2] find_constitution.sh resolution:"
 if [[ -x constitution/find_constitution.sh ]]; then
     # Resolve from a deep child dir (use a submodule subdir if present).
     probe_dir="${REPO_ROOT}"
-    for cand in Core Web-Client; do
+    for cand in core web_client; do
         [[ -d "${cand}" ]] && probe_dir="${REPO_ROOT}/${cand}" && break
     done
     resolved="$(cd "${probe_dir}" && bash "${REPO_ROOT}/constitution/find_constitution.sh" 2>/dev/null || true)"

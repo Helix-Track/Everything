@@ -1,0 +1,38 @@
+# Docs Chain context — tracker / handoff documentation md <-> html <-> pdf
+#
+# §11.4.106 / §11.4.65 / §12.10. Keeps the project tracker + handoff docs'
+# exports in sync with their Markdown sources.
+#
+# Status (§11.4.6 no-guessing): inventoried via `git ls-files docs/` at authoring
+# time —
+#   * docs/CONTINUATION.md  PRESENT (tracked, with .html + .pdf) -> REAL, syncs now.
+#   * docs/Issues.md        ABSENT at repo root  -> nodes OMITTED (would fail
+#                           validation rule 2 / produce a dangling source).
+#   * docs/Fixed.md         ABSENT at repo root  -> nodes OMITTED.
+#
+# This project has NOT yet adopted the §11.4.93 SQLite-backed Issues/Fixed
+# tracker constellation at the repo root (only CONTINUATION exists). When/if
+# docs/Issues.md, docs/Issues_Summary.md, docs/Fixed.md, docs/Fixed_Summary.md
+# and docs/workable_items.db are created, register them via the (a) Issues chain
+# and (b) Fixed chain recipes from
+# docs_chain/docs/USE_CASE_CATALOGUE.md — do NOT invent them here while absent.
+
+context: tracker_docs
+description: >-
+  Session-handoff / tracker documentation export chain. Currently covers
+  docs/CONTINUATION.md (§12.10) and its synchronized html + pdf exports
+  (§11.4.65). Issues/Fixed nodes are intentionally absent until those docs exist
+  at the repo root.
+
+nodes:
+  cont_md:   { kind: markdown, path: docs/CONTINUATION.md }
+  cont_html: { kind: html,     path: docs/CONTINUATION.html }
+  cont_pdf:  { kind: pdf,      path: docs/CONTINUATION.pdf }
+
+edges:
+  - { type: derive-from, from: cont_md,   to: cont_html, transform: md-to-html }
+  - { type: derive-from, from: cont_html, to: cont_pdf,  transform: html-to-pdf }
+
+transforms:
+  md-to-html:  { builtin: pandoc-html }
+  html-to-pdf: { builtin: weasyprint-pdf }

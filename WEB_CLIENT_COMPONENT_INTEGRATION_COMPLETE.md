@@ -16,7 +16,7 @@ Successfully integrated **WebSocket real-time functionality** into all Web Clien
 
 ### 1. **Dashboard Component** (100% Complete)
 
-**Location:** `Web-Client/src/app/features/localization-management/components/dashboard/`
+**Location:** `web_client/src/app/features/localization-management/components/dashboard/`
 
 **Files Modified:**
 - `dashboard.component.ts` (+45 lines)
@@ -46,7 +46,7 @@ Successfully integrated **WebSocket real-time functionality** into all Web Clien
 
 ### 2. **Translation Editor Component** (100% Complete)
 
-**Location:** `Web-Client/src/app/features/localization-management/components/translation-editor/`
+**Location:** `web_client/src/app/features/localization-management/components/translation-editor/`
 
 **Files Modified:**
 - `translation-editor.component.ts` (+50 lines)
@@ -76,7 +76,7 @@ Successfully integrated **WebSocket real-time functionality** into all Web Clien
 
 ### 3. **Language List Component** (100% Complete)
 
-**Location:** `Web-Client/src/app/features/localization-management/components/language-list/`
+**Location:** `web_client/src/app/features/localization-management/components/language-list/`
 
 **Files Modified:**
 - `language-list.component.ts` (+35 lines)
@@ -104,7 +104,7 @@ Successfully integrated **WebSocket real-time functionality** into all Web Clien
 
 ### 4. **Version History Component** (100% Complete)
 
-**Location:** `Web-Client/src/app/features/localization-management/components/version-history/`
+**Location:** `web_client/src/app/features/localization-management/components/version-history/`
 
 **Files Modified:**
 - `version-history.component.ts` (+40 lines)
@@ -132,7 +132,7 @@ Successfully integrated **WebSocket real-time functionality** into all Web Clien
 
 ### 5. **Layout Component with Connection Status** (100% Complete)
 
-**Location:** `Web-Client/src/app/features/localization-management/components/layout/`
+**Location:** `web_client/src/app/features/localization-management/components/layout/`
 
 **Files Modified:**
 - `layout.component.ts` (+60 lines)
@@ -660,8 +660,8 @@ No runtime errors observed.
 ## 📚 Related Documentation
 
 - [WEBSOCKET_CLIENT_INTEGRATION_COMPLETE.md](WEBSOCKET_CLIENT_INTEGRATION_COMPLETE.md) - Services layer integration
-- [Web-Client/src/app/features/localization-management/services/](Web-Client/src/app/features/localization-management/services/) - WebSocket services
-- [Core/Services/Localization/](Core/Services/Localization/) - Backend WebSocket server
+- [web_client/src/app/features/localization-management/services/](web_client/src/app/features/localization-management/services/) - WebSocket services
+- [core/Services/Localization/](core/Services/Localization/) - Backend WebSocket server
 
 **Next Steps:**
 1. Write comprehensive WebSocket tests (unit, integration, E2E)

@@ -29,8 +29,8 @@
 - **Zero Known Critical Issues**
 
 **Documentation**:
-- `Core/Application/docs/USER_MANUAL.md` - Complete API reference
-- `Core/Application/DOCUMENTS_V2_FINAL_SESSION_REPORT.md` - Implementation details
+- `core/Application/docs/USER_MANUAL.md` - Complete API reference
+- `core/Application/DOCUMENTS_V2_FINAL_SESSION_REPORT.md` - Implementation details
 
 ---
 
@@ -467,14 +467,14 @@
 ## 📦 Deliverables This Session
 
 ### Code Files Created (8 files, ~2,100 lines):
-1. `Web-Client/src/app/features/documents/models/document.model.ts`
-2. `Web-Client/src/app/features/documents/models/document-space.model.ts`
-3. `Web-Client/src/app/features/documents/models/document-version.model.ts`
-4. `Web-Client/src/app/features/documents/models/index.ts`
-5. `Web-Client/src/app/features/documents/services/document.service.ts`
-6. `Web-Client/src/app/features/documents/components/document-space-list/document-space-list.component.ts`
-7. `Web-Client/src/app/features/documents/components/document-space-list/document-space-list.component.html`
-8. `Web-Client/src/app/features/documents/components/document-space-list/document-space-list.component.scss`
+1. `web_client/src/app/features/documents/models/document.model.ts`
+2. `web_client/src/app/features/documents/models/document-space.model.ts`
+3. `web_client/src/app/features/documents/models/document-version.model.ts`
+4. `web_client/src/app/features/documents/models/index.ts`
+5. `web_client/src/app/features/documents/services/document.service.ts`
+6. `web_client/src/app/features/documents/components/document-space-list/document-space-list.component.ts`
+7. `web_client/src/app/features/documents/components/document-space-list/document-space-list.component.html`
+8. `web_client/src/app/features/documents/components/document-space-list/document-space-list.component.scss`
 
 ### Implementation Guides Created (3 files, ~7,800 lines):
 1. `WEB_CLIENT_IMPLEMENTATION_GUIDE.md` (~2,500 lines)

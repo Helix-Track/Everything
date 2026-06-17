@@ -303,9 +303,9 @@ All clients integrate with the Documents V2 backend:
 - ✅ WebSocket support for real-time updates
 
 ### Backend Documentation
-- `Core/Application/docs/USER_MANUAL.md` - Complete API reference
-- `Core/Application/docs/DEPLOYMENT.md` - Deployment guide
-- `Core/Application/DOCUMENTS_V2_FINAL_SESSION_REPORT.md` - Backend summary
+- `core/Application/docs/USER_MANUAL.md` - Complete API reference
+- `core/Application/docs/DEPLOYMENT.md` - Deployment guide
+- `core/Application/DOCUMENTS_V2_FINAL_SESSION_REPORT.md` - Backend summary
 
 ---
 
@@ -313,7 +313,7 @@ All clients integrate with the Documents V2 backend:
 
 ```
 HelixTrack/
-├── Android-Client/
+├── android_client/
 │   └── app/src/main/java/digital/vasic/helixtrack/
 │       ├── Toolkit/editor/markdown/              # 2 files, 740 lines
 │       ├── data/models/                         # 3 files, 380 lines
@@ -325,7 +325,7 @@ HelixTrack/
 │       ├── ui/navigation/                       # Modified
 │       └── workers/                             # 2 files, 520 lines
 │
-├── Web-Client/
+├── web_client/
 │   └── src/app/features/documents/
 │       ├── models/                              # 4 files, 900 lines
 │       ├── services/                            # 1 file, 450 lines
@@ -335,13 +335,13 @@ HelixTrack/
 │       ├── documents.routes.ts
 │       └── DOCUMENTS_INTEGRATION_SUMMARY.md
 │
-├── Desktop-Client/
+├── desktop_client/
 │   ├── src-tauri/src/
 │   │   ├── documents.rs                         # 430 lines
 │   │   └── lib.rs                               # Modified
 │   └── DOCUMENTS_INTEGRATION_GUIDE.md
 │
-├── iOS-Client/
+├── ios_client/
 │   ├── Sources/
 │   │   ├── Models/                              # 3 files, 640 lines
 │   │   └── Services/                            # 1 file, 760 lines
@@ -503,14 +503,14 @@ HelixTrack/
 ## 📞 Support & Resources
 
 ### Backend API Documentation
-- **User Manual**: `Core/Application/docs/USER_MANUAL.md`
-- **Deployment Guide**: `Core/Application/docs/DEPLOYMENT.md`
+- **User Manual**: `core/Application/docs/USER_MANUAL.md`
+- **Deployment Guide**: `core/Application/docs/DEPLOYMENT.md`
 - **API Endpoint**: `POST /do` with action-based routing
 
 ### Client Implementation Guides
-- **Web**: `Web-Client/DOCUMENTS_INTEGRATION_SUMMARY.md`
-- **Desktop**: `Desktop-Client/DOCUMENTS_INTEGRATION_GUIDE.md`
-- **iOS**: `iOS-Client/DOCUMENTS_INTEGRATION_SUMMARY.md`
+- **Web**: `web_client/DOCUMENTS_INTEGRATION_SUMMARY.md`
+- **Desktop**: `desktop_client/DOCUMENTS_INTEGRATION_GUIDE.md`
+- **iOS**: `ios_client/DOCUMENTS_INTEGRATION_SUMMARY.md`
 
 ### Backend Contact
 - **Core Backend**: Production-ready, 433/433 tests passing

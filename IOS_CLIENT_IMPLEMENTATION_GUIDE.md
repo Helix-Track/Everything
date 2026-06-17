@@ -17,7 +17,7 @@ The iOS-Client requires a complete independent implementation in Swift/SwiftUI. 
 ### File Structure
 
 ```
-iOS-Client/Sources/Features/Documents/
+ios_client/Sources/Features/Documents/
 ├── Models/
 │   ├── Document.swift
 │   ├── DocumentSpace.swift
@@ -40,7 +40,7 @@ iOS-Client/Sources/Features/Documents/
 
 ### 1.1 Document Model
 
-**File**: `iOS-Client/Sources/Features/Documents/Models/Document.swift`
+**File**: `ios_client/Sources/Features/Documents/Models/Document.swift`
 
 ```swift
 import Foundation
@@ -204,7 +204,7 @@ struct AnyCodable: Codable {
 
 ### 1.2 Document Enums
 
-**File**: `iOS-Client/Sources/Features/Documents/Models/DocumentEnums.swift`
+**File**: `ios_client/Sources/Features/Documents/Models/DocumentEnums.swift`
 
 ```swift
 import Foundation
@@ -257,7 +257,7 @@ enum ChangeType: String, Codable {
 
 ### 1.3 DocumentSpace Model
 
-**File**: `iOS-Client/Sources/Features/Documents/Models/DocumentSpace.swift`
+**File**: `ios_client/Sources/Features/Documents/Models/DocumentSpace.swift`
 
 ```swift
 import Foundation
@@ -334,7 +334,7 @@ struct DocumentSpace: Codable, Identifiable {
 
 ### 1.4 DocumentVersion Model
 
-**File**: `iOS-Client/Sources/Features/Documents/Models/DocumentVersion.swift`
+**File**: `ios_client/Sources/Features/Documents/Models/DocumentVersion.swift`
 
 ```swift
 import Foundation
@@ -397,7 +397,7 @@ struct DocumentVersion: Codable, Identifiable {
 
 ## Phase 2: Document Service (API Client)
 
-### File: `iOS-Client/Sources/Features/Documents/Services/DocumentService.swift`
+### File: `ios_client/Sources/Features/Documents/Services/DocumentService.swift`
 
 ```swift
 import Foundation
@@ -655,7 +655,7 @@ struct APIResponse<T: Decodable>: Decodable {
 
 ### 3.1 DocumentSpaceListView
 
-**File**: `iOS-Client/Sources/Features/Documents/Views/DocumentSpaceListView.swift`
+**File**: `ios_client/Sources/Features/Documents/Views/DocumentSpaceListView.swift`
 
 ```swift
 import SwiftUI
@@ -792,7 +792,7 @@ struct SpaceCard: View {
 
 ## Phase 4: ViewModels
 
-### File: `iOS-Client/Sources/Features/Documents/ViewModels/DocumentSpaceListViewModel.swift`
+### File: `ios_client/Sources/Features/Documents/ViewModels/DocumentSpaceListViewModel.swift`
 
 ```swift
 import Foundation

@@ -5,7 +5,7 @@
 ### Week 1: Documents V2 Extension
 
 #### Task 1.1: Fix Database Field Mismatches
-- [ ] Review and analyze `Core/Application/DOCUMENTS_V2_DATABASE_ISSUES.md`
+- [ ] Review and analyze `core/Application/DOCUMENTS_V2_DATABASE_ISSUES.md`
 - [ ] Create migration script for field corrections
 - [ ] Test migration on staging environment
 - [ ] Verify data integrity after migration

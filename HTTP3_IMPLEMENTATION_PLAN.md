@@ -44,7 +44,7 @@ Remove hypothetical API code and document browser HTTP/3 behavior.
 
 #### Step 1: Simplify HTTP3QuicService (2 hours)
 
-**File:** `Web-Client/src/app/core/services/http3-quic.service.ts`
+**File:** `web_client/src/app/core/services/http3-quic.service.ts`
 
 **Changes:**
 ```typescript
@@ -143,23 +143,23 @@ export class Http3QuicService {
 
 #### Step 2: Remove HTTP3QuicInterceptor (1 hour)
 
-**File:** `Web-Client/src/app/core/interceptors/http3-quic.interceptor.ts`
+**File:** `web_client/src/app/core/interceptors/http3-quic.interceptor.ts`
 
 **Action:** Delete file - not needed for browser-based HTTP/3
 
-**File:** `Web-Client/src/app/core/interceptors/index.ts`
+**File:** `web_client/src/app/core/interceptors/index.ts`
 
 **Changes:** Remove HTTP3QuicInterceptor from exports
 
 #### Step 3: Update App Config (30 min)
 
-**File:** `Web-Client/src/app/app.config.ts`
+**File:** `web_client/src/app/app.config.ts`
 
 **Changes:** Remove HTTP3QuicInterceptor provider
 
 #### Step 4: Add Server-Side HTTP/3 Support (2 hours)
 
-**File:** `Core/Application/main.go` (Backend)
+**File:** `core/Application/main.go` (Backend)
 
 **Changes:** Configure Go server to advertise HTTP/3 support
 
@@ -192,7 +192,7 @@ Implement full QUIC client in Rust backend using quinn and h3 crates.
 
 #### Step 1: Implement QUIC Client (6 hours)
 
-**File:** `Desktop-Client/src-tauri/src/quic_client.rs` (NEW)
+**File:** `desktop_client/src-tauri/src/quic_client.rs` (NEW)
 
 **Create full QUIC client implementation:**
 ```rust
@@ -252,7 +252,7 @@ impl QuicClient {
 
 #### Step 2: Update Tauri Commands (2 hours)
 
-**File:** `Desktop-Client/src-tauri/src/lib.rs`
+**File:** `desktop_client/src-tauri/src/lib.rs`
 
 **Changes:**
 ```rust
@@ -320,7 +320,7 @@ pub fn run() {
 
 #### Step 3: Update Cargo Dependencies (30 min)
 
-**File:** `Desktop-Client/src-tauri/Cargo.toml`
+**File:** `desktop_client/src-tauri/Cargo.toml`
 
 **Add missing dependencies:**
 ```toml
@@ -334,7 +334,7 @@ serde_json = "1.0"
 
 #### Step 4: Update Frontend Service (1 hour)
 
-**File:** `Desktop-Client/src/app/core/services/http3-quic.service.ts`
+**File:** `desktop_client/src/app/core/services/http3-quic.service.ts`
 
 **Ensure proper Tauri invoke usage:**
 ```typescript
@@ -374,7 +374,7 @@ Production certificate pins not configured.
 ### Solution
 Add production certificate SHA-256 pins to NetworkModule.
 
-**File:** `Android-Client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt`
+**File:** `android_client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt`
 
 **Steps:**
 
@@ -407,7 +407,7 @@ HTTP/3 support is implicit (auto-negotiated). Can be made more explicit.
 ### Solution
 Configure URLSession to prefer HTTP/3 explicitly.
 
-**File:** `iOS-Client/Sources/HelixTrack/Services/APIService.swift`
+**File:** `ios_client/Sources/HelixTrack/Services/APIService.swift`
 
 **Add explicit HTTP/3 configuration:**
 ```swift

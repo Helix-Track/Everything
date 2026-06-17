@@ -109,7 +109,7 @@
 ### 2.2 Test Bank Framework Status
 
 #### QA-AI Framework
-- **Location**: `Core/Application/qa-ai/`
+- **Location**: `core/Application/qa-ai/`
 - **Status**: Foundation complete
 - **Test Cases**: Basic structure defined
 - **Coverage**: Limited test case bank

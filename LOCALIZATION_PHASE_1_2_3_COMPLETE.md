@@ -49,7 +49,7 @@
 - Long-term caching for versioned catalogs (24 hours)
 
 ### ✅ Bonus: Monolithic Docker Integration (100% Complete)
-- Localization service integrated into Core/Application/docker-compose.yml
+- Localization service integrated into core/Application/docker-compose.yml
 - Auto-starts with Core stack
 - Shared network configuration
 - Health checks and dependencies
@@ -92,7 +92,7 @@
 
 1. `cmd/main.go` - Added seeder integration
 2. `internal/handlers/handlers.go` - Added new routes
-3. `Core/Application/docker-compose.yml` - Added Localization service
+3. `core/Application/docker-compose.yml` - Added Localization service
 4. `internal/database/database.go` - Added version operations to interface
 
 ---
@@ -167,7 +167,7 @@
 ### Start Complete Stack
 
 ```bash
-cd Core/Application
+cd core/Application
 docker-compose up -d
 
 # Verify Localization service is running
@@ -244,9 +244,9 @@ curl --insecure https://localhost:8085/v1/version/1.0.0/catalog/en \
 crontab -e
 
 # Add these lines:
-0 * * * * /path/to/Core/Services/Localization/scripts/periodic-backup.sh hourly
-0 2 * * * /path/to/Core/Services/Localization/scripts/periodic-backup.sh daily
-0 3 * * 0 /path/to/Core/Services/Localization/scripts/periodic-backup.sh weekly
+0 * * * * /path/to/core/Services/Localization/scripts/periodic-backup.sh hourly
+0 2 * * * /path/to/core/Services/Localization/scripts/periodic-backup.sh daily
+0 3 * * 0 /path/to/core/Services/Localization/scripts/periodic-backup.sh weekly
 ```
 
 ---
@@ -302,7 +302,7 @@ crontab -e
 - Run all project tests (100% pass rate)
 
 ⏳ **Phase 10: Documentation** (0%)
-- Update Core/CLAUDE.md
+- Update core/CLAUDE.md
 - Update USER_MANUAL.md
 - Update Website
 - Migration guides
@@ -489,16 +489,16 @@ crontab -e
 
 ### Key Documents
 
-- **Lifecycle Design:** `Core/Services/Localization/LOCALIZATION_LIFECYCLE_DESIGN.md`
-- **Seed Data:** `Core/Services/Localization/seed-data/README.md`
+- **Lifecycle Design:** `core/Services/Localization/LOCALIZATION_LIFECYCLE_DESIGN.md`
+- **Seed Data:** `core/Services/Localization/seed-data/README.md`
 - **Implementation Status:** `/HelixTrack/LOCALIZATION_INTEGRATION_STATUS.md`
-- **Docker Compose:** `Core/Application/docker-compose.yml`
+- **Docker Compose:** `core/Application/docker-compose.yml`
 
 ### Testing Commands
 
 ```bash
 # Start stack
-cd Core/Application && docker-compose up -d
+cd core/Application && docker-compose up -d
 
 # View localization logs
 docker-compose logs -f localization-service
@@ -507,7 +507,7 @@ docker-compose logs -f localization-service
 docker-compose exec localization-db psql -U localization_user -d helixtrack_localization -c "SELECT COUNT(*) FROM localizations;"
 
 # Run existing tests
-cd Core/Services/Localization && ./scripts/run-all-tests.sh
+cd core/Services/Localization && ./scripts/run-all-tests.sh
 ```
 
 ---

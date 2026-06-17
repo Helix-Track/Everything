@@ -265,7 +265,7 @@ this.localizationService.getCatalog('de').subscribe(catalog => {
 ### Phase 10: Documentation (8-12 hours)
 - Update CLAUDE.md
 - Update USER_MANUAL.md
-- Update Core/Website
+- Update core/Website
 - Create migration guides
 - User documentation
 
@@ -417,20 +417,20 @@ this.localizationService.getCatalog('de').subscribe(catalog => {
 
 ### Start Localization Service
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 docker-compose up -d
 ```
 
 ### Start Core Application
 ```bash
-cd Core/Application
+cd core/Application
 go build -o htCore main.go
 ./htCore --config=Configurations/default.json
 ```
 
 ### Start Web Client
 ```bash
-cd Web-Client
+cd web_client
 npm install
 npm start
 ```
@@ -438,11 +438,11 @@ npm start
 ### Run Tests
 ```bash
 # Backend
-cd Core/Application
+cd core/Application
 go test ./internal/services/ -v
 
 # Localization Service
-cd Core/Services/Localization
+cd core/Services/Localization
 ./scripts/run-all-tests.sh
 ```
 

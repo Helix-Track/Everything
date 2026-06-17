@@ -380,13 +380,13 @@ it('should not reload with unsaved changes', fakeAsync(() => {
 
 ### Start Backend
 ```bash
-cd Core/Application
+cd core/Application
 ./htCore --config=../Configurations/dev.json
 ```
 
 ### Start Web Client
 ```bash
-cd Web-Client
+cd web_client
 npm start
 ```
 

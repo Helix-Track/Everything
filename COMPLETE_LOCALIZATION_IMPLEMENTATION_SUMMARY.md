@@ -337,7 +337,7 @@
 ### Phase 10: Documentation (8-12 hours)
 - Update CLAUDE.md
 - Update USER_MANUAL.md
-- Update Core/Website
+- Update core/Website
 - Create migration guides
 
 **Total Remaining:** ~100-130 hours (2.5-3 weeks)
@@ -453,20 +453,20 @@
 
 ### 1. Start Localization Service
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 docker-compose up -d
 ```
 
 ### 2. Start Core Application
 ```bash
-cd Core/Application
+cd core/Application
 go build -o htCore main.go
 ./htCore --config=Configurations/default.json
 ```
 
 ### 3. Access Web Client Translation Editor
 ```bash
-cd Web-Client
+cd web_client
 npm install
 npm start
 # Navigate to /admin/localization/translations
@@ -516,15 +516,15 @@ npm start
 ### Key Files Reference
 
 **Backend:**
-- Service: `Core/Services/Localization/`
-- Client: `Core/Application/internal/services/localization_service.go`
-- Tests: `Core/Application/internal/services/localization_service_test.go`
-- WebSocket: `Core/Services/Localization/internal/websocket/`
+- Service: `core/Services/Localization/`
+- Client: `core/Application/internal/services/localization_service.go`
+- Tests: `core/Application/internal/services/localization_service_test.go`
+- WebSocket: `core/Services/Localization/internal/websocket/`
 
 **Frontend:**
-- Models: `Web-Client/src/app/features/localization-management/models/`
-- Service: `Web-Client/src/app/features/localization-management/services/`
-- Components: `Web-Client/src/app/features/localization-management/components/`
+- Models: `web_client/src/app/features/localization-management/models/`
+- Service: `web_client/src/app/features/localization-management/services/`
+- Components: `web_client/src/app/features/localization-management/components/`
 
 ---
 

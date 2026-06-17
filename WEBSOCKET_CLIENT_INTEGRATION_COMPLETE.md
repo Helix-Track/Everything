@@ -16,7 +16,7 @@ Successfully implemented **complete WebSocket integration** across all client ap
 
 ### 1. **Backend Integration** (100% Complete)
 
-**Location:** `Core/Services/Localization/`
+**Location:** `core/Services/Localization/`
 
 **Files Modified/Created:**
 - `cmd/main.go` - WebSocket manager initialization
@@ -49,7 +49,7 @@ Successfully implemented **complete WebSocket integration** across all client ap
 
 ### 2. **Core Application WebSocket Client** (100% Complete)
 
-**Location:** `Core/Application/internal/services/`
+**Location:** `core/Application/internal/services/`
 
 **Files Created:**
 - `localization_websocket_client.go` (320 lines)
@@ -106,7 +106,7 @@ locService.StopWebSocket()
 
 ### 3. **Web Client WebSocket Services** (100% Complete)
 
-**Location:** `Web-Client/src/app/features/localization-management/services/`
+**Location:** `web_client/src/app/features/localization-management/services/`
 
 **Files Created:**
 

@@ -37,7 +37,7 @@ Implemented comprehensive centralized localization system with real-time updates
 ### Features Implemented
 
 #### ✅ Localization Service (Production Ready)
-**Location:** `Core/Services/Localization/`
+**Location:** `core/Services/Localization/`
 
 **Key Features:**
 - HTTP/3 QUIC server (Port 8085-8095, auto-selection)
@@ -72,7 +72,7 @@ GET    /v1/admin/stats            # Get statistics
 ```
 
 #### ✅ Seed Data System
-**Location:** `Core/Services/Localization/seed-data/`
+**Location:** `core/Services/Localization/seed-data/`
 
 **Structure:**
 - `languages.json` - 10 language definitions
@@ -95,7 +95,7 @@ GET    /v1/admin/stats            # Get statistics
 - `periodic-backup.sh` - Automated backups (hourly/daily/weekly)
 
 #### ✅ Core Backend Integration
-**Location:** `Core/Application/internal/`
+**Location:** `core/Application/internal/`
 
 **Components:**
 - `services/localization_service.go` - HTTP client with caching
@@ -123,7 +123,7 @@ response := models.NewLocalizedErrorResponse(
 ```
 
 #### ✅ Web Client Integration
-**Location:** `Web-Client/src/app/core/services/localization.service.ts`
+**Location:** `web_client/src/app/core/services/localization.service.ts`
 
 **Features:**
 - Catalog loading with localStorage persistence (1-hour TTL)
@@ -149,7 +149,7 @@ const messages = this.l10n.translateBatch(['error.success', 'common.ok']);
 await this.l10n.setLanguage('de');
 ```
 
-**Admin UI Module:** `Web-Client/src/app/features/localization-management/`
+**Admin UI Module:** `web_client/src/app/features/localization-management/`
 
 **Components:**
 - Dashboard - Overview of localizations
@@ -161,9 +161,9 @@ await this.l10n.setLanguage('de');
 
 ### Documentation Created
 1. ✅ `LOCALIZATION_INTEGRATION_COMPLETE.md` (885 lines)
-2. ✅ `Core/Services/Localization/USER_MANUAL.md` (technical manual)
-3. ✅ `Core/Services/Localization/CLIENT_INTEGRATIONS.md` (integration guide)
-4. ✅ `Core/Website/docs/localization.html` (website documentation)
+2. ✅ `core/Services/Localization/USER_MANUAL.md` (technical manual)
+3. ✅ `core/Services/Localization/CLIENT_INTEGRATIONS.md` (integration guide)
+4. ✅ `core/Website/docs/localization.html` (website documentation)
 
 ---
 
@@ -175,7 +175,7 @@ Implemented HTTP/3 over QUIC protocol across all services for 30-50% reduced lat
 ### Features Implemented
 
 #### ✅ Core HTTP/3 Server
-**File:** `Core/Application/internal/server/http3_server.go`
+**File:** `core/Application/internal/server/http3_server.go`
 
 **Features:**
 - HTTP/3 server with TLS 1.3
@@ -197,7 +197,7 @@ server := &http3.Server{
 ```
 
 #### ✅ Core HTTP/3 Client
-**File:** `Core/Application/internal/client/http3_client.go`
+**File:** `core/Application/internal/client/http3_client.go`
 
 **Features:**
 - HTTP/3 client library with complete feature set
@@ -222,7 +222,7 @@ if IsHTTP3(resp) {
 ```
 
 #### ✅ Comprehensive Test Suite
-**File:** `Core/Application/tests/http3/http3_communication_test.go`
+**File:** `core/Application/tests/http3/http3_communication_test.go`
 
 **Tests Implemented:**
 1. `TestHTTP3Connectivity` - Basic HTTP/3 connectivity
@@ -291,7 +291,7 @@ The Localization service (Port 8085) already uses HTTP/3 QUIC with:
 ### Documentation Created
 1. ✅ `HTTP3_QUIC_IMPLEMENTATION_PLAN.md` (885 lines) - Detailed roadmap
 2. ✅ `HTTP3_QUIC_IMPLEMENTATION_COMPLETE.md` - Implementation summary
-3. ✅ `Core/Website/docs/http3-quic.html` - Website documentation
+3. ✅ `core/Website/docs/http3-quic.html` - Website documentation
 4. ✅ `scripts/run-http3-tests.sh` - Test automation script
 
 ---
@@ -412,7 +412,7 @@ Verified that all client applications use consistent HelixTrack brand colors acr
 
 ### Theme Files Verified
 
-1. **Website:** `Core/Website/docs/style.css`
+1. **Website:** `core/Website/docs/style.css`
    ```css
    :root {
        --primary-color: #BCE63B;
@@ -421,28 +421,28 @@ Verified that all client applications use consistent HelixTrack brand colors acr
    }
    ```
 
-2. **Web Client:** `Web-Client/src/styles.scss`
+2. **Web Client:** `web_client/src/styles.scss`
    ```scss
    $helixtrack-primary: (500: #BCE63B);
    $helixtrack-secondary: (500: #7AA590);
    $helixtrack-accent: (500: #B2E3C2);
    ```
 
-3. **Desktop Client:** `Desktop-Client/src/styles.scss`
+3. **Desktop Client:** `desktop_client/src/styles.scss`
    ```scss
    $helixtrack-primary: (500: #BCE63B);
    $helixtrack-secondary: (500: #7AA590);
    $helixtrack-accent: (500: #B2E3C2);
    ```
 
-4. **Android Client:** `Android-Client/.../values/colors.xml`
+4. **Android Client:** `android_client/.../values/colors.xml`
    ```xml
    <color name="primary">#BCE63B</color>
    <color name="secondary">#7AA590</color>
    <color name="accent">#B2E3C2</color>
    ```
 
-5. **iOS Client:** `iOS-Client/.../ThemeManager.swift`
+5. **iOS Client:** `ios_client/.../ThemeManager.swift`
    ```swift
    static let primary = Color(hex: "BCE63B")
    static let secondary = Color(hex: "7AA590")
@@ -476,13 +476,13 @@ All platforms implement:
 6. `SESSION_SUMMARY_2025-10-21.md` (this file)
 
 **Website:**
-7. `Core/Website/docs/http3-quic.html` (17,750 bytes)
-8. `Core/Website/docs/localization.html` (34,411 bytes)
+7. `core/Website/docs/http3-quic.html` (17,750 bytes)
+8. `core/Website/docs/localization.html` (34,411 bytes)
 
 **Core Application:**
-9. `Core/Application/internal/server/http3_server.go`
-10. `Core/Application/internal/client/http3_client.go`
-11. `Core/Application/tests/http3/http3_communication_test.go`
+9. `core/Application/internal/server/http3_server.go`
+10. `core/Application/internal/client/http3_client.go`
+11. `core/Application/tests/http3/http3_communication_test.go`
 
 **Scripts:**
 12. `scripts/run-http3-tests.sh`
@@ -492,9 +492,9 @@ All platforms implement:
 
 ### Modified Files (3)
 
-1. `Core/Website/docs/index.html` - Added navigation links to new documentation pages
-2. `Web-Client/src/app/core/services/localization.service.ts` - Enhanced with versioning and WebSocket
-3. `Core/Application/internal/models/response.go` - Added localization helper functions
+1. `core/Website/docs/index.html` - Added navigation links to new documentation pages
+2. `web_client/src/app/core/services/localization.service.ts` - Enhanced with versioning and WebSocket
+3. `core/Application/internal/models/response.go` - Added localization helper functions
 
 ---
 
@@ -672,7 +672,7 @@ Web/Desktop/Mobile Clients
 ### HTTP/3 QUIC
 1. **Install Dependencies:**
    ```bash
-   cd Core/Application
+   cd core/Application
    go get github.com/quic-go/quic-go/http3
    ```
 
@@ -719,21 +719,21 @@ All documentation created in this session:
 
 ### Localization
 1. `LOCALIZATION_INTEGRATION_COMPLETE.md` - Complete integration summary
-2. `Core/Services/Localization/USER_MANUAL.md` - Technical manual
-3. `Core/Services/Localization/CLIENT_INTEGRATIONS.md` - Integration guide
-4. `Core/Website/docs/localization.html` - Website documentation
+2. `core/Services/Localization/USER_MANUAL.md` - Technical manual
+3. `core/Services/Localization/CLIENT_INTEGRATIONS.md` - Integration guide
+4. `core/Website/docs/localization.html` - Website documentation
 
 ### HTTP/3 QUIC
 1. `HTTP3_QUIC_IMPLEMENTATION_PLAN.md` - Implementation roadmap
 2. `HTTP3_QUIC_IMPLEMENTATION_COMPLETE.md` - Implementation summary
-3. `Core/Website/docs/http3-quic.html` - Website documentation
+3. `core/Website/docs/http3-quic.html` - Website documentation
 4. `scripts/run-http3-tests.sh` - Test automation
 
 ### Website Updates
 1. `WEBSITE_DOCUMENTATION_UPDATE_COMPLETE.md` - Website update summary
-2. `Core/Website/docs/http3-quic.html` - HTTP/3 QUIC page
-3. `Core/Website/docs/localization.html` - Localization page
-4. `Core/Website/docs/index.html` - Updated homepage
+2. `core/Website/docs/http3-quic.html` - HTTP/3 QUIC page
+3. `core/Website/docs/localization.html` - Localization page
+4. `core/Website/docs/index.html` - Updated homepage
 
 ### Theming
 1. `THEMING_VERIFICATION_COMPLETE.md` - Cross-platform theming verification
@@ -797,11 +797,11 @@ All documentation created in this session:
 ## 📞 Support & Resources
 
 ### Documentation
-- **Localization Manual:** `Core/Services/Localization/USER_MANUAL.md`
-- **Client Integration Guide:** `Core/Services/Localization/CLIENT_INTEGRATIONS.md`
+- **Localization Manual:** `core/Services/Localization/USER_MANUAL.md`
+- **Client Integration Guide:** `core/Services/Localization/CLIENT_INTEGRATIONS.md`
 - **HTTP/3 Plan:** `HTTP3_QUIC_IMPLEMENTATION_PLAN.md`
 - **HTTP/3 Summary:** `HTTP3_QUIC_IMPLEMENTATION_COMPLETE.md`
-- **Website Pages:** `Core/Website/docs/` (http3-quic.html, localization.html)
+- **Website Pages:** `core/Website/docs/` (http3-quic.html, localization.html)
 
 ### Quick Links
 - **Website:** https://helixtrack.ru

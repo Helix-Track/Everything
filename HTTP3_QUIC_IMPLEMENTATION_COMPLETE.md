@@ -23,7 +23,7 @@ The HelixTrack platform now has **comprehensive HTTP/3 QUIC support** with:
 
 ### 1. **Core Application HTTP/3 Server** ✅ COMPLETE
 
-**File:** `Core/Application/internal/server/http3_server.go`
+**File:** `core/Application/internal/server/http3_server.go`
 
 **Features:**
 - HTTP/3 QUIC server with TLS 1.3
@@ -53,7 +53,7 @@ QuicConfig: &quic.Config{
 
 ### 2. **Core Application HTTP/3 Client** ✅ COMPLETE
 
-**File:** `Core/Application/internal/client/http3_client.go`
+**File:** `core/Application/internal/client/http3_client.go`
 
 **Features:**
 - HTTP/3 QUIC client with TLS 1.3
@@ -83,7 +83,7 @@ if client.IsHTTP3(resp) {
 
 ### 3. **HTTP/3 Communication Validation Tests** ✅ COMPLETE
 
-**File:** `Core/Application/tests/http3/http3_communication_test.go`
+**File:** `core/Application/tests/http3/http3_communication_test.go`
 
 **Test Coverage (10 Tests + 2 Benchmarks):**
 
@@ -175,7 +175,7 @@ Success Rate: 100%
 
 **Start with Docker:**
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 
 # Generate TLS certificates
 ./scripts/generate-certs.sh
@@ -235,11 +235,11 @@ cd /home/milosvasic/Projects/HelixTrack
 **Option 2: Manual Execution**
 ```bash
 # Core HTTP/3 tests
-cd Core/Application
+cd core/Application
 go test ./tests/http3/... -v -count=1
 
 # Localization service tests
-cd Core/Services/Localization
+cd core/Services/Localization
 go test ./... -v -count=1
 
 # With coverage
@@ -249,7 +249,7 @@ go tool cover -html=coverage.out
 
 **Option 3: Benchmarks**
 ```bash
-cd Core/Application
+cd core/Application
 go test ./tests/http3/... -bench=. -benchmem
 ```
 
@@ -300,7 +300,7 @@ ok      helixtrack.ru/core/tests/http3  6.234s
 
 ### Core Application Configuration
 
-**File:** `Core/Application/Configurations/default.json`
+**File:** `core/Application/Configurations/default.json`
 
 ```json
 {
@@ -329,11 +329,11 @@ ok      helixtrack.ru/core/tests/http3  6.234s
 
 ```bash
 # For Core Application
-cd Core/Application
+cd core/Application
 ./scripts/generate-certs.sh
 
 # For Localization Service
-cd Core/Services/Localization
+cd core/Services/Localization
 ./scripts/generate-certs.sh
 ```
 
@@ -357,7 +357,7 @@ curl -v --http3 -k https://localhost:8085/health 2>&1 | grep "< HTTP"
 ### Localization Service (Complete Stack)
 
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 
 # Build and start
 docker-compose up -d --build
@@ -381,7 +381,7 @@ docker-compose down
 ### Core Application
 
 ```bash
-cd Core/Application
+cd core/Application
 
 # Build image
 docker build -t helixtrack/core:latest .
@@ -501,7 +501,7 @@ func TestHTTP3Connectivity(t *testing.T) {
 1. ✅ Run HTTP/3 tests to verify 100% success rate
 2. ✅ Deploy Localization Service with Docker
 3. ✅ Test inter-service HTTP/3 communication
-4. [ ] Update Core/Website with HTTP/3 documentation
+4. [ ] Update core/Website with HTTP/3 documentation
 
 ### Short-term (Week 2-3)
 1. [ ] Implement Web Client HTTP/3 detection
@@ -521,17 +521,17 @@ func TestHTTP3Connectivity(t *testing.T) {
 ## 📝 Files Created/Modified
 
 **New Files:**
-- ✅ `Core/Application/internal/server/http3_server.go` (185 lines)
-- ✅ `Core/Application/internal/client/http3_client.go` (244 lines)
-- ✅ `Core/Application/tests/http3/http3_communication_test.go` (477 lines)
+- ✅ `core/Application/internal/server/http3_server.go` (185 lines)
+- ✅ `core/Application/internal/client/http3_client.go` (244 lines)
+- ✅ `core/Application/tests/http3/http3_communication_test.go` (477 lines)
 - ✅ `scripts/run-http3-tests.sh` (156 lines)
 - ✅ `HTTP3_QUIC_IMPLEMENTATION_PLAN.md` (885 lines)
 - ✅ `HTTP3_QUIC_IMPLEMENTATION_COMPLETE.md` (this file)
 
 **Existing Files (Already HTTP/3 Enabled):**
-- ✅ `Core/Services/Localization/cmd/main.go`
-- ✅ `Core/Services/Localization/Dockerfile`
-- ✅ `Core/Services/Localization/docker-compose.yml`
+- ✅ `core/Services/Localization/cmd/main.go`
+- ✅ `core/Services/Localization/Dockerfile`
+- ✅ `core/Services/Localization/docker-compose.yml`
 
 **Total Lines Added:** ~2,150+ lines of production code, tests, and documentation
 

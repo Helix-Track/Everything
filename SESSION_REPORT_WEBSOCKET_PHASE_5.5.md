@@ -82,7 +82,7 @@ func NewHandler(db database.Database, cache cache.Cache, logger *zap.Logger, wsM
 
 **Command:**
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 go get github.com/gorilla/websocket
 ```
 
@@ -145,10 +145,10 @@ Created comprehensive documentation:
 ### Files Modified This Session
 
 **Code Files:**
-1. Core/Services/Localization/cmd/main.go
-2. Core/Services/Localization/internal/handlers/handlers.go
-3. Core/Services/Localization/internal/handlers/admin_handlers.go
-4. Core/Services/Localization/go.mod
+1. core/Services/Localization/cmd/main.go
+2. core/Services/Localization/internal/handlers/handlers.go
+3. core/Services/Localization/internal/handlers/admin_handlers.go
+4. core/Services/Localization/go.mod
 
 **Documentation Files:**
 5. WEBSOCKET_INTEGRATION_PROGRESS.md
@@ -559,10 +559,10 @@ Client processes event (UI update, cache invalidation, etc.)
 - `SESSION_REPORT_WEBSOCKET_PHASE_5.5.md` - This document
 
 **Code:**
-- `Core/Services/Localization/cmd/main.go` - Service entry point
-- `Core/Services/Localization/internal/websocket/events.go` - Event definitions
-- `Core/Services/Localization/internal/websocket/manager.go` - WebSocket manager
-- `Core/Services/Localization/internal/handlers/admin_handlers.go` - Handler updates
+- `core/Services/Localization/cmd/main.go` - Service entry point
+- `core/Services/Localization/internal/websocket/events.go` - Event definitions
+- `core/Services/Localization/internal/websocket/manager.go` - WebSocket manager
+- `core/Services/Localization/internal/handlers/admin_handlers.go` - Handler updates
 
 **Foundation:**
 - `LOCALIZATION_PHASE_5_COMPLETE.md` - Phase 5 completion

@@ -73,8 +73,8 @@ A standalone, reusable Android library module for markdown editing and rendering
 
 #### Integration into Android-Client:
 
-- ✅ Updated `Android-Client/settings.gradle` to include Toolkit module
-- ✅ Updated `Android-Client/app/build.gradle` to use `implementation project(':Toolkit:editor')`
+- ✅ Updated `android_client/settings.gradle` to include Toolkit module
+- ✅ Updated `android_client/app/build.gradle` to use `implementation project(':Toolkit:editor')`
 - ✅ Removed duplicate Flexmark dependencies (now provided by Toolkit)
 
 **Total Toolkit Lines of Code**: ~1,200 lines (code + docs)
@@ -87,7 +87,7 @@ A standalone, reusable Android library module for markdown editing and rendering
 
 1. **Document.kt** ✅
    - Room entity with 20+ fields
-   - Corresponds to `Core/Application/internal/models/document.go`
+   - Corresponds to `core/Application/internal/models/document.go`
    - Fields: id, spaceId, title, contentMarkdown, parentDocumentId, documentType, status, version, locking, timestamps
    - Local-only fields for offline sync: isSynced, pendingSync, localModifiedAt, conflictVersion
    - Helper methods:
@@ -97,12 +97,12 @@ A standalone, reusable Android library module for markdown editing and rendering
      - `needsSync()`
    - Companion object with factory methods and constants
    - Parcelable for Bundle passing
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/data/model/document/Document.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/data/model/document/Document.kt`
    - **145 lines of code**
 
 2. **DocumentSpace.kt** ✅
    - Room entity for document workspaces/spaces
-   - Corresponds to `Core/Application/internal/models/document_space.go`
+   - Corresponds to `core/Application/internal/models/document_space.go`
    - Fields: id, key, name, description, projectId, spaceType, status, permissions, icon, color, timestamps
    - Local-only fields: isSynced, lastAccessedAt, documentCount
    - Helper methods:
@@ -110,12 +110,12 @@ A standalone, reusable Android library module for markdown editing and rendering
      - `isActive()`
      - `getDisplayColor()`
    - Companion object with factory methods and constants
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/data/model/document/DocumentSpace.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/data/model/document/DocumentSpace.kt`
    - **130 lines of code**
 
 3. **DocumentVersion.kt** ✅
    - Room entity for version history
-   - Corresponds to `Core/Application/internal/models/document_version.go`
+   - Corresponds to `core/Application/internal/models/document_version.go`
    - Fields: id, documentId, versionNumber, contentMarkdown, title, changeComment, changeType, isAutoSave, timestamps
    - Local-only fields: isSynced, localFilePath
    - Helper methods:
@@ -123,7 +123,7 @@ A standalone, reusable Android library module for markdown editing and rendering
      - `isMajorVersion()`
      - `getRelativeTime()`
    - Companion object with factory methods
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/data/model/document/DocumentVersion.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/data/model/document/DocumentVersion.kt`
    - **105 lines of code**
 
 ### Data Access Objects (DAOs) Created:
@@ -151,7 +151,7 @@ A standalone, reusable Android library module for markdown editing and rendering
    - Lock methods:
      - `updateLock()`
      - `clearExpiredLocks()`
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/data/database/dao/DocumentDao.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/data/database/dao/DocumentDao.kt`
    - **120 lines of code**
 
 2. **DocumentSpaceDao.kt** ✅
@@ -175,7 +175,7 @@ A standalone, reusable Android library module for markdown editing and rendering
      - `updateDocumentCount()`
      - `updateStatus()`
      - `updateSyncStatus()`
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/data/database/dao/DocumentSpaceDao.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/data/database/dao/DocumentSpaceDao.kt`
    - **95 lines of code**
 
 3. **DocumentVersionDao.kt** ✅
@@ -200,7 +200,7 @@ A standalone, reusable Android library module for markdown editing and rendering
    - Sync methods:
      - `updateSyncStatus()`
      - `updateLocalFilePath()`
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/data/database/dao/DocumentVersionDao.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/data/database/dao/DocumentVersionDao.kt`
    - **115 lines of code**
 
 **Total Models & DAOs Lines of Code**: ~710 lines
@@ -223,7 +223,7 @@ A standalone, reusable Android library module for markdown editing and rendering
      - Analytics: recordView, getAnalytics
    - Generic `doDocumentAction()` for custom actions
    - Follows HelixTrack's unified `/do` endpoint pattern
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/data/api/DocumentApiService.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/data/api/DocumentApiService.kt`
    - **430+ lines of code**
 
 2. **DocumentRepository.kt** ✅
@@ -238,7 +238,7 @@ A standalone, reusable Android library module for markdown editing and rendering
    - Optimistic updates for immediate UI feedback
    - Result-based error handling
    - JWT authentication integration
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/data/repository/DocumentRepository.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/data/repository/DocumentRepository.kt`
    - **540+ lines of code**
 
 3. **DocumentViewModel.kt** ✅
@@ -257,7 +257,7 @@ A standalone, reusable Android library module for markdown editing and rendering
      - Versioning: loadVersions, refreshVersions, revertToVersion
    - Hilt dependency injection
    - ViewModelScope coroutines
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentViewModel.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentViewModel.kt`
    - **350+ lines of code**
 
 4. **DocumentEditorViewModel.kt** ✅
@@ -283,7 +283,7 @@ A standalone, reusable Android library module for markdown editing and rendering
    - Uses Toolkit MarkdownRenderer for HTML preview
    - SavedStateHandle for navigation arguments
    - Auto-unlock on ViewModel clear
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentEditorViewModel.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentEditorViewModel.kt`
    - **420+ lines of code**
 
 **Total Phase 3 Lines of Code**: ~1,740 lines
@@ -316,7 +316,7 @@ A standalone, reusable Android library module for markdown editing and rendering
    - Space cards with icons, metadata, document count
    - Navigation to document list
    - Error and success snackbars
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentSpaceListScreen.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentSpaceListScreen.kt`
    - **390+ lines of code**
 
 2. **DocumentListScreen.kt** ✅
@@ -330,7 +330,7 @@ A standalone, reusable Android library module for markdown editing and rendering
    - Empty states for no documents and no search results
    - Pull-to-refresh functionality
    - Navigation to editor
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentListScreen.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentListScreen.kt`
    - **420+ lines of code**
 
 3. **DocumentEditorScreen.kt** ✅
@@ -348,7 +348,7 @@ A standalone, reusable Android library module for markdown editing and rendering
    - Auto-save toggle
    - Back handler for unsaved changes warning
    - Markdown toolbar integration
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentEditorScreen.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentEditorScreen.kt`
    - **480+ lines of code**
 
 4. **MarkdownToolbar.kt** ✅
@@ -370,7 +370,7 @@ A standalone, reusable Android library module for markdown editing and rendering
      - insertImage() - Insert image with placeholder
      - insertCodeBlock() - Insert code block with language
      - insertTable() - Insert table with customizable size
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/ui/documents/MarkdownToolbar.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/ui/documents/MarkdownToolbar.kt`
    - **310+ lines of code**
 
 5. **DocumentVersionHistoryScreen.kt** ✅
@@ -391,7 +391,7 @@ A standalone, reusable Android library module for markdown editing and rendering
    - Refresh and sync status indicators
    - Error and success snackbars
    - formatVersionDate() utility for human-readable timestamps
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentVersionHistoryScreen.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentVersionHistoryScreen.kt`
    - **450+ lines of code**
 
 **Total Phase 4 Lines of Code**: ~2,050 lines
@@ -410,7 +410,7 @@ A standalone, reusable Android library module for markdown editing and rendering
    - All routes configured with proper `navArgument` (NavType.StringType)
    - Composable routes properly extract arguments from backStackEntry
    - Smooth slide animations for navigation transitions
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/ui/navigation/NavGraph.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/ui/navigation/NavGraph.kt`
    - **Added 4 navigation routes** (Screen objects + composable routes)
 
 2. **MainScaffold.kt - Navigation Drawer** ✅
@@ -418,7 +418,7 @@ A standalone, reusable Android library module for markdown editing and rendering
    - Positioned between "Boards" and "Users" for logical grouping
    - Icon: `Icons.Default.Description`
    - Integrated with existing navigation pattern (popUpTo, launchSingleTop, restoreState)
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/ui/MainScaffold.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/ui/MainScaffold.kt`
    - **1 navigation item added**
 
 3. **HelixTrackDatabase.kt - Document Tables** ✅
@@ -430,7 +430,7 @@ A standalone, reusable Android library module for markdown editing and rendering
    - Added `documentVersionDao()` abstract method
    - Incremented database version from 3 to 4
    - Added document model imports
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/data/database/HelixTrackDatabase.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/data/database/HelixTrackDatabase.kt`
    - **Database schema updated**
 
 **Total Phase 5 Changes**: 3 files modified, full navigation integration complete
@@ -461,7 +461,7 @@ A standalone, reusable Android library module for markdown editing and rendering
      - `cancelSync()` - Stop all sync operations
    - `@HiltWorker` for dependency injection
    - Uses Kotlin Coroutines with Dispatchers.IO
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/data/sync/DocumentSyncWorker.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/data/sync/DocumentSyncWorker.kt`
    - **410+ lines of code**
 
 2. **SyncManager.kt** ✅
@@ -476,7 +476,7 @@ A standalone, reusable Android library module for markdown editing and rendering
      - `isPeriodicSyncScheduled()` - Check if periodic sync is active
    - Wraps WorkManager complexity with clean API
    - Usage examples in comprehensive documentation
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/data/sync/SyncManager.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/data/sync/SyncManager.kt`
    - **110+ lines of code**
 
 3. **DocumentRepository.kt - Sync Methods** ✅
@@ -519,7 +519,7 @@ A standalone, reusable Android library module for markdown editing and rendering
    - **Sync Coordination**:
      - `getLastSyncTimestamp()` - Get last sync time (TODO: implement with DataStore)
      - `updateLastSyncTimestamp()` - Update last sync time (TODO: implement with DataStore)
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/data/repository/DocumentRepository.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/data/repository/DocumentRepository.kt`
    - **Added 380+ lines** (total 920 lines)
 
 4. **HelixTrackApplication.kt - Sync Initialization** ✅
@@ -527,7 +527,7 @@ A standalone, reusable Android library module for markdown editing and rendering
    - Injected `SyncManager` via Hilt
    - Called `syncManager.schedulePeriodicSync()` in `onCreate()`
    - Ensures background sync runs automatically (every 15 minutes when online)
-   - Location: `Android-Client/app/src/main/java/com/helixtrack/android/HelixTrackApplication.kt`
+   - Location: `android_client/app/src/main/java/com/helixtrack/android/HelixTrackApplication.kt`
    - **Modified with sync initialization**
 
 **Total Phase 6 Lines of Code**: ~900 lines (new sync infrastructure)
@@ -572,44 +572,44 @@ A standalone, reusable Android library module for markdown editing and rendering
 - `Toolkit/editor/README.md`
 
 ### Android-Client Models (3 files):
-- `Android-Client/app/src/main/java/com/helixtrack/android/data/model/document/Document.kt`
-- `Android-Client/app/src/main/java/com/helixtrack/android/data/model/document/DocumentSpace.kt`
-- `Android-Client/app/src/main/java/com/helixtrack/android/data/model/document/DocumentVersion.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/data/model/document/Document.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/data/model/document/DocumentSpace.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/data/model/document/DocumentVersion.kt`
 
 ### Android-Client DAOs (3 files):
-- `Android-Client/app/src/main/java/com/helixtrack/android/data/database/dao/DocumentDao.kt`
-- `Android-Client/app/src/main/java/com/helixtrack/android/data/database/dao/DocumentSpaceDao.kt`
-- `Android-Client/app/src/main/java/com/helixtrack/android/data/database/dao/DocumentVersionDao.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/data/database/dao/DocumentDao.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/data/database/dao/DocumentSpaceDao.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/data/database/dao/DocumentVersionDao.kt`
 
 ### API Service (1 file):
-- `Android-Client/app/src/main/java/com/helixtrack/android/data/api/DocumentApiService.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/data/api/DocumentApiService.kt`
 
 ### Repository Layer (1 file):
-- `Android-Client/app/src/main/java/com/helixtrack/android/data/repository/DocumentRepository.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/data/repository/DocumentRepository.kt`
 
 ### ViewModels (2 files):
-- `Android-Client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentViewModel.kt`
-- `Android-Client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentEditorViewModel.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentViewModel.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentEditorViewModel.kt`
 
 ### UI Screens (5 files):
-- `Android-Client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentSpaceListScreen.kt`
-- `Android-Client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentListScreen.kt`
-- `Android-Client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentEditorScreen.kt`
-- `Android-Client/app/src/main/java/com/helixtrack/android/ui/documents/MarkdownToolbar.kt`
-- `Android-Client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentVersionHistoryScreen.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentSpaceListScreen.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentListScreen.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentEditorScreen.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/ui/documents/MarkdownToolbar.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/ui/documents/DocumentVersionHistoryScreen.kt`
 
 ### Sync Infrastructure (2 files):
-- `Android-Client/app/src/main/java/com/helixtrack/android/data/sync/DocumentSyncWorker.kt`
-- `Android-Client/app/src/main/java/com/helixtrack/android/data/sync/SyncManager.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/data/sync/DocumentSyncWorker.kt`
+- `android_client/app/src/main/java/com/helixtrack/android/data/sync/SyncManager.kt`
 
 ### Modified Files (6 files):
-- `Android-Client/settings.gradle` - Added Toolkit editor module
-- `Android-Client/app/build.gradle` - Added Toolkit dependency, removed duplicate Flexmark deps
-- `Android-Client/app/src/main/res/values/colors.xml` - Added markdown colors (later moved to Toolkit)
-- `Android-Client/app/src/main/java/com/helixtrack/android/ui/navigation/NavGraph.kt` - Added document navigation routes
-- `Android-Client/app/src/main/java/com/helixtrack/android/ui/MainScaffold.kt` - Added Documents menu item
-- `Android-Client/app/src/main/java/com/helixtrack/android/data/database/HelixTrackDatabase.kt` - Added document entities
-- `Android-Client/app/src/main/java/com/helixtrack/android/HelixTrackApplication.kt` - Initialize sync on startup
+- `android_client/settings.gradle` - Added Toolkit editor module
+- `android_client/app/build.gradle` - Added Toolkit dependency, removed duplicate Flexmark deps
+- `android_client/app/src/main/res/values/colors.xml` - Added markdown colors (later moved to Toolkit)
+- `android_client/app/src/main/java/com/helixtrack/android/ui/navigation/NavGraph.kt` - Added document navigation routes
+- `android_client/app/src/main/java/com/helixtrack/android/ui/MainScaffold.kt` - Added Documents menu item
+- `android_client/app/src/main/java/com/helixtrack/android/data/database/HelixTrackDatabase.kt` - Added document entities
+- `android_client/app/src/main/java/com/helixtrack/android/HelixTrackApplication.kt` - Initialize sync on startup
 
 ### Documentation (1 file):
 - `DOCUMENTS_ANDROID_INTEGRATION_STATUS.md` - This file
@@ -697,7 +697,7 @@ A standalone, reusable Android library module for markdown editing and rendering
 ## Integration with Backend
 
 ### Backend API Ready: ✅
-- Core: `Core/Application/` running at `https://localhost:8080`
+- Core: `core/Application/` running at `https://localhost:8080`
 - API Endpoint: `/do` (unified action-based)
 - Actions: 90+ document actions implemented
 - Database: 21 document tables

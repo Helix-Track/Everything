@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # HelixTrack Launcher Icon Verification Script
-# Verifies that all client apps use the correct launcher icon from Core/Assets/Logo.png
+# Verifies that all client apps use the correct launcher icon from core/Assets/Logo.png
 
 set -e
 
@@ -16,7 +16,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-SOURCE_ICON="Core/Assets/Logo.png"
+SOURCE_ICON="core/Assets/Logo.png"
 REPORTS_DIR="test-reports"
 TIMESTAMP=$(date +%Y%m%d-%H%M%S)
 REPORT_FILE="$REPORTS_DIR/icon_verification_report_$TIMESTAMP.md"
@@ -57,7 +57,7 @@ verify_android_icons() {
     echo "## Android Client" >> "$REPORT_FILE"
     echo "" >> "$REPORT_FILE"
 
-    cd Android-Client
+    cd android_client
 
     local android_icons=(
         "app/src/main/res/mipmap-hdpi/ic_launcher.png"
@@ -128,7 +128,7 @@ verify_desktop_icons() {
     echo "## Desktop Client" >> "$REPORT_FILE"
     echo "" >> "$REPORT_FILE"
 
-    cd Desktop-Client
+    cd desktop_client
 
     local desktop_icons=(
         "src-tauri/icons/32x32.png"
@@ -211,7 +211,7 @@ verify_web_icons() {
     echo "## Web Client" >> "$REPORT_FILE"
     echo "" >> "$REPORT_FILE"
 
-    cd Web-Client
+    cd web_client
 
     local web_icons=(
         "public/icon-72x72.png"

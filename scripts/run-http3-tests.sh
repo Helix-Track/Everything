@@ -34,7 +34,7 @@ run_core_http3_tests() {
     echo -e "${YELLOW}[1/3] Running Core Application HTTP/3 Tests...${NC}"
     echo ""
 
-    cd "$PROJECT_ROOT/Core/Application"
+    cd "$PROJECT_ROOT/core/Application"
 
     # Check if test file exists
     if [ ! -f "tests/http3/http3_communication_test.go" ]; then
@@ -73,7 +73,7 @@ run_localization_http3_tests() {
     echo -e "${YELLOW}[2/3] Running Localization Service HTTP/3 Tests...${NC}"
     echo ""
 
-    cd "$PROJECT_ROOT/Core/Services/Localization"
+    cd "$PROJECT_ROOT/core/Services/Localization"
 
     # Run existing tests
     echo "Running: go test ./... -v -count=1"
@@ -105,7 +105,7 @@ run_integration_tests() {
     echo -e "${YELLOW}[3/3] Running HTTP/3 Integration Tests...${NC}"
     echo ""
 
-    cd "$PROJECT_ROOT/Core/Application"
+    cd "$PROJECT_ROOT/core/Application"
 
     # Check if integration tests exist
     if [ -f "tests/integration/http3_integration_test.go" ]; then

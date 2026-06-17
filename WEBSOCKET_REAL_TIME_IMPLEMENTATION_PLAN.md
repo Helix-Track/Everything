@@ -85,7 +85,7 @@ Localization Service (Go)
 ## ✅ Files Already Created
 
 ### 1. WebSocket Event Definitions
-**File:** `Core/Services/Localization/internal/websocket/events.go`
+**File:** `core/Services/Localization/internal/websocket/events.go`
 - 13 event type constants
 - Event struct with timestamp and metadata
 - 7 event data structs
@@ -93,7 +93,7 @@ Localization Service (Go)
 - **Lines:** 180
 
 ### 2. WebSocket Manager
-**File:** `Core/Services/Localization/internal/websocket/manager.go`
+**File:** `core/Services/Localization/internal/websocket/manager.go`
 - Manager struct (handles connections)
 - Client struct (represents connected client)
 - Connection handling (upgrade, register, unregister)
@@ -110,7 +110,7 @@ Localization Service (Go)
 ### Phase 1: Backend Integration (4-6 hours)
 
 #### 1.1 Update Localization Service Main ✅
-**File:** `Core/Services/Localization/cmd/main.go`
+**File:** `core/Services/Localization/cmd/main.go`
 - Initialize WebSocket manager
 - Start manager in goroutine
 - Add WebSocket endpoint `/ws`
@@ -154,14 +154,14 @@ go get github.com/gorilla/websocket
 ### Phase 2: Core Application Integration (2-3 hours)
 
 #### 2.1 Create WebSocket Client
-**File:** `Core/Application/internal/services/localization_websocket_client.go`
+**File:** `core/Application/internal/services/localization_websocket_client.go`
 - Connect to Localization service WebSocket
 - Subscribe to all events
 - Handle reconnection
 - Event handlers
 
 #### 2.2 Integrate with Localization Service
-**File:** `Core/Application/internal/services/localization_service.go`
+**File:** `core/Application/internal/services/localization_service.go`
 - Add WebSocket client
 - Connect on service initialization
 - React to events:
@@ -170,21 +170,21 @@ go get github.com/gorilla/websocket
   - `localization.*` → Invalidate specific language cache
 
 #### 2.3 Update Server
-**File:** `Core/Application/internal/server/server.go`
+**File:** `core/Application/internal/server/server.go`
 - Initialize WebSocket connection to Localization service
 - Graceful shutdown
 
 ### Phase 3: Web Client Integration (3-4 hours)
 
 #### 3.1 Create WebSocket Service
-**File:** `Web-Client/src/app/core/services/websocket.service.ts`
+**File:** `web_client/src/app/core/services/websocket.service.ts`
 - WebSocket connection management
 - Reconnection logic
 - Event subscription
 - RxJS Observable streams
 
 #### 3.2 Create Localization WebSocket Service
-**File:** `Web-Client/src/app/features/localization-management/services/localization-websocket.service.ts`
+**File:** `web_client/src/app/features/localization-management/services/localization-websocket.service.ts`
 - Subscribe to localization events
 - Emit to components via RxJS
 - Handle all 13 event types
@@ -287,9 +287,9 @@ this.localizationWs.onEvent(EventType.LocalizationUpdated)
 
 #### 5.1 Update Service Documentation
 **Files:**
-- `Core/Services/Localization/README.md`
-- `Core/Services/Localization/USER_MANUAL.md`
-- `Core/Services/Localization/ARCHITECTURE.md`
+- `core/Services/Localization/README.md`
+- `core/Services/Localization/USER_MANUAL.md`
+- `core/Services/Localization/ARCHITECTURE.md`
 
 **Additions:**
 - WebSocket endpoint documentation
@@ -299,8 +299,8 @@ this.localizationWs.onEvent(EventType.LocalizationUpdated)
 
 #### 5.2 Update Client Documentation
 **Files:**
-- `Web-Client/README.md`
-- `Core/Application/docs/USER_MANUAL.md`
+- `web_client/README.md`
+- `core/Application/docs/USER_MANUAL.md`
 
 **Additions:**
 - How to subscribe to events
@@ -308,7 +308,7 @@ this.localizationWs.onEvent(EventType.LocalizationUpdated)
 - Troubleshooting guide
 
 #### 5.3 Create WebSocket Guide
-**File:** `Core/Services/Localization/WEBSOCKET_GUIDE.md`
+**File:** `core/Services/Localization/WEBSOCKET_GUIDE.md`
 - Complete reference
 - All event types with examples
 - Client implementation guide

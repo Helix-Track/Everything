@@ -6,9 +6,9 @@
 
 ## Executive Summary
 
-Initial test execution across the HelixTrack project has been completed for the Core/Application module. **The results show 98.9% test success rate, which does not meet the 100% requirement.**
+Initial test execution across the HelixTrack project has been completed for the core/Application module. **The results show 98.9% test success rate, which does not meet the 100% requirement.**
 
-### Overall Statistics (Core/Application Only - In Progress)
+### Overall Statistics (core/Application Only - In Progress)
 
 | Metric | Count | Percentage |
 |--------|-------|------------|
@@ -21,9 +21,9 @@ Initial test execution across the HelixTrack project has been completed for the 
 
 ---
 
-## Module: Core/Application
+## Module: core/Application
 
-**Location:** `/home/milosvasic/Projects/HelixTrack/Core/Application`
+**Location:** `/home/milosvasic/Projects/HelixTrack/core/Application`
 **Language:** Go 1.24.9
 **Test Duration:** ~10 minutes
 **Test Command:** `go test ./... -v -cover -coverprofile=coverage.out`
@@ -154,8 +154,8 @@ Initial test execution across the HelixTrack project has been completed for the 
 The following modules have NOT yet been tested:
 
 ### Core Modules
-- ❓ **Core/Services/Localization** - Production-ready localization service (107 tests expected, 81.1% coverage documented)
-- ❓ **Core/Tools/KeyManager** - Key management tool (33 tests expected, 83.5% coverage documented)
+- ❓ **core/Services/Localization** - Production-ready localization service (107 tests expected, 81.1% coverage documented)
+- ❓ **core/Tools/KeyManager** - Key management tool (33 tests expected, 83.5% coverage documented)
 
 ### Client Modules
 - ❓ **Web-Client** (Angular 19) - Browser application
@@ -197,9 +197,9 @@ The following modules have NOT yet been tested:
 
 To achieve **100% test success** across all modules:
 
-1. **Phase 1:** Fix Core/Application failures (8-12 hours estimated)
-2. **Phase 2:** Test Core/Services/Localization (30 minutes)
-3. **Phase 3:** Test Core/Tools/KeyManager (30 minutes)
+1. **Phase 1:** Fix core/Application failures (8-12 hours estimated)
+2. **Phase 2:** Test core/Services/Localization (30 minutes)
+3. **Phase 3:** Test core/Tools/KeyManager (30 minutes)
 4. **Phase 4:** Test all client modules (4-6 hours)
 5. **Phase 5:** Generate comprehensive final report
 
@@ -212,7 +212,7 @@ To achieve **100% test success** across all modules:
 ### Test Environment
 - **OS:** Linux 6.14.0-33-generic
 - **Go Version:** 1.24.9 (auto-upgraded from 1.22 due to HTTP/3 library requirements)
-- **Working Directory:** `/home/milosvasic/Projects/HelixTrack/Core/Application`
+- **Working Directory:** `/home/milosvasic/Projects/HelixTrack/core/Application`
 - **Test Output:** `test-output.log` (3,730 lines)
 - **Coverage Output:** `coverage.out` (generated)
 
@@ -227,7 +227,7 @@ To achieve **100% test success** across all modules:
 
 **Question for User:** This initial test run has identified significant issues preventing 100% test success. Would you like me to:
 
-A) **Fix all Core/Application failures first**, then proceed to test other modules?
+A) **Fix all core/Application failures first**, then proceed to test other modules?
 B) **Test all modules first** to get a complete picture of all failures, then fix everything?
 C) **Generate a complete assessment** of test infrastructure across all modules before fixing anything?
 
@@ -295,7 +295,7 @@ Duration: 0.00s (within 0.034s suite)
 
 ---
 
-**Report Status:** PRELIMINARY - Core/Application module only
+**Report Status:** PRELIMINARY - core/Application module only
 **Completion:** 1/7 modules tested (14%)
 **Overall Success Rate:** Cannot be determined until all modules tested
 

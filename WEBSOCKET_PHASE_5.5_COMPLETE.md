@@ -43,7 +43,7 @@ Successfully completed **full-stack WebSocket real-time integration** for the He
 
 ### 1. Backend Integration (✅ Complete)
 
-**Location:** `Core/Services/Localization/`
+**Location:** `core/Services/Localization/`
 
 **Files Modified:**
 - `cmd/main.go` - WebSocket manager initialization
@@ -84,7 +84,7 @@ Successfully completed **full-stack WebSocket real-time integration** for the He
 
 ### 2. Core Application Client (✅ Complete)
 
-**Location:** `Core/Application/internal/services/`
+**Location:** `core/Application/internal/services/`
 
 **Files Created:**
 - `localization_websocket_client.go` (320 lines)
@@ -111,7 +111,7 @@ Successfully completed **full-stack WebSocket real-time integration** for the He
 
 ### 3. Web Client Services (✅ Complete)
 
-**Location:** `Web-Client/src/app/features/localization-management/services/`
+**Location:** `web_client/src/app/features/localization-management/services/`
 
 **Files Created:**
 - `websocket.service.ts` (190 lines)
@@ -140,7 +140,7 @@ Successfully completed **full-stack WebSocket real-time integration** for the He
 
 ### 4. Component Integration (✅ Complete)
 
-**Location:** `Web-Client/src/app/features/localization-management/components/`
+**Location:** `web_client/src/app/features/localization-management/components/`
 
 **Files Modified:**
 - `dashboard/dashboard.component.ts` (+45 lines)
@@ -187,7 +187,7 @@ Successfully completed **full-stack WebSocket real-time integration** for the He
 
 ### 5. Unit Testing (✅ Complete)
 
-**Location:** `Web-Client/src/app/features/localization-management/services/`
+**Location:** `web_client/src/app/features/localization-management/services/`
 
 **Files Created:**
 - `websocket.service.spec.ts` (424 lines, 23 tests)
@@ -701,10 +701,10 @@ ngOnInit(): void {
 ### For Developers
 
 **Code Locations:**
-- Backend: `Core/Services/Localization/internal/websocket/`
-- Core App: `Core/Application/internal/services/localization_websocket_client.go`
-- Web Client: `Web-Client/src/app/features/localization-management/services/`
-- Components: `Web-Client/src/app/features/localization-management/components/`
+- Backend: `core/Services/Localization/internal/websocket/`
+- Core App: `core/Application/internal/services/localization_websocket_client.go`
+- Web Client: `web_client/src/app/features/localization-management/services/`
+- Components: `web_client/src/app/features/localization-management/components/`
 
 **Key Files:**
 - `websocket.service.ts` - Base WebSocket service

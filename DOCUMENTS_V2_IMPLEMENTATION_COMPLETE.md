@@ -70,7 +70,7 @@ The Documents V2 extension for HelixTrack Core has been **fully implemented, tes
 
 ### 3. Documentation - Complete
 
-1. **[DOCUMENTS_V2_COMPLETION_REPORT.md](Core/Application/DOCUMENTS_V2_COMPLETION_REPORT.md)** (380+ lines)
+1. **[DOCUMENTS_V2_COMPLETION_REPORT.md](core/Application/DOCUMENTS_V2_COMPLETION_REPORT.md)** (380+ lines)
    - Comprehensive completion report
    - Test statistics
    - Component status
@@ -82,12 +82,12 @@ The Documents V2 extension for HelixTrack Core has been **fully implemented, tes
    - Code examples for each platform
    - Testing requirements (100% coverage, 100% success)
 
-3. **[DOCUMENTS_V2_DATABASE_ISSUES.md](Core/Application/DOCUMENTS_V2_DATABASE_ISSUES.md)** (Updated)
+3. **[DOCUMENTS_V2_DATABASE_ISSUES.md](core/Application/DOCUMENTS_V2_DATABASE_ISSUES.md)** (Updated)
    - All issues resolved and marked as fixed
    - Historical record of problems
    - Resolution confirmation
 
-4. **[USER_MANUAL.md](Core/Application/docs/USER_MANUAL.md)** (Already updated)
+4. **[USER_MANUAL.md](core/Application/docs/USER_MANUAL.md)** (Already updated)
    - Documents V2 API reference
    - 90 API actions documented
 
@@ -124,15 +124,15 @@ Status:      Production ready
 ## Files Created/Modified
 
 ### New Files Created (4):
-1. `Core/Application/DOCUMENTS_V2_COMPLETION_REPORT.md` - Comprehensive completion report
+1. `core/Application/DOCUMENTS_V2_COMPLETION_REPORT.md` - Comprehensive completion report
 2. `MARKOR_INTEGRATION_GUIDE.md` - Client integration guide
 3. `DOCUMENTS_V2_IMPLEMENTATION_COMPLETE.md` - This file
 4. Multiple test fixes in model files
 
 ### Files Modified (3):
-1. `Core/Application/DOCUMENTS_V2_DATABASE_ISSUES.md` - Added resolution notice
-2. `Core/Application/internal/models/document_version_test.go` - Fixed timing tests
-3. `Core/Application/internal/models/document_analytics_test.go` - Fixed calculation test
+1. `core/Application/DOCUMENTS_V2_DATABASE_ISSUES.md` - Added resolution notice
+2. `core/Application/internal/models/document_version_test.go` - Fixed timing tests
+3. `core/Application/internal/models/document_analytics_test.go` - Fixed calculation test
 
 ---
 
@@ -296,17 +296,17 @@ Based on core system performance (50,000+ req/s):
 ## References
 
 ### Documentation Files
-- [DOCUMENTS_V2_COMPLETION_REPORT.md](Core/Application/DOCUMENTS_V2_COMPLETION_REPORT.md)
+- [DOCUMENTS_V2_COMPLETION_REPORT.md](core/Application/DOCUMENTS_V2_COMPLETION_REPORT.md)
 - [MARKOR_INTEGRATION_GUIDE.md](MARKOR_INTEGRATION_GUIDE.md)
-- [DOCUMENTS_V2_DATABASE_ISSUES.md](Core/Application/DOCUMENTS_V2_DATABASE_ISSUES.md)
-- [USER_MANUAL.md](Core/Application/docs/USER_MANUAL.md)
-- [DEPLOYMENT.md](Core/Application/docs/DEPLOYMENT.md)
+- [DOCUMENTS_V2_DATABASE_ISSUES.md](core/Application/DOCUMENTS_V2_DATABASE_ISSUES.md)
+- [USER_MANUAL.md](core/Application/docs/USER_MANUAL.md)
+- [DEPLOYMENT.md](core/Application/docs/DEPLOYMENT.md)
 
 ### Source Code
-- Models: `Core/Application/internal/models/document*.go`
-- Database: `Core/Application/internal/database/database_documents*.go`
-- Handlers: `Core/Application/internal/handlers/handler.go`
-- Schema: `Core/Database/DDL/Extensions/Documents/Definition.V2.sql`
+- Models: `core/Application/internal/models/document*.go`
+- Database: `core/Application/internal/database/database_documents*.go`
+- Handlers: `core/Application/internal/handlers/handler.go`
+- Schema: `core/Database/DDL/Extensions/Documents/Definition.V2.sql`
 
 ### External Resources
 - Markor Repository: https://github.com/gsantner/markor

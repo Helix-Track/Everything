@@ -171,11 +171,11 @@ Successfully implemented the Documents V2 feature across all HelixTrack clients 
 | WEB_CLIENT_IMPLEMENTATION_GUIDE.md | ~2,500 | Web component templates |
 | DESKTOP_CLIENT_IMPLEMENTATION_GUIDE.md | ~1,800 | Tauri integration guide |
 | IOS_CLIENT_IMPLEMENTATION_GUIDE.md | ~3,500 | Swift/SwiftUI templates |
-| Web-Client/DOCUMENTS_INTEGRATION_SUMMARY.md | ~1,200 | Web completion summary |
-| Desktop-Client/DOCUMENTS_INTEGRATION_GUIDE.md | ~1,500 | Desktop integration steps |
-| Desktop-Client/DESKTOP_INTEGRATION_STEPS.md | ~800 | Step-by-step guide |
-| iOS-Client/DOCUMENTS_INTEGRATION_SUMMARY.md | ~1,400 | iOS foundation summary |
-| iOS-Client/IOS_SWIFTUI_VIEWS_GUIDE.md | ~800 | SwiftUI view templates |
+| web_client/DOCUMENTS_INTEGRATION_SUMMARY.md | ~1,200 | Web completion summary |
+| desktop_client/DOCUMENTS_INTEGRATION_GUIDE.md | ~1,500 | Desktop integration steps |
+| desktop_client/DESKTOP_INTEGRATION_STEPS.md | ~800 | Step-by-step guide |
+| ios_client/DOCUMENTS_INTEGRATION_SUMMARY.md | ~1,400 | iOS foundation summary |
+| ios_client/IOS_SWIFTUI_VIEWS_GUIDE.md | ~800 | SwiftUI view templates |
 | DOCUMENTS_FULL_INTEGRATION_STATUS.md | ~1,000 | Integration tracking |
 | DOCUMENTS_FINAL_IMPLEMENTATION_REPORT.md | ~500 | This report |
 | **Total** | **~17,000** | **11 documents** |
@@ -264,21 +264,21 @@ dependencies {
 
 ### Web Client
 ```bash
-cd Web-Client
+cd web_client
 npm install marked @types/marked
 npm start
 ```
 
 ### Desktop Client
 ```bash
-cd Desktop-Client
+cd desktop_client
 
 # 1. Install dependencies
 npm install marked @types/marked @tauri-apps/api @tauri-apps/plugin-dialog @tauri-apps/plugin-fs
 
 # 2. Copy Web-Client code (see DESKTOP_INTEGRATION_STEPS.md)
 mkdir -p src/app/features/documents/{models,services,components}
-cp -r ../Web-Client/src/app/features/documents/* src/app/features/documents/
+cp -r ../web_client/src/app/features/documents/* src/app/features/documents/
 
 # 3. Build and test
 npm run tauri:dev
@@ -301,17 +301,17 @@ dependencies: [
 
 ```
 HelixTrack/
-├── Android-Client/
+├── android_client/
 │   └── app/src/main/java/.../documents/         # 24 files, ~6,290 lines ✅
-├── Web-Client/
+├── web_client/
 │   ├── src/app/features/documents/              # 19 files, ~4,800 lines ✅
 │   └── DOCUMENTS_INTEGRATION_SUMMARY.md         # Implementation guide
-├── Desktop-Client/
+├── desktop_client/
 │   ├── src-tauri/src/documents.rs               # Rust backend ✅
 │   ├── src/app/core/services/                   # TauriDocumentService ✅
 │   ├── DOCUMENTS_INTEGRATION_GUIDE.md           # Complete guide
 │   └── DESKTOP_INTEGRATION_STEPS.md             # Step-by-step
-├── iOS-Client/
+├── ios_client/
 │   ├── Sources/Models/                          # 3 files ✅
 │   ├── Sources/Services/                        # 1 file ✅
 │   ├── Sources/ViewModels/                      # 4 files ✅
@@ -432,15 +432,15 @@ HelixTrack/
 
 ### Backend API
 - **Endpoint**: `POST https://localhost:8080/do`
-- **Documentation**: `Core/Application/docs/USER_MANUAL.md`
+- **Documentation**: `core/Application/docs/USER_MANUAL.md`
 - **Status**: 433/433 tests passing ✅
 - **Coverage**: 90+ actions per client
 
 ### Client Documentation
 - **Android**: Documented in code + CLAUDE.md
-- **Web**: `Web-Client/DOCUMENTS_INTEGRATION_SUMMARY.md`
-- **Desktop**: `Desktop-Client/DESKTOP_INTEGRATION_STEPS.md`
-- **iOS**: `iOS-Client/IOS_SWIFTUI_VIEWS_GUIDE.md`
+- **Web**: `web_client/DOCUMENTS_INTEGRATION_SUMMARY.md`
+- **Desktop**: `desktop_client/DESKTOP_INTEGRATION_STEPS.md`
+- **iOS**: `ios_client/IOS_SWIFTUI_VIEWS_GUIDE.md`
 
 ### Implementation Guides
 - **Cross-Platform Status**: `DOCUMENTS_V2_ALL_CLIENTS_STATUS.md`

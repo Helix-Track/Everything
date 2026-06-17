@@ -287,13 +287,13 @@ This document contains the results of comprehensive end-to-end testing across al
 ### Individual Client Testing
 ```bash
 # Desktop Client
-cd Desktop-Client && ./scripts/run-comprehensive-e2e-tests.sh
+cd desktop_client && ./scripts/run-comprehensive-e2e-tests.sh
 
 # Web Client
-cd Web-Client && ./scripts/run-comprehensive-e2e-tests.sh
+cd web_client && ./scripts/run-comprehensive-e2e-tests.sh
 
 # Android Client
-cd Android-Client && ./scripts/run-comprehensive-e2e-tests.sh
+cd android_client && ./scripts/run-comprehensive-e2e-tests.sh
 ```
 
 ### All Clients Testing

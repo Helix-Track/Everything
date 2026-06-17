@@ -18,7 +18,7 @@ This document summarizes the comprehensive UI/UX implementation work completed f
 
 ### ✅ 1. Brand Identity Extraction
 
-**Files**: Core/Website/docs/style.css
+**Files**: core/Website/docs/style.css
 
 **Extracted Official Brand Colors**:
 - **Primary**: #BCE63B (Lime Green)
@@ -59,10 +59,10 @@ This document summarizes the comprehensive UI/UX implementation work completed f
 
 **Files Modified**:
 ```
-Android-Client/app/src/main/res/values/colors.xml
-Android-Client/app/src/main/java/.../ui/theme/Color.kt
-Android-Client/app/src/main/java/.../ui/theme/Theme.kt
-Android-Client/app/src/main/java/.../data/repository/ThemeRepository.kt
+android_client/app/src/main/res/values/colors.xml
+android_client/app/src/main/java/.../ui/theme/Color.kt
+android_client/app/src/main/java/.../ui/theme/Theme.kt
+android_client/app/src/main/java/.../data/repository/ThemeRepository.kt
 ```
 
 **Implementation Details**:
@@ -89,8 +89,8 @@ Android-Client/app/src/main/java/.../data/repository/ThemeRepository.kt
 
 **Files Modified**:
 ```
-Web-Client/src/styles.scss
-Web-Client/src/app/core/services/theme.service.ts
+web_client/src/styles.scss
+web_client/src/app/core/services/theme.service.ts
 ```
 
 **Implementation Details**:
@@ -117,8 +117,8 @@ Web-Client/src/app/core/services/theme.service.ts
 
 **Files Modified**:
 ```
-Desktop-Client/src/styles.scss
-Desktop-Client/src/app/core/services/theme.service.ts
+desktop_client/src/styles.scss
+desktop_client/src/app/core/services/theme.service.ts
 ```
 
 **Implementation Details**:
@@ -142,8 +142,8 @@ Desktop-Client/src/app/core/services/theme.service.ts
 
 **Files Modified**:
 ```
-iOS-Client/Sources/HelixTrack/Utilities/ThemeManager.swift
-iOS-Client/Sources/HelixTrack/AppState.swift (already had theme support)
+ios_client/Sources/HelixTrack/Utilities/ThemeManager.swift
+ios_client/Sources/HelixTrack/AppState.swift (already had theme support)
 ```
 
 **Implementation Details**:
@@ -255,7 +255,7 @@ Comprehensive theme test suites created and updated for all platforms to verify 
 
 **Android Tests Created**:
 ```
-Android-Client/app/src/test/java/com/helixtrack/android/data/repository/ThemeRepositoryTest.kt
+android_client/app/src/test/java/com/helixtrack/android/data/repository/ThemeRepositoryTest.kt
 ```
 
 **Implementation Details**:
@@ -269,7 +269,7 @@ Android-Client/app/src/test/java/com/helixtrack/android/data/repository/ThemeRep
 
 **Web Tests Updated**:
 ```
-Web-Client/src/app/core/services/theme.service.spec.ts
+web_client/src/app/core/services/theme.service.spec.ts
 ```
 
 **Implementation Details**:
@@ -280,7 +280,7 @@ Web-Client/src/app/core/services/theme.service.spec.ts
 
 **Desktop Tests Updated**:
 ```
-Desktop-Client/src/app/core/services/theme.service.spec.ts
+desktop_client/src/app/core/services/theme.service.spec.ts
 ```
 
 **Implementation Details**:
@@ -547,27 +547,27 @@ THEME_TEST_RESULTS.md
 
 ### Implementation Files Modified
 ```
-Android-Client/app/src/main/res/values/colors.xml
-Android-Client/app/src/main/java/.../ui/theme/Color.kt
-Android-Client/app/src/main/java/.../ui/theme/Theme.kt
-Android-Client/app/src/main/java/.../data/repository/ThemeRepository.kt
+android_client/app/src/main/res/values/colors.xml
+android_client/app/src/main/java/.../ui/theme/Color.kt
+android_client/app/src/main/java/.../ui/theme/Theme.kt
+android_client/app/src/main/java/.../data/repository/ThemeRepository.kt
 
-Web-Client/src/styles.scss
-Web-Client/src/app/core/services/theme.service.ts
+web_client/src/styles.scss
+web_client/src/app/core/services/theme.service.ts
 
-Desktop-Client/src/styles.scss
-Desktop-Client/src/app/core/services/theme.service.ts
+desktop_client/src/styles.scss
+desktop_client/src/app/core/services/theme.service.ts
 
-iOS-Client/Sources/HelixTrack/Utilities/ThemeManager.swift
+ios_client/Sources/HelixTrack/Utilities/ThemeManager.swift
 ```
 
 ### Test Files Created/Modified
 ```
-Android-Client/app/src/test/java/.../data/repository/ThemeRepositoryTest.kt (CREATED)
+android_client/app/src/test/java/.../data/repository/ThemeRepositoryTest.kt (CREATED)
 
-Web-Client/src/app/core/services/theme.service.spec.ts (UPDATED)
+web_client/src/app/core/services/theme.service.spec.ts (UPDATED)
 
-Desktop-Client/src/app/core/services/theme.service.spec.ts (UPDATED)
+desktop_client/src/app/core/services/theme.service.spec.ts (UPDATED)
 ```
 
 ---
@@ -605,7 +605,7 @@ Phase 1 of the UI/UX implementation is **complete**, and theme test suites have 
 - Added Hilt Work dependencies for @HiltWorker support
 - Fixed SQL syntax in DocumentSpaceDao (NULLS LAST → CASE expression)
 - **Result**: KSP compilation successful (original KAPT error resolved)
-- **Files**: `Android-Client/build.gradle:11`, `Android-Client/app/build.gradle:6,67,80-81,92`
+- **Files**: `android_client/build.gradle:11`, `android_client/app/build.gradle:6,67,80-81,92`
 
 **✅ Dependency Updates**:
 - Installed `marked@^11.0.0` package in Web-Client and Desktop-Client

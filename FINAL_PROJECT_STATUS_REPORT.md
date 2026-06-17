@@ -221,7 +221,7 @@ A **world-class, enterprise-grade localization system** featuring:
 
 - Update CLAUDE.md
 - Update USER_MANUAL.md
-- Update Core/Website
+- Update core/Website
 - Create migration guides
 
 ---
@@ -422,16 +422,16 @@ A **world-class, enterprise-grade localization system** featuring:
 ### Quick Start Commands
 ```bash
 # Start Localization Service
-cd Core/Services/Localization
+cd core/Services/Localization
 docker-compose up -d
 
 # Start Core Application
-cd Core/Application
+cd core/Application
 go build -o htCore main.go
 ./htCore --config=Configurations/default.json
 
 # Start Web Client
-cd Web-Client
+cd web_client
 npm install
 npm start
 ```

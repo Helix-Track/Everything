@@ -18,7 +18,7 @@ This document tracks the comprehensive localization integration project for Heli
 
 ### 1.1 Architecture Design ✅
 
-**Location:** `Core/Services/Localization/LOCALIZATION_LIFECYCLE_DESIGN.md`
+**Location:** `core/Services/Localization/LOCALIZATION_LIFECYCLE_DESIGN.md`
 
 **Completed:**
 - Multi-layer caching strategy (In-memory LRU + Redis)
@@ -39,7 +39,7 @@ This document tracks the comprehensive localization integration project for Heli
 
 ### 1.2 Seed Data Creation ✅
 
-**Location:** `Core/Services/Localization/seed-data/`
+**Location:** `core/Services/Localization/seed-data/`
 
 **Completed Files:**
 ```
@@ -75,7 +75,7 @@ seed-data/
 
 ### 1.3 Startup Population System ✅
 
-**Location:** `Core/Services/Localization/internal/seeder/`
+**Location:** `core/Services/Localization/internal/seeder/`
 
 **Completed:**
 - **seeder.go**: Complete seeding package with:
@@ -104,7 +104,7 @@ seed-data/
 
 ### 1.4 Export & Backup Scripts ✅
 
-**Location:** `Core/Services/Localization/scripts/`
+**Location:** `core/Services/Localization/scripts/`
 
 **Completed Scripts:**
 
@@ -147,7 +147,7 @@ seed-data/
 
 ### 1.5 Docker Support ✅
 
-**Location:** `Core/Services/Localization/`
+**Location:** `core/Services/Localization/`
 
 **Completed:**
 
@@ -284,7 +284,7 @@ docker-compose down
 ### Tasks:
 
 #### 4.1 Localization Client
-- Create `Core/Application/internal/services/localization_service.go`
+- Create `core/Application/internal/services/localization_service.go`
 - HTTP/3 QUIC client for Localization service
 - In-memory caching (1-hour TTL)
 - Fallback to English on errors
@@ -309,11 +309,11 @@ docker-compose down
 - Fallback to hardcoded strings if service unavailable
 
 **Files to Create/Modify:**
-- `Core/Application/internal/services/localization_service.go`
-- `Core/Application/internal/services/localization_service_test.go`
-- `Core/Application/internal/models/errors.go` - Add localization
-- `Core/Application/internal/handlers/*.go` - Replace all hardcoded strings
-- `Core/Application/Configurations/*.json` - Add localization config
+- `core/Application/internal/services/localization_service.go`
+- `core/Application/internal/services/localization_service_test.go`
+- `core/Application/internal/models/errors.go` - Add localization
+- `core/Application/internal/handlers/*.go` - Replace all hardcoded strings
+- `core/Application/Configurations/*.json` - Add localization config
 
 **Identified Hardcoded Strings:**
 - 200+ user-facing strings across handlers
@@ -330,7 +330,7 @@ docker-compose down
 ### Tasks:
 
 #### 5.1 Localization Service Integration
-- Update `Web-Client/src/app/core/services/localization.service.ts`
+- Update `web_client/src/app/core/services/localization.service.ts`
 - Call Localization service via HTTP/3 QUIC
 - LocalStorage caching (1-hour TTL)
 - Catalog preloading on app init
@@ -361,8 +361,8 @@ docker-compose down
 - Export to Excel/CSV for translators
 
 **Files to Create/Modify:**
-- `Web-Client/src/app/core/services/localization.service.ts`
-- `Web-Client/src/app/features/localization-management/` (new)
+- `web_client/src/app/core/services/localization.service.ts`
+- `web_client/src/app/features/localization-management/` (new)
 - Replace hardcoded strings throughout the app
 - Update routing and navigation
 
@@ -377,7 +377,7 @@ docker-compose down
 ### Tasks:
 
 #### 6.1 Localization Service Integration
-- Update `Desktop-Client/src/app/core/services/localization.service.ts`
+- Update `desktop_client/src/app/core/services/localization.service.ts`
 - Use Tauri invoke for HTTP/3 QUIC calls
 - SQLite caching with encryption
 - Offline-first with sync
@@ -402,7 +402,7 @@ docker-compose down
 ### Tasks:
 
 #### 7.1 Localization Service Integration
-- Update `Android-Client/app/src/main/java/com/helixtrack/android/services/LocalizationService.kt`
+- Update `android_client/app/src/main/java/com/helixtrack/android/services/LocalizationService.kt`
 - OkHttp3 client with HTTP/3 support
 - EncryptedSharedPreferences caching
 - Work Manager for background sync
@@ -428,7 +428,7 @@ docker-compose down
 ### Tasks:
 
 #### 8.1 Localization Service Integration
-- Create `iOS-Client/Sources/Services/LocalizationService.swift`
+- Create `ios_client/Sources/Services/LocalizationService.swift`
 - URLSession with HTTP/3 (iOS 15+)
 - Keychain caching with Secure Enclave
 - Combine framework for reactive updates
@@ -500,7 +500,7 @@ docker-compose down
 - **docs/DEPLOYMENT.md**: Add Localization deployment guide
 
 #### 10.2 Update Website
-- **Core/Website**: Add localization section
+- **core/Website**: Add localization section
 - Feature highlights
 - API documentation
 - Integration guides
@@ -546,7 +546,7 @@ docker-compose down
 ### 1. Start Localization Service (Docker)
 
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 
 # Create .env file
 cp .env.example .env
@@ -662,11 +662,11 @@ cat /tmp/backup/metadata.json
 ## 📞 Support & Resources
 
 ### Documentation
-- **Lifecycle Design:** `Core/Services/Localization/LOCALIZATION_LIFECYCLE_DESIGN.md`
-- **Seed Data README:** `Core/Services/Localization/seed-data/README.md`
-- **Service README:** `Core/Services/Localization/README.md`
-- **Architecture:** `Core/Services/Localization/ARCHITECTURE.md`
-- **User Manual:** `Core/Services/Localization/USER_MANUAL.md`
+- **Lifecycle Design:** `core/Services/Localization/LOCALIZATION_LIFECYCLE_DESIGN.md`
+- **Seed Data README:** `core/Services/Localization/seed-data/README.md`
+- **Service README:** `core/Services/Localization/README.md`
+- **Architecture:** `core/Services/Localization/ARCHITECTURE.md`
+- **User Manual:** `core/Services/Localization/USER_MANUAL.md`
 
 ### Key Files
 - **Seeder:** `internal/seeder/seeder.go`

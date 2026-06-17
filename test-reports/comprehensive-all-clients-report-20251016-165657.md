@@ -64,7 +64,7 @@ Status: ❌ FAILED
 - ✅ Touch and mouse interactions
 
 ### Icon Verification
-- ✅ All clients use icons from Core/Assets/Logo.png
+- ✅ All clients use icons from core/Assets/Logo.png
 - ✅ Proper icon sizes for each platform
 - ✅ Icon generation scripts functional
 - ✅ Adaptive icons (Android)

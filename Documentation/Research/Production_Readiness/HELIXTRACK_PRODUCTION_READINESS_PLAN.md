@@ -89,7 +89,7 @@ This plan was produced after a comprehensive, line-by-line analysis of the entir
 ### 2.1 Repository Structure
 
 ```
-Core/
+core/
 ├── Application/                    # Go microservice (PRIMARY)
 │   ├── main.go                     # 84 lines — entry point
 │   ├── go.mod                      # 55 lines — Go 1.24, 11 direct deps

@@ -294,7 +294,7 @@ Button("Admin Panel") {
 
 ```bash
 # SQLite (Development)
-cd Core/Application
+cd core/Application
 sqlite3 Database/Definition.sqlite < Database/DDL/Test_Data_Users_Permissions.sql
 
 # PostgreSQL (Production)
@@ -305,7 +305,7 @@ psql -U helixtrack -d helixtrack_core -f Database/DDL/Test_Data_Users_Permission
 
 ```bash
 # Start Docker infrastructure
-cd Core/Application
+cd core/Application
 ./scripts/start-production.sh --with-monitoring
 
 # This starts:
@@ -319,19 +319,19 @@ cd Core/Application
 
 ```bash
 # Web Client
-cd Web-Client
+cd web_client
 npm test
 
 # Desktop Client
-cd Desktop-Client
+cd desktop_client
 npm test
 
 # Android Client
-cd Android-Client
+cd android_client
 ./gradlew test
 
 # iOS Client
-cd iOS-Client
+cd ios_client
 swift test
 ```
 

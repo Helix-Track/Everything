@@ -39,7 +39,7 @@ This document provides a complete, step-by-step roadmap for implementing the Hel
 
 #### Step 1: Create Theme Color Resources
 
-**File**: `Android-Client/app/src/main/res/values/colors.xml`
+**File**: `android_client/app/src/main/res/values/colors.xml`
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -85,7 +85,7 @@ This document provides a complete, step-by-step roadmap for implementing the Hel
 
 #### Step 2: Create Material Design 3 Themes
 
-**File**: `Android-Client/app/src/main/res/values/themes.xml`
+**File**: `android_client/app/src/main/res/values/themes.xml`
 
 ```xml
 <resources xmlns:tools="http://schemas.android.com/tools">
@@ -147,7 +147,7 @@ This document provides a complete, step-by-step roadmap for implementing the Hel
 
 #### Step 3: Implement Theme Manager
 
-**File**: `Android-Client/app/src/main/java/com/helixtrack/ThemeManager.kt`
+**File**: `android_client/app/src/main/java/com/helixtrack/ThemeManager.kt`
 
 ```kotlin
 package com.helixtrack
@@ -228,7 +228,7 @@ class MainActivity : ComponentActivity() {
 
 #### Step 5: Create Jetpack Compose Theme
 
-**File**: `Android-Client/app/src/main/java/com/helixtrack/ui/theme/Theme.kt`
+**File**: `android_client/app/src/main/java/com/helixtrack/ui/theme/Theme.kt`
 
 ```kotlin
 @Composable
@@ -280,7 +280,7 @@ fun HelixTrackTheme(
 
 #### Step 1: Create CSS Variables
 
-**File**: `Web-Client/src/styles/themes.scss`
+**File**: `web_client/src/styles/themes.scss`
 
 ```scss
 // Brand Colors (from website)
@@ -372,7 +372,7 @@ $brand-accent: #B2E3C2;
 
 #### Step 2: Create Theme Service
 
-**File**: `Web-Client/src/app/core/services/theme.service.ts`
+**File**: `web_client/src/app/core/services/theme.service.ts`
 
 ```typescript
 import { Injectable } from '@angular/core';
@@ -436,7 +436,7 @@ export class ThemeService {
 
 #### Step 3: Create Theme Toggle Component
 
-**File**: `Web-Client/src/app/shared/components/theme-toggle/theme-toggle.component.ts`
+**File**: `web_client/src/app/shared/components/theme-toggle/theme-toggle.component.ts`
 
 ```typescript
 import { Component } from '@angular/core';
@@ -515,7 +515,7 @@ Desktop client uses the same Web implementation + Tauri-specific enhancements.
 
 #### Additional: Tauri Theme Detection
 
-**File**: `Desktop-Client/src-tauri/src/main.rs` (add command)
+**File**: `desktop_client/src-tauri/src/main.rs` (add command)
 
 ```rust
 #[tauri::command]
@@ -568,7 +568,7 @@ fn get_system_theme() -> String {
 
 #### Step 1: Create Color Extensions
 
-**File**: `iOS-Client/Sources/Extensions/Color+Theme.swift`
+**File**: `ios_client/Sources/Extensions/Color+Theme.swift`
 
 ```swift
 import SwiftUI
@@ -628,7 +628,7 @@ extension Color {
 
 #### Step 2: Create Asset Catalog Colors
 
-**File**: `iOS-Client/Assets.xcassets/Colors/Contents.json`
+**File**: `ios_client/Assets.xcassets/Colors/Contents.json`
 
 Add adaptive color sets in Xcode Asset Catalog:
 
@@ -653,7 +653,7 @@ Colors/
 
 #### Step 3: Theme Manager
 
-**File**: `iOS-Client/Sources/Managers/ThemeManager.swift`
+**File**: `ios_client/Sources/Managers/ThemeManager.swift`
 
 ```swift
 import SwiftUI
@@ -695,7 +695,7 @@ class ThemeManager: ObservableObject {
 
 #### Step 4: Apply Theme to App
 
-**File**: `iOS-Client/Sources/App/HelixTrackApp.swift`
+**File**: `ios_client/Sources/App/HelixTrackApp.swift`
 
 ```swift
 @main
@@ -1015,7 +1015,7 @@ UI_UX_Wireframes/
 The Core has a script for exporting .drawio to PNG:
 
 ```bash
-cd Core/Application/scripts
+cd core/Application/scripts
 ./export-drawio-to-png.sh /path/to/diagram.drawio
 ```
 

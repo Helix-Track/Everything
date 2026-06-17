@@ -25,7 +25,7 @@ TIMESTAMP=$(date +%Y%m%d-%H%M%S)
 echo "📡 Checking if HelixTrack Core is running..."
 if ! curl -s http://localhost:8080/health > /dev/null; then
     echo -e "${RED}❌ HelixTrack Core is not running on port 8080${NC}"
-    echo "Please start Core first: cd Core && go run main.go"
+    echo "Please start Core first: cd core && go run main.go"
     exit 1
 fi
 echo -e "${GREEN}✅ Core is running${NC}"
@@ -329,7 +329,7 @@ cat >> "$REPORT_FILE" << EOF
 
 ## Icon Verification Results
 - **Status**: ${ICON_VERIFICATION}
-- **Source**: Core/Assets/Logo.png ✅
+- **Source**: core/Assets/Logo.png ✅
 - **Verification Script**: Comprehensive automated checking ✅
 - **Cross-Platform Consistency**: Verified across all clients ✅
 

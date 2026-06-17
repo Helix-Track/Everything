@@ -12,7 +12,7 @@ Successfully completed comprehensive integration of Consul-based service discove
 ## Deliverables Overview
 
 ### 1. Core Backend (Go) ✅
-**Location**: `Core/Application`
+**Location**: `core/Application`
 
 **Test Results**:
 - **1,710 total tests**
@@ -156,7 +156,7 @@ Successfully completed comprehensive integration of Consul-based service discove
 ## Test Data
 
 ### Test Users
-**File**: `Core/Application/Database/DDL/Test_Data_Users_Permissions.sql`
+**File**: `core/Application/Database/DDL/Test_Data_Users_Permissions.sql`
 
 **8 Comprehensive Test Users**:
 | Username | Password | Role | Permissions | Security | Use Case |
@@ -194,22 +194,22 @@ Successfully completed comprehensive integration of Consul-based service discove
    - All platforms covered
    - Complete API reference
 
-2. **Web-Client/SERVICE_DISCOVERY_INTEGRATION.md** (15KB)
+2. **web_client/SERVICE_DISCOVERY_INTEGRATION.md** (15KB)
    - TypeScript/Angular integration
    - Permission directives
    - Complete examples
 
-3. **Desktop-Client/SERVICE_DISCOVERY_INTEGRATION.md** (18KB)
+3. **desktop_client/SERVICE_DISCOVERY_INTEGRATION.md** (18KB)
    - Tauri integration
    - Rust service discovery
    - System tray integration
 
-4. **Android-Client/SERVICE_DISCOVERY_INTEGRATION.md** (22KB)
+4. **android_client/SERVICE_DISCOVERY_INTEGRATION.md** (22KB)
    - Kotlin integration
    - Hilt DI examples
    - Compose UI patterns
 
-5. **iOS-Client/SERVICE_DISCOVERY_INTEGRATION.md** (20KB)
+5. **ios_client/SERVICE_DISCOVERY_INTEGRATION.md** (20KB)
    - Swift integration
    - SwiftUI view modifiers
    - XCTest examples
@@ -307,7 +307,7 @@ Button("Delete") { deleteTicket() }
 
 ### 1. Load Test Data
 ```bash
-cd Core/Application
+cd core/Application
 sqlite3 Database/Definition.sqlite < Database/DDL/Test_Data_Users_Permissions.sql
 ```
 

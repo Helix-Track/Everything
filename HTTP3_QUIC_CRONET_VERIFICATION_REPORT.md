@@ -24,7 +24,7 @@ All client applications (Web-Client, Desktop-Client, Android-Client, iOS-Client)
 **Location:** `/home/milosvasic/Projects/HelixTrack/Web-Client`
 
 #### 1.1 HTTP3QuicService Implementation
-**File:** `/home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/services/http3-quic.service.ts`
+**File:** `/home/milosvasic/Projects/HelixTrack/web_client/src/app/core/services/http3-quic.service.ts`
 - **Status:** IMPLEMENTED with full interface
 - **Lines:** 1-281
 - **Key Features:**
@@ -42,7 +42,7 @@ All client applications (Web-Client, Desktop-Client, Android-Client, iOS-Client)
 - Result: Code runs but falls back to standard Fetch
 
 #### 1.2 HTTP3QuicInterceptor
-**File:** `/home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/interceptors/http3-quic.interceptor.ts`
+**File:** `/home/milosvasic/Projects/HelixTrack/web_client/src/app/core/interceptors/http3-quic.interceptor.ts`
 - **Status:** NON-FUNCTIONAL STUB
 - **Lines:** 1-15
 - **Code:** 
@@ -57,19 +57,19 @@ All client applications (Web-Client, Desktop-Client, Android-Client, iOS-Client)
 - Does not intercept or modify requests for QUIC/HTTP/3
 
 #### 1.3 Interceptor Registration
-**File:** `/home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/interceptors/index.ts`
+**File:** `/home/milosvasic/Projects/HelixTrack/web_client/src/app/core/interceptors/index.ts`
 - **Status:** REGISTERED
 - **Lines:** 1-28
 - Properly exported as HTTP_INTERCEPTORS provider (lines 7-28)
 - Includes: AuthInterceptor, ErrorInterceptor, LoadingInterceptor, Http3QuicInterceptor
 
-**File:** `/home/milosvasic/Projects/HelixTrack/Web-Client/src/app/app.config.ts`
+**File:** `/home/milosvasic/Projects/HelixTrack/web_client/src/app/app.config.ts`
 - **Status:** CONFIGURED
 - **Lines:** 1-20
 - Uses `httpInterceptorProviders` from interceptors/index.ts (line 7, 16)
 
 #### 1.4 API Service Integration
-**File:** `/home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/services/helixtrack-api.service.ts`
+**File:** `/home/milosvasic/Projects/HelixTrack/web_client/src/app/core/services/helixtrack-api.service.ts`
 - **Status:** INTEGRATED
 - Imports Http3QuicService (verified in search results)
 - All API methods use `http3Service.callApi()` for backend communication
@@ -90,7 +90,7 @@ All client applications (Web-Client, Desktop-Client, Android-Client, iOS-Client)
 **Location:** `/home/milosvasic/Projects/HelixTrack/Desktop-Client`
 
 #### 2.1 HTTP3QuicService Implementation
-**File:** `/home/milosvasic/Projects/HelixTrack/Desktop-Client/src/app/core/services/http3-quic.service.ts`
+**File:** `/home/milosvasic/Projects/HelixTrack/desktop_client/src/app/core/services/http3-quic.service.ts`
 - **Status:** IMPLEMENTED
 - **Lines:** 1-180
 - **Key Features:**
@@ -101,7 +101,7 @@ All client applications (Web-Client, Desktop-Client, Android-Client, iOS-Client)
   - All API methods use `http3Service.callApi()` with `/do` endpoint (line 76)
 
 #### 2.2 Tauri Backend QUIC Implementation
-**File:** `/home/milosvasic/Projects/HelixTrack/Desktop-Client/src-tauri/src/lib.rs`
+**File:** `/home/milosvasic/Projects/HelixTrack/desktop_client/src-tauri/src/lib.rs`
 - **Status:** STUB/PLACEHOLDER
 - **Lines:** 17-21
 - Code:
@@ -115,7 +115,7 @@ All client applications (Web-Client, Desktop-Client, Android-Client, iOS-Client)
   ```
 - **Issue:** Function is not implemented, just returns placeholder message
 
-**File:** `/home/milosvasic/Projects/HelixTrack/Desktop-Client/src-tauri/Cargo.toml`
+**File:** `/home/milosvasic/Projects/HelixTrack/desktop_client/src-tauri/Cargo.toml`
 - **Status:** DEPENDENCIES DECLARED
 - **Lines:** 27-28
   ```toml
@@ -125,18 +125,18 @@ All client applications (Web-Client, Desktop-Client, Android-Client, iOS-Client)
 - Dependencies for QUIC (quinn) and HTTP/3 (h3) are declared but NOT USED
 
 #### 2.3 HTTP3QuicInterceptor
-**File:** `/home/milosvasic/Projects/HelixTrack/Desktop-Client/src/app/core/interceptors/http3-quic.interceptor.ts`
+**File:** `/home/milosvasic/Projects/HelixTrack/desktop_client/src/app/core/interceptors/http3-quic.interceptor.ts`
 - **Status:** NON-FUNCTIONAL STUB
 - **Lines:** 1-16
 - Same issue as Web-Client: just passes requests through
 
 #### 2.4 Interceptor Registration
-**File:** `/home/milosvasic/Projects/HelixTrack/Desktop-Client/src/app/core/interceptors/index.ts`
+**File:** `/home/milosvasic/Projects/HelixTrack/desktop_client/src/app/core/interceptors/index.ts`
 - **Status:** REGISTERED
 - **Lines:** 1-28
 - Same as Web-Client
 
-**File:** `/home/milosvasic/Projects/HelixTrack/Desktop-Client/src/app/app.config.ts`
+**File:** `/home/milosvasic/Projects/HelixTrack/desktop_client/src/app/app.config.ts`
 - **Status:** CONFIGURED
 - **Lines:** 1-20
 - Same as Web-Client
@@ -158,7 +158,7 @@ All client applications (Web-Client, Desktop-Client, Android-Client, iOS-Client)
 **Location:** `/home/milosvasic/Projects/HelixTrack/Android-Client`
 
 #### 3.1 Cronet Configuration
-**File:** `/home/milosvasic/Projects/HelixTrack/Android-Client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt`
+**File:** `/home/milosvasic/Projects/HelixTrack/android_client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt`
 - **Status:** FULLY IMPLEMENTED
 - **Lines:** 37-44 (provideCronetEngine)
   ```kotlin
@@ -180,7 +180,7 @@ All client applications (Web-Client, Desktop-Client, Android-Client, iOS-Client)
   - Storage path set to app cache directory (line 42)
 
 #### 3.2 OkHttpClient Configuration
-**File:** `/home/milosvasic/Projects/HelixTrack/Android-Client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt`
+**File:** `/home/milosvasic/Projects/HelixTrack/android_client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt`
 - **Status:** FULLY IMPLEMENTED
 - **Lines:** 62-83 (provideOkHttpClient)
   ```kotlin
@@ -215,7 +215,7 @@ All client applications (Web-Client, Desktop-Client, Android-Client, iOS-Client)
   - Certificate pinning in production (lines 77-80)
 
 #### 3.3 Certificate Pinning
-**File:** `/home/milosvasic/Projects/HelixTrack/Android-Client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt`
+**File:** `/home/milosvasic/Projects/HelixTrack/android_client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt`
 - **Status:** CONFIGURED but EMPTY
 - **Lines:** 48-58
   - Certificate pinner builder created (line 52)
@@ -224,14 +224,14 @@ All client applications (Web-Client, Desktop-Client, Android-Client, iOS-Client)
 - **Note:** Production pins need to be added before release
 
 #### 3.4 API Interface
-**File:** `/home/milosvasic/Projects/HelixTrack/Android-Client/app/src/main/java/com/helixtrack/android/data/api/HelixTrackApi.kt`
+**File:** `/home/milosvasic/Projects/HelixTrack/android_client/app/src/main/java/com/helixtrack/android/data/api/HelixTrackApi.kt`
 - **Status:** IMPLEMENTED
 - **Lines:** 1-50+
 - Uses Retrofit with uniform `/do` endpoint (line 10)
 - All requests routed through single POST endpoint
 
 #### 3.5 Gradle Dependencies
-**File:** `/home/milosvasic/Projects/HelixTrack/Android-Client/app/build.gradle`
+**File:** `/home/milosvasic/Projects/HelixTrack/android_client/app/build.gradle`
 - **Status:** CONFIGURED
 - **Lines:** 84-85
   ```gradle
@@ -267,7 +267,7 @@ All client applications (Web-Client, Desktop-Client, Android-Client, iOS-Client)
 **Location:** `/home/milosvasic/Projects/HelixTrack/iOS-Client`
 
 #### 4.1 URLSession Configuration
-**File:** `/home/milosvasic/Projects/HelixTrack/iOS-Client/Sources/HelixTrack/Services/APIService.swift`
+**File:** `/home/milosvasic/Projects/HelixTrack/ios_client/Sources/HelixTrack/Services/APIService.swift`
 - **Status:** PARTIALLY IMPLEMENTED
 - **Lines:** 19-43 (initialization)
   ```swift
@@ -298,7 +298,7 @@ All client applications (Web-Client, Desktop-Client, Android-Client, iOS-Client)
 - Relies on server Alt-Svc headers for HTTP/3 upgrade
 
 #### 4.2 Certificate Pinning Implementation
-**File:** `/home/milosvasic/Projects/HelixTrack/iOS-Client/Sources/HelixTrack/Services/CertificatePinningDelegate.swift`
+**File:** `/home/milosvasic/Projects/HelixTrack/ios_client/Sources/HelixTrack/Services/CertificatePinningDelegate.swift`
 - **Status:** FULLY IMPLEMENTED
 - **Lines:** 1-104
 - **Key Features:**
@@ -310,7 +310,7 @@ All client applications (Web-Client, Desktop-Client, Android-Client, iOS-Client)
   - URLSession delegate methods implemented (lines 30-57)
 
 #### 4.3 API Service Implementation
-**File:** `/home/milosvasic/Projects/HelixTrack/iOS-Client/Sources/HelixTrack/Services/APIService.swift`
+**File:** `/home/milosvasic/Projects/HelixTrack/ios_client/Sources/HelixTrack/Services/APIService.swift`
 - **Status:** FULLY IMPLEMENTED
 - **Lines:** 79-254
 - All requests use configured URLSession (line 242)
@@ -352,32 +352,32 @@ All client applications (Web-Client, Desktop-Client, Android-Client, iOS-Client)
 ## CONFIGURATION SUMMARY
 
 ### Web-Client
-- **HTTP/3 Service:** `/home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/services/http3-quic.service.ts` (281 lines)
-- **HTTP/3 Interceptor:** `/home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/interceptors/http3-quic.interceptor.ts` (15 lines - NON-FUNCTIONAL)
-- **Interceptor Registration:** `/home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/interceptors/index.ts` (28 lines)
-- **App Config:** `/home/milosvasic/Projects/HelixTrack/Web-Client/src/app/app.config.ts` (20 lines)
-- **API Service:** `/home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/services/helixtrack-api.service.ts`
+- **HTTP/3 Service:** `/home/milosvasic/Projects/HelixTrack/web_client/src/app/core/services/http3-quic.service.ts` (281 lines)
+- **HTTP/3 Interceptor:** `/home/milosvasic/Projects/HelixTrack/web_client/src/app/core/interceptors/http3-quic.interceptor.ts` (15 lines - NON-FUNCTIONAL)
+- **Interceptor Registration:** `/home/milosvasic/Projects/HelixTrack/web_client/src/app/core/interceptors/index.ts` (28 lines)
+- **App Config:** `/home/milosvasic/Projects/HelixTrack/web_client/src/app/app.config.ts` (20 lines)
+- **API Service:** `/home/milosvasic/Projects/HelixTrack/web_client/src/app/core/services/helixtrack-api.service.ts`
 
 ### Desktop-Client
-- **HTTP/3 Service:** `/home/milosvasic/Projects/HelixTrack/Desktop-Client/src/app/core/services/http3-quic.service.ts` (180 lines)
-- **HTTP/3 Interceptor:** `/home/milosvasic/Projects/HelixTrack/Desktop-Client/src/app/core/interceptors/http3-quic.interceptor.ts` (16 lines - NON-FUNCTIONAL)
-- **Interceptor Registration:** `/home/milosvasic/Projects/HelixTrack/Desktop-Client/src/app/core/interceptors/index.ts` (28 lines)
-- **App Config:** `/home/milosvasic/Projects/HelixTrack/Desktop-Client/src/app/app.config.ts` (20 lines)
-- **Tauri Backend:** `/home/milosvasic/Projects/HelixTrack/Desktop-Client/src-tauri/src/lib.rs` (lines 17-21 - PLACEHOLDER)
-- **Cargo.toml:** `/home/milosvasic/Projects/HelixTrack/Desktop-Client/src-tauri/Cargo.toml` (lines 27-28 - Dependencies declared)
+- **HTTP/3 Service:** `/home/milosvasic/Projects/HelixTrack/desktop_client/src/app/core/services/http3-quic.service.ts` (180 lines)
+- **HTTP/3 Interceptor:** `/home/milosvasic/Projects/HelixTrack/desktop_client/src/app/core/interceptors/http3-quic.interceptor.ts` (16 lines - NON-FUNCTIONAL)
+- **Interceptor Registration:** `/home/milosvasic/Projects/HelixTrack/desktop_client/src/app/core/interceptors/index.ts` (28 lines)
+- **App Config:** `/home/milosvasic/Projects/HelixTrack/desktop_client/src/app/app.config.ts` (20 lines)
+- **Tauri Backend:** `/home/milosvasic/Projects/HelixTrack/desktop_client/src-tauri/src/lib.rs` (lines 17-21 - PLACEHOLDER)
+- **Cargo.toml:** `/home/milosvasic/Projects/HelixTrack/desktop_client/src-tauri/Cargo.toml` (lines 27-28 - Dependencies declared)
 
 ### Android-Client
-- **Network Module:** `/home/milosvasic/Projects/HelixTrack/Android-Client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt` (106 lines)
+- **Network Module:** `/home/milosvasic/Projects/HelixTrack/android_client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt` (106 lines)
   - `provideCronetEngine()`: Lines 37-44
   - `provideOkHttpClient()`: Lines 62-83
   - `provideCertificatePinner()`: Lines 48-58
-- **API Interface:** `/home/milosvasic/Projects/HelixTrack/Android-Client/app/src/main/java/com/helixtrack/android/data/api/HelixTrackApi.kt`
-- **Gradle:** `/home/milosvasic/Projects/HelixTrack/Android-Client/app/build.gradle` (lines 84-85)
+- **API Interface:** `/home/milosvasic/Projects/HelixTrack/android_client/app/src/main/java/com/helixtrack/android/data/api/HelixTrackApi.kt`
+- **Gradle:** `/home/milosvasic/Projects/HelixTrack/android_client/app/build.gradle` (lines 84-85)
 
 ### iOS-Client
-- **API Service:** `/home/milosvasic/Projects/HelixTrack/iOS-Client/Sources/HelixTrack/Services/APIService.swift` (269 lines)
+- **API Service:** `/home/milosvasic/Projects/HelixTrack/ios_client/Sources/HelixTrack/Services/APIService.swift` (269 lines)
   - URLSession configuration: Lines 19-43
-- **Certificate Pinning:** `/home/milosvasic/Projects/HelixTrack/iOS-Client/Sources/HelixTrack/Services/CertificatePinningDelegate.swift` (104 lines)
+- **Certificate Pinning:** `/home/milosvasic/Projects/HelixTrack/ios_client/Sources/HelixTrack/Services/CertificatePinningDelegate.swift` (104 lines)
 
 ---
 

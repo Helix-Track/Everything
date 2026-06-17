@@ -288,7 +288,7 @@ These features work via API but need UI components:
 ## 📁 **Complete File Structure**
 
 ```
-Web-Client/src/app/features/chat/
+web_client/src/app/features/chat/
 ├── models/
 │   └── chat.models.ts ✅ (450 lines)
 │
@@ -377,7 +377,7 @@ constructor(
 
 ### 4. **Test the Chat**
 ```bash
-cd Web-Client
+cd web_client
 npm install
 npm start
 

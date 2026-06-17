@@ -16,7 +16,7 @@ Created **comprehensive unit test suites** for all WebSocket services in the Web
 
 ### 1. **Base WebSocket Service Tests** (100% Complete)
 
-**Location:** `Web-Client/src/app/features/localization-management/services/websocket.service.spec.ts`
+**Location:** `web_client/src/app/features/localization-management/services/websocket.service.spec.ts`
 
 **File Statistics:**
 - **Lines:** 424 lines of test code
@@ -98,7 +98,7 @@ if (mockWebSocket.onmessage) {
 
 ### 2. **LocalizationWebSocket Service Tests** (100% Complete)
 
-**Location:** `Web-Client/src/app/features/localization-management/services/localization-websocket.service.spec.ts`
+**Location:** `web_client/src/app/features/localization-management/services/localization-websocket.service.spec.ts`
 
 **File Statistics:**
 - **Lines:** 584 lines of test code
@@ -636,8 +636,8 @@ describe('ServiceName', () => {
 - [WEB_CLIENT_COMPONENT_INTEGRATION_COMPLETE.md](WEB_CLIENT_COMPONENT_INTEGRATION_COMPLETE.md) - Component integration
 
 **Code Locations:**
-- Services: `Web-Client/src/app/features/localization-management/services/`
-- Tests: `Web-Client/src/app/features/localization-management/services/*.spec.ts`
+- Services: `web_client/src/app/features/localization-management/services/`
+- Tests: `web_client/src/app/features/localization-management/services/*.spec.ts`
 
 ---
 

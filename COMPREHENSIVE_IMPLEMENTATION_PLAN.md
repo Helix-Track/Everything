@@ -26,7 +26,7 @@ This document provides a comprehensive analysis of unfinished work across the He
 - **Status**: 95% complete
 - **Blocking Issues**: 
   - Database implementation field mismatches (8-10 hours to fix)
-  - File: `Core/Application/DOCUMENTS_V2_DATABASE_ISSUES.md`
+  - File: `core/Application/DOCUMENTS_V2_DATABASE_ISSUES.md`
 - **Impact**: Cannot achieve 100% production readiness
 - **Tests**: 394 model tests at 100% pass rate
 - **API Actions**: 90 of 90 complete

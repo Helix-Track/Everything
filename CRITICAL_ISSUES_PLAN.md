@@ -7,7 +7,7 @@
 #### 1.1 Fix Build Failures
 - **Android-Client**:
   ```bash
-  cd Android-Client
+  cd android_client
   ./gradlew clean
   ./gradlew build --no-daemon --stacktrace
   ```
@@ -16,7 +16,7 @@
 
 - **Desktop-Client**:
   ```bash
-  cd Desktop-Client
+  cd desktop_client
   npm run lint --fix
   ```
   - Fix 334 lint issues (332 errors, 2 warnings)
@@ -25,7 +25,7 @@
 #### 1.2 Enable Disabled Chat Components
 - **Web Client**:
   ```bash
-  cd Web-Client/src/app/features/tickets/ticket-chat/
+  cd web_client/src/app/features/tickets/ticket-chat/
   mv ticket-chat.component.html.disabled ticket-chat.component.html
   ```
   - Enable chat UI component
@@ -33,7 +33,7 @@
 
 - **Desktop Client**:
   ```bash
-  cd Desktop-Client/src/app/services/
+  cd desktop_client/src/app/services/
   mv desktop-chat.service.ts.disabled desktop-chat.service.ts
   ```
   - Enable desktop chat service
@@ -92,7 +92,7 @@ done
 find . -name "*.ts" -o -name "*.js" -o -name "*.go" | xargs grep -l "TODO" | wc -l
 
 # Fix all failing tests
-cd Core/Application && ./scripts/verify-tests.sh
+cd core/Application && ./scripts/verify-tests.sh
 cd ../Web-Client && npm test -- --watch=false --browsers=ChromeHeadless
 cd ../Desktop-Client && npm test
 cd ../Android-Client && ./gradlew test

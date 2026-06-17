@@ -140,7 +140,7 @@ The `Master_UI_UX_Flow.drawio` contains the following sections:
 The Core has a script for batch exporting:
 
 ```bash
-cd Core/Application/scripts
+cd core/Application/scripts
 ./export-drawio-to-png.sh /path/to/diagram.drawio
 ```
 

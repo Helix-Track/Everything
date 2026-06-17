@@ -13,11 +13,11 @@ We have **existing client modules** that need to be extended with Documents V2 f
 ### Existing Modules
 ```
 HelixTrack/
-├── Core/Application/          ✅ Documents V2 backend COMPLETE (100%)
-├── Android-Client/            ⚪ Needs Documents integration
-├── Web-Client/                ⚪ Needs Documents integration
-├── Desktop-Client/            ⚪ Needs Documents integration
-└── iOS-Client/                ⚪ Needs Documents integration
+├── core/Application/          ✅ Documents V2 backend COMPLETE (100%)
+├── android_client/            ⚪ Needs Documents integration
+├── web_client/                ⚪ Needs Documents integration
+├── desktop_client/            ⚪ Needs Documents integration
+└── ios_client/                ⚪ Needs Documents integration
 ```
 
 ### Markor Integration
@@ -47,7 +47,7 @@ HelixTrack/
 
 ### Current Structure
 ```
-Android-Client/
+android_client/
 ├── app/
 │   ├── build.gradle
 │   └── src/main/
@@ -69,7 +69,7 @@ Android-Client/
 #### Step 1: Add Dependencies (build.gradle)
 
 ```gradle
-// Android-Client/app/build.gradle
+// android_client/app/build.gradle
 
 dependencies {
     // Existing dependencies...
@@ -98,25 +98,25 @@ dependencies {
 ```bash
 # Copy core editor components from Markor
 cp /home/milosvasic/Projects/markor/app/src/main/java/net/gsantner/markor/frontend/textview/HighlightingEditor.java \\
-   Android-Client/app/src/main/java/com/helixtrack/editor/
+   android_client/app/src/main/java/com/helixtrack/editor/
 
 cp /home/milosvasic/Projects/markor/app/src/main/java/net/gsantner/markor/frontend/textview/SyntaxHighlighterBase.java \\
-   Android-Client/app/src/main/java/com/helixtrack/editor/
+   android_client/app/src/main/java/com/helixtrack/editor/
 
 cp /home/milosvasic/Projects/markor/app/src/main/java/net/gsantner/markor/format/markdown/MarkdownSyntaxHighlighter.java \\
-   Android-Client/app/src/main/java/com/helixtrack/editor/markdown/
+   android_client/app/src/main/java/com/helixtrack/editor/markdown/
 
 cp /home/milosvasic/Projects/markor/app/src/main/java/net/gsantner/markor/format/markdown/MarkdownTextConverter.java \\
-   Android-Client/app/src/main/java/com/helixtrack/editor/markdown/
+   android_client/app/src/main/java/com/helixtrack/editor/markdown/
 
 cp /home/milosvasic/Projects/markor/app/src/main/java/net/gsantner/markor/format/markdown/MarkdownActionButtons.java \\
-   Android-Client/app/src/main/java/com/helixtrack/editor/markdown/
+   android_client/app/src/main/java/com/helixtrack/editor/markdown/
 ```
 
 #### Step 3: Create Document Models
 
 ```kotlin
-// Android-Client/app/src/main/java/com/helixtrack/models/Document.kt
+// android_client/app/src/main/java/com/helixtrack/models/Document.kt
 package com.helixtrack.models
 
 import androidx.room.Entity
@@ -145,7 +145,7 @@ data class Document(
 #### Step 4: Create Database DAO
 
 ```kotlin
-// Android-Client/app/src/main/java/com/helixtrack/database/DocumentDao.kt
+// android_client/app/src/main/java/com/helixtrack/database/DocumentDao.kt
 package com.helixtrack.database
 
 import androidx.room.*
@@ -183,7 +183,7 @@ interface DocumentDao {
 #### Step 5: Create API Service
 
 ```kotlin
-// Android-Client/app/src/main/java/com/helixtrack/services/DocumentApiService.kt
+// android_client/app/src/main/java/com/helixtrack/services/DocumentApiService.kt
 package com.helixtrack.services
 
 import com.helixtrack.models.ApiRequest
@@ -216,7 +216,7 @@ data class ApiResponse(
 #### Step 6: Create Repository
 
 ```kotlin
-// Android-Client/app/src/main/java/com/helixtrack/repositories/DocumentRepository.kt
+// android_client/app/src/main/java/com/helixtrack/repositories/DocumentRepository.kt
 package com.helixtrack.repositories
 
 import com.helixtrack.database.DocumentDao
@@ -345,7 +345,7 @@ class VersionConflictException : Exception("Document version conflict")
 #### Step 7: Create Document Editor Activity
 
 ```kotlin
-// Android-Client/app/src/main/java/com/helixtrack/activities/DocumentEditorActivity.kt
+// android_client/app/src/main/java/com/helixtrack/activities/DocumentEditorActivity.kt
 package com.helixtrack.activities
 
 import android.os.Bundle
@@ -456,7 +456,7 @@ class DocumentEditorActivity : AppCompatActivity() {
 #### Step 8: Create Layout Resources
 
 ```xml
-<!-- Android-Client/app/src/main/res/layout/activity_document_editor.xml -->
+<!-- android_client/app/src/main/res/layout/activity_document_editor.xml -->
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -568,7 +568,7 @@ fun navigateToDocumentEditor(documentId: String) {
 
 ### Current Structure
 ```
-Web-Client/
+web_client/
 ├── angular.json
 ├── package.json
 ├── src/
@@ -592,8 +592,8 @@ Web-Client/
 #### Step 1: Add Dependencies
 
 ```bash
-# Web-Client/
-cd Web-Client
+# web_client/
+cd web_client
 npm install marked highlight.js turndown dompurify
 npm install --save-dev @types/marked @types/dompurify
 ```
@@ -628,7 +628,7 @@ ng generate component features/documents/pages/editor-page
 #### Step 4: Create Document Models
 
 ```typescript
-// Web-Client/src/app/core/models/document.model.ts
+// web_client/src/app/core/models/document.model.ts
 export interface Document {
   id: string;
   title: string;
@@ -653,7 +653,7 @@ export interface Document {
 #### Step 6: Add Routes
 
 ```typescript
-// Web-Client/src/app/features/documents/documents-routing.module.ts
+// web_client/src/app/features/documents/documents-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DocumentListComponent } from './pages/document-list/document-list.component';
@@ -675,7 +675,7 @@ export class DocumentsRoutingModule { }
 #### Step 7: Update Main App Routing
 
 ```typescript
-// Web-Client/src/app/app-routing.module.ts
+// web_client/src/app/app-routing.module.ts
 const routes: Routes = [
   // ... existing routes
   {
@@ -707,7 +707,7 @@ const routes: Routes = [
 #### Step 3: Update Tauri Configuration
 
 ```json
-// Desktop-Client/src-tauri/tauri.conf.json
+// desktop_client/src-tauri/tauri.conf.json
 {
   "tauri": {
     "allowlist": {
@@ -733,7 +733,7 @@ const routes: Routes = [
 
 ### Current Structure
 ```
-iOS-Client/
+ios_client/
 ├── Package.swift
 └── Sources/
     ├── App/
@@ -747,7 +747,7 @@ iOS-Client/
 #### Step 1: Add Dependencies
 
 ```swift
-// iOS-Client/Package.swift
+// ios_client/Package.swift
 dependencies: [
     .package(url: "https://github.com/johnxnguyen/Down.git", from: "0.11.0"),
     .package(url: "https://github.com/SimonFairbairn/SwiftyMarkdown.git", from: "1.2.4")
@@ -766,28 +766,28 @@ dependencies: [
 
 **Android**:
 ```bash
-cd Android-Client
+cd android_client
 ./gradlew test
 ./gradlew connectedAndroidTest
 ```
 
 **Web**:
 ```bash
-cd Web-Client
+cd web_client
 npm test
 npm run test:e2e
 ```
 
 **Desktop**:
 ```bash
-cd Desktop-Client
+cd desktop_client
 npm test
 npm run tauri:test
 ```
 
 **iOS**:
 ```bash
-cd iOS-Client
+cd ios_client
 swift test
 ./run-full-tests.sh
 ```

@@ -34,17 +34,17 @@ I've successfully applied **critical root cause fixes** to resolve the most impa
 - Client API signature changes
 
 **Files Fixed:**
-- ✅ `Core/Application/internal/client/http3_client.go`
+- ✅ `core/Application/internal/client/http3_client.go`
   - Lines 56-63: Updated `http3.RoundTripper` → `http3.Transport`
   - Lines 58: Updated `QuicConfig` → `QUICConfig`
   - Line 185: Updated type cast to `http3.Transport`
 
-- ✅ `Core/Application/internal/server/http3_server.go`
+- ✅ `core/Application/internal/server/http3_server.go`
   - Line 3-12: Removed unused `net/http` import
   - Line 44: Updated `QuicConfig` → `QUICConfig`
   - Line 94: Updated `QuicConfig` → `QUICConfig`
 
-- ✅ `Core/Application/tests/http3/http3_communication_test.go`
+- ✅ `core/Application/tests/http3/http3_communication_test.go`
   - Lines 341-365: Updated `http3.RoundTripper` → `http3.Transport`
   - Added `doGet()` helper function for context-aware GET requests
   - Updated all `client.Get(ctx, url)` calls to `doGet(client, ctx, url)`
@@ -67,7 +67,7 @@ I've successfully applied **critical root cause fixes** to resolve the most impa
 - Should be: `fun fromValue(value: Int)` ✅
 
 **File Fixed:**
-- ✅ `Android-Client/app/src/main/java/com/helixtrack/android/data/service/PermissionManager.kt`
+- ✅ `android_client/app/src/main/java/com/helixtrack/android/data/service/PermissionManager.kt`
   - Line 23: Removed space between "from" and "Value"
 
 **Impact:** Resolves Kotlin compilation error blocking all Android tests
@@ -85,7 +85,7 @@ I've successfully applied **critical root cause fixes** to resolve the most impa
 **Required Action:** Set environment variable before running tests:
 ```bash
 export CHROME_BIN=/usr/bin/chromium-browser
-cd Web-Client && npm test
+cd web_client && npm test
 ```
 
 **Alternative:** Update `package.json` or `karma.conf.js` to set CHROME_BIN automatically
@@ -113,7 +113,7 @@ cd Web-Client && npm test
 - Need to create mock WebSocket manager or pass nil
 
 **Files Requiring Updates:**
-- `Core/Services/Localization/internal/handlers/integration_test.go`
+- `core/Services/Localization/internal/handlers/integration_test.go`
   - Add `CountVersions()` method to MockDatabase (lines ~300+)
   - Create mock WebSocket manager or update NewHandler calls
 
@@ -214,7 +214,7 @@ File: service-discovery.service.spec.ts (multiple lines)
 ```bash
 # Temporary (single session):
 export CHROME_BIN=/usr/bin/chromium-browser
-cd Web-Client && npm test
+cd web_client && npm test
 
 # Permanent (add to package.json):
 "test": "CHROME_BIN=/usr/bin/chromium-browser ng test --watch=false --browsers=ChromeHeadless --code-coverage"
@@ -277,7 +277,7 @@ xcrun: command not found
    ```
 
 2. **Add CountVersions() to MockDatabase**
-   - File: `Core/Services/Localization/internal/handlers/integration_test.go`
+   - File: `core/Services/Localization/internal/handlers/integration_test.go`
    - Add method returning mock count
 
 ### Short Term (30 minutes - 2 hours)
@@ -287,7 +287,7 @@ xcrun: command not found
 
 4. **Install Desktop Tauri Plugin**
    ```bash
-   cd Desktop-Client
+   cd desktop_client
    npm install @tauri-apps/plugin-store
    ```
 
@@ -314,21 +314,21 @@ xcrun: command not found
 
 ### Core Application
 ```bash
-cd Core/Application
+cd core/Application
 ./scripts/verify-tests.sh
 ```
 **Expected:** Should now compile and pass most tests (HTTP/3 fixed)
 
 ### Android-Client
 ```bash
-cd Android-Client
+cd android_client
 ./gradlew test
 ```
 **Expected:** Should now compile (syntax error fixed)
 
 ### Web-Client
 ```bash
-cd Web-Client
+cd web_client
 export CHROME_BIN=/usr/bin/chromium-browser
 npm test
 ```
@@ -336,7 +336,7 @@ npm test
 
 ### KeyManager (Reference - Already Working)
 ```bash
-cd Core/Tools/KeyManager
+cd core/Tools/KeyManager
 go test -v -cover ./...
 ```
 **Expected:** 33/33 tests passing, 83.5% coverage
@@ -345,10 +345,10 @@ go test -v -cover ./...
 
 ## Files Modified in This Session
 
-1. ✅ `Core/Application/internal/client/http3_client.go`
-2. ✅ `Core/Application/internal/server/http3_server.go`
-3. ✅ `Core/Application/tests/http3/http3_communication_test.go`
-4. ✅ `Android-Client/app/src/main/java/com/helixtrack/android/data/service/PermissionManager.kt`
+1. ✅ `core/Application/internal/client/http3_client.go`
+2. ✅ `core/Application/internal/server/http3_server.go`
+3. ✅ `core/Application/tests/http3/http3_communication_test.go`
+4. ✅ `android_client/app/src/main/java/com/helixtrack/android/data/service/PermissionManager.kt`
 
 **Total:** 4 critical files fixed
 

@@ -20,7 +20,7 @@ CLIENT IMPLEMENTATION STATUS:
    ✓ Timeouts: 30s connection/read/write configured
    
    Location:
-   - /home/milosvasic/Projects/HelixTrack/Android-Client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt
+   - /home/milosvasic/Projects/HelixTrack/android_client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt
    - Lines: 37-44 (Cronet Engine), 62-83 (OkHttpClient)
    
    Missing: Production certificate pins
@@ -38,8 +38,8 @@ CLIENT IMPLEMENTATION STATUS:
    ⚠ Multipath: .handover set (but for TCP, not HTTP/3)
    
    Location:
-   - /home/milosvasic/Projects/HelixTrack/iOS-Client/Sources/HelixTrack/Services/APIService.swift
-   - /home/milosvasic/Projects/HelixTrack/iOS-Client/Sources/HelixTrack/Services/CertificatePinningDelegate.swift
+   - /home/milosvasic/Projects/HelixTrack/ios_client/Sources/HelixTrack/Services/APIService.swift
+   - /home/milosvasic/Projects/HelixTrack/ios_client/Sources/HelixTrack/Services/CertificatePinningDelegate.swift
    - Lines: 19-43 (URLSession config), 30-57 (Pinning delegate)
    
    Enhancement Opportunity: Make HTTP/3 preference more explicit
@@ -56,10 +56,10 @@ CLIENT IMPLEMENTATION STATUS:
    ✗ HTTP/3 Protocol: Not actually used by browser
    
    Location:
-   - /home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/services/http3-quic.service.ts (281 lines)
-   - /home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/interceptors/http3-quic.interceptor.ts (15 lines)
-   - /home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/interceptors/index.ts (28 lines)
-   - /home/milosvasic/Projects/HelixTrack/Web-Client/src/app/app.config.ts (20 lines)
+   - /home/milosvasic/Projects/HelixTrack/web_client/src/app/core/services/http3-quic.service.ts (281 lines)
+   - /home/milosvasic/Projects/HelixTrack/web_client/src/app/core/interceptors/http3-quic.interceptor.ts (15 lines)
+   - /home/milosvasic/Projects/HelixTrack/web_client/src/app/core/interceptors/index.ts (28 lines)
+   - /home/milosvasic/Projects/HelixTrack/web_client/src/app/app.config.ts (20 lines)
    
    Critical Issues:
    - Browser doesn't support window.CronetEngine or window.Http3Transport
@@ -80,10 +80,10 @@ CLIENT IMPLEMENTATION STATUS:
    ✗ QUIC Implementation: Never executed
    
    Location:
-   - Frontend: /home/milosvasic/Projects/HelixTrack/Desktop-Client/src/app/core/services/http3-quic.service.ts (180 lines)
-   - Frontend: /home/milosvasic/Projects/HelixTrack/Desktop-Client/src/app/core/interceptors/http3-quic.interceptor.ts (16 lines)
-   - Backend: /home/milosvasic/Projects/HelixTrack/Desktop-Client/src-tauri/src/lib.rs (lines 17-21)
-   - Cargo: /home/milosvasic/Projects/HelixTrack/Desktop-Client/src-tauri/Cargo.toml (lines 27-28)
+   - Frontend: /home/milosvasic/Projects/HelixTrack/desktop_client/src/app/core/services/http3-quic.service.ts (180 lines)
+   - Frontend: /home/milosvasic/Projects/HelixTrack/desktop_client/src/app/core/interceptors/http3-quic.interceptor.ts (16 lines)
+   - Backend: /home/milosvasic/Projects/HelixTrack/desktop_client/src-tauri/src/lib.rs (lines 17-21)
+   - Cargo: /home/milosvasic/Projects/HelixTrack/desktop_client/src-tauri/Cargo.toml (lines 27-28)
    
    Critical Issues:
    - Tauri lib.rs line 18-21: Function returns placeholder message only
@@ -110,54 +110,54 @@ Desktop (Tauri) │   ✗    │   ✗    │   ✓    │   ✗    │ Incomple
 
 ANDROID-CLIENT:
   Network Configuration:
-    /home/milosvasic/Projects/HelixTrack/Android-Client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt
+    /home/milosvasic/Projects/HelixTrack/android_client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt
     - provideCronetEngine(): lines 37-44
     - provideOkHttpClient(): lines 62-83
     - provideCertificatePinner(): lines 48-58
   
   Gradle Dependencies:
-    /home/milosvasic/Projects/HelixTrack/Android-Client/app/build.gradle
+    /home/milosvasic/Projects/HelixTrack/android_client/app/build.gradle
     - Cronet: line 85
     - OkHttp: line 82
     - Retrofit: line 80
 
 iOS-CLIENT:
   API Service:
-    /home/milosvasic/Projects/HelixTrack/iOS-Client/Sources/HelixTrack/Services/APIService.swift
+    /home/milosvasic/Projects/HelixTrack/ios_client/Sources/HelixTrack/Services/APIService.swift
     - URLSession configuration: lines 19-43
     - Request methods: lines 212-253
   
   Certificate Pinning:
-    /home/milosvasic/Projects/HelixTrack/iOS-Client/Sources/HelixTrack/Services/CertificatePinningDelegate.swift
+    /home/milosvasic/Projects/HelixTrack/ios_client/Sources/HelixTrack/Services/CertificatePinningDelegate.swift
     - Delegate implementation: lines 30-57
     - Certificate validation: lines 59-86
 
 WEB-CLIENT:
   HTTP/3 Service:
-    /home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/services/http3-quic.service.ts (281 lines)
+    /home/milosvasic/Projects/HelixTrack/web_client/src/app/core/services/http3-quic.service.ts (281 lines)
     - initialize(): lines 65-100
     - makeHttp3Request(): lines 106-158
     - callApi(): lines 160-168
   
   Interceptor (Non-functional):
-    /home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/interceptors/http3-quic.interceptor.ts (15 lines)
+    /home/milosvasic/Projects/HelixTrack/web_client/src/app/core/interceptors/http3-quic.interceptor.ts (15 lines)
     - intercept(): lines 10-14 (just passes through)
   
   Configuration:
-    /home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/interceptors/index.ts (28 lines)
-    /home/milosvasic/Projects/HelixTrack/Web-Client/src/app/app.config.ts (20 lines)
+    /home/milosvasic/Projects/HelixTrack/web_client/src/app/core/interceptors/index.ts (28 lines)
+    /home/milosvasic/Projects/HelixTrack/web_client/src/app/app.config.ts (20 lines)
 
 DESKTOP-CLIENT:
   Frontend HTTP/3 Service:
-    /home/milosvasic/Projects/HelixTrack/Desktop-Client/src/app/core/services/http3-quic.service.ts (180 lines)
+    /home/milosvasic/Projects/HelixTrack/desktop_client/src/app/core/services/http3-quic.service.ts (180 lines)
     - makeHttp3Request(): lines 59-73 (calls Tauri invoke)
   
   Tauri Backend (Placeholder):
-    /home/milosvasic/Projects/HelixTrack/Desktop-Client/src-tauri/src/lib.rs
+    /home/milosvasic/Projects/HelixTrack/desktop_client/src-tauri/src/lib.rs
     - send_quic_request(): lines 18-21 (NOT IMPLEMENTED)
   
   Dependencies:
-    /home/milosvasic/Projects/HelixTrack/Desktop-Client/src-tauri/Cargo.toml
+    /home/milosvasic/Projects/HelixTrack/desktop_client/src-tauri/Cargo.toml
     - quinn = "0.11" (line 27)
     - h3 = "0.0.6" (line 28)
 
@@ -171,42 +171,42 @@ ISSUE #1: WEB-CLIENT - Hypothetical Browser APIs
   Impact: Always falls back to standard Fetch API
   Severity: CRITICAL
   Fix Time: 4-6 hours
-  Location: /home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/services/http3-quic.service.ts (lines 70-92)
+  Location: /home/milosvasic/Projects/HelixTrack/web_client/src/app/core/services/http3-quic.service.ts (lines 70-92)
 
 ISSUE #2: WEB-CLIENT - Interceptor Stub
   Problem: Http3QuicInterceptor doesn't route requests through HTTP/3 service
   Impact: No request interception for HTTP/3
   Severity: HIGH
   Fix Time: 2-3 hours
-  Location: /home/milosvasic/Projects/HelixTrack/Web-Client/src/app/core/interceptors/http3-quic.interceptor.ts (lines 10-14)
+  Location: /home/milosvasic/Projects/HelixTrack/web_client/src/app/core/interceptors/http3-quic.interceptor.ts (lines 10-14)
 
 ISSUE #3: DESKTOP-CLIENT - Tauri Backend Placeholder
   Problem: send_quic_request() command returns placeholder, not implemented
   Impact: QUIC requests never actually sent
   Severity: CRITICAL
   Fix Time: 8-12 hours (requires Quinn/h3 integration)
-  Location: /home/milosvasic/Projects/HelixTrack/Desktop-Client/src-tauri/src/lib.rs (lines 18-21)
+  Location: /home/milosvasic/Projects/HelixTrack/desktop_client/src-tauri/src/lib.rs (lines 18-21)
 
 ISSUE #4: DESKTOP-CLIENT - Interceptor Stub
   Problem: Same as Web-Client interceptor
   Impact: No request interception for HTTP/3
   Severity: HIGH
   Fix Time: 2-3 hours
-  Location: /home/milosvasic/Projects/HelixTrack/Desktop-Client/src/app/core/interceptors/http3-quic.interceptor.ts (lines 11-14)
+  Location: /home/milosvasic/Projects/HelixTrack/desktop_client/src/app/core/interceptors/http3-quic.interceptor.ts (lines 11-14)
 
 ISSUE #5: ANDROID-CLIENT - Missing Production Certificates
   Problem: Certificate pins are empty, only framework in place
   Impact: Certificate pinning won't work in production
   Severity: MEDIUM (Before Release)
   Fix Time: 1-2 hours (once certificates are obtained)
-  Location: /home/milosvasic/Projects/HelixTrack/Android-Client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt (lines 48-58)
+  Location: /home/milosvasic/Projects/HelixTrack/android_client/app/src/main/java/com/helixtrack/android/di/NetworkModule.kt (lines 48-58)
 
 ISSUE #6: iOS-CLIENT - Implicit HTTP/3 Support
   Problem: HTTP/3 relies on automatic negotiation, no explicit enablement
   Impact: Less reliable HTTP/3 usage
   Severity: LOW (Already Functional)
   Fix Time: 2-3 hours (documentation + optional explicit config)
-  Location: /home/milosvasic/Projects/HelixTrack/iOS-Client/Sources/HelixTrack/Services/APIService.swift (line 27)
+  Location: /home/milosvasic/Projects/HelixTrack/ios_client/Sources/HelixTrack/Services/APIService.swift (line 27)
 
 
 ================================================================================

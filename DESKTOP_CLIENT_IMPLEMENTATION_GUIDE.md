@@ -18,7 +18,7 @@ The Desktop-Client uses Tauri (Rust backend) + Angular (same as Web-Client front
 
 ```bash
 # From project root
-cp -r Web-Client/src/app/features/documents Desktop-Client/src/app/features/documents
+cp -r web_client/src/app/features/documents desktop_client/src/app/features/documents
 ```
 
 This copies:
@@ -38,7 +38,7 @@ Check that all imports work in Desktop-Client. Since both use Angular 19, they s
 
 ### 2.1 Create document storage commands
 
-**File**: `Desktop-Client/src-tauri/src/documents.rs`
+**File**: `desktop_client/src-tauri/src/documents.rs`
 
 ```rust
 use tauri::State;
@@ -183,7 +183,7 @@ pub async fn list_document_drafts(
 
 ### 2.2 Register Tauri commands
 
-**File**: `Desktop-Client/src-tauri/src/main.rs`
+**File**: `desktop_client/src-tauri/src/main.rs`
 
 ```rust
 mod documents;
@@ -211,7 +211,7 @@ fn main() {
 
 ### 3.1 Create TauriDocumentService
 
-**File**: `Desktop-Client/src/app/features/documents/services/tauri-document.service.ts`
+**File**: `desktop_client/src/app/features/documents/services/tauri-document.service.ts`
 
 ```typescript
 import { Injectable } from '@angular/core';
@@ -337,7 +337,7 @@ export class DocumentEditorComponent implements OnInit {
 
 ### 4.1 System Tray Integration
 
-**File**: `Desktop-Client/src-tauri/tauri.conf.json`
+**File**: `desktop_client/src-tauri/tauri.conf.json`
 
 ```json
 {
@@ -409,7 +409,7 @@ async notifyDocumentSaved(title: string) {
 
 ### 4.3 Keyboard Shortcuts
 
-**File**: `Desktop-Client/src-tauri/tauri.conf.json`
+**File**: `desktop_client/src-tauri/tauri.conf.json`
 
 ```json
 {

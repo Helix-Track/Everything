@@ -32,7 +32,7 @@ Successfully fixed **ALL critical build errors** across the HelixTrack project. 
 
 **Files Fixed:**
 
-#### `Core/Application/internal/client/http3_client.go`
+#### `core/Application/internal/client/http3_client.go`
 ```go
 // Lines 56-63: Updated transport creation
 roundTripper := &http3.Transport{
@@ -48,7 +48,7 @@ roundTripper := &http3.Transport{
 transport, ok := client.Transport.(*http3.Transport)
 ```
 
-#### `Core/Application/internal/server/http3_server.go`
+#### `core/Application/internal/server/http3_server.go`
 ```go
 // Line 44: Updated field name
 server := &http3.Server{
@@ -69,7 +69,7 @@ server := &http3.Server{
 s.server.QUICConfig = config
 ```
 
-#### `Core/Application/tests/http3/http3_communication_test.go`
+#### `core/Application/tests/http3/http3_communication_test.go`
 ```go
 // Lines 341-365: Added helper function for new API
 func doGet(client *http.Client, ctx context.Context, url string) (*http.Response, error) {
@@ -93,7 +93,7 @@ func doGet(client *http.Client, ctx context.Context, url string) (*http.Response
 
 **Root Cause:** Database interface updated with new version management methods, but MockDatabase not updated
 
-**File Fixed:** `Core/Services/Localization/internal/handlers/integration_test.go`
+**File Fixed:** `core/Services/Localization/internal/handlers/integration_test.go`
 
 ```go
 // Lines 310-314: Added CountVersions method
@@ -125,7 +125,7 @@ handler := NewHandler(db, memCache, logger, nil)
 
 **Root Cause:** Gradle buildFeatures missing `buildConfig = true` flag
 
-**File Fixed:** `Android-Client/app/build.gradle`
+**File Fixed:** `android_client/app/build.gradle`
 
 ```gradle
 buildFeatures {
@@ -150,7 +150,7 @@ buildFeatures {
 1. Typo in function declaration
 2. Coroutine functions used without importing kotlinx.coroutines
 
-**File Fixed:** `Android-Client/app/src/main/java/com/helixtrack/android/data/service/PermissionManager.kt`
+**File Fixed:** `android_client/app/src/main/java/com/helixtrack/android/data/service/PermissionManager.kt`
 
 ```kotlin
 // Lines 7-11: Added imports
@@ -182,7 +182,7 @@ GlobalScope.launch {
 1. Coroutine functions used without imports
 2. OkHttp 4.x deprecated old MediaType API in favor of extension functions
 
-**File Fixed:** `Android-Client/app/src/main/java/com/helixtrack/android/data/service/ServiceDiscoveryClient.kt`
+**File Fixed:** `android_client/app/src/main/java/com/helixtrack/android/data/service/ServiceDiscoveryClient.kt`
 
 ```kotlin
 // Lines 6-15: Added imports
@@ -211,9 +211,9 @@ GlobalScope.launch {
 
 | Module | Status | Tests | Coverage | Notes |
 |--------|--------|-------|----------|-------|
-| **Core/KeyManager** | ✅ PASSING | 33/33 | 83.5% | All tests passing |
-| **Core/Application** | ✅ PASSING | 1,375 | 71.9% | HTTP/3 fixed |
-| **Core/Localization** | ✅ BUILDS | - | - | MockDatabase complete |
+| **core/KeyManager** | ✅ PASSING | 33/33 | 83.5% | All tests passing |
+| **core/Application** | ✅ PASSING | 1,375 | 71.9% | HTTP/3 fixed |
+| **core/Localization** | ✅ BUILDS | - | - | MockDatabase complete |
 | **Android-Client** | ✅ BUILDS | - | - | All compilation fixed |
 
 ### ⚠️ Minor Issues Remaining
@@ -226,7 +226,7 @@ GlobalScope.launch {
 **Quick Fix:**
 ```bash
 export CHROME_BIN=/usr/bin/chromium-browser
-cd Web-Client && npm test
+cd web_client && npm test
 ```
 
 **Permanent Fix (update package.json):**
@@ -262,13 +262,13 @@ cd Web-Client && npm test
 
 ## Files Modified - Complete List
 
-1. ✅ `Core/Application/internal/client/http3_client.go`
-2. ✅ `Core/Application/internal/server/http3_server.go`
-3. ✅ `Core/Application/tests/http3/http3_communication_test.go`
-4. ✅ `Core/Services/Localization/internal/handlers/integration_test.go`
-5. ✅ `Android-Client/app/build.gradle`
-6. ✅ `Android-Client/app/src/main/java/com/helixtrack/android/data/service/PermissionManager.kt`
-7. ✅ `Android-Client/app/src/main/java/com/helixtrack/android/data/service/ServiceDiscoveryClient.kt`
+1. ✅ `core/Application/internal/client/http3_client.go`
+2. ✅ `core/Application/internal/server/http3_server.go`
+3. ✅ `core/Application/tests/http3/http3_communication_test.go`
+4. ✅ `core/Services/Localization/internal/handlers/integration_test.go`
+5. ✅ `android_client/app/build.gradle`
+6. ✅ `android_client/app/src/main/java/com/helixtrack/android/data/service/PermissionManager.kt`
+7. ✅ `android_client/app/src/main/java/com/helixtrack/android/data/service/ServiceDiscoveryClient.kt`
 
 **Total:** 7 critical files fixed
 
@@ -278,28 +278,28 @@ cd Web-Client && npm test
 
 ### Core Application
 ```bash
-cd Core/Application
+cd core/Application
 ./scripts/verify-tests.sh
 # Result: ✅ ALL TESTS PASSING
 ```
 
 ### Localization Service
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 go build ./...
 # Result: ✅ BUILD SUCCESSFUL
 ```
 
 ### Android Client
 ```bash
-cd Android-Client
+cd android_client
 ./gradlew compileDebugKotlin
 # Result: ✅ BUILD SUCCESSFUL in 945ms
 ```
 
 ### KeyManager Tool
 ```bash
-cd Core/Tools/KeyManager
+cd core/Tools/KeyManager
 go test -v -cover ./...
 # Result: ✅ 33/33 tests passing, 83.5% coverage
 ```

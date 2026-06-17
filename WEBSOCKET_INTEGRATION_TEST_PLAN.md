@@ -989,7 +989,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Start backend
-        run: cd Core/Services/Localization && ./localization-service &
+        run: cd core/Services/Localization && ./localization-service &
       - name: Start frontend
         run: npm start &
       - name: Wait for services
@@ -1049,7 +1049,7 @@ const context2 = await browser.newContext();
 ### Test File Organization
 
 ```
-Web-Client/
+web_client/
 ├── src/
 │   └── app/
 │       └── features/

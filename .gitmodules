@@ -1,27 +1,162 @@
 [submodule "Core"]
-	path = Core
+	path = core
 	url = git@github.com:Helix-Track/Core.git
 [submodule "Web-Client"]
-	path = Web-Client
+	path = web_client
 	url = git@github.com:Helix-Track/Web-Client.git
 [submodule "Desktop-Client"]
-	path = Desktop-Client
+	path = desktop_client
 	url = git@github.com:Helix-Track/Desktop-Client.git
 [submodule "Android-Client"]
-	path = Android-Client
+	path = android_client
 	url = git@github.com:Helix-Track/Android-Client.git
 [submodule "iOS-Client"]
-	path = iOS-Client
+	path = ios_client
 	url = git@github.com:Helix-Track/iOS-Client.git
 [submodule "Harmony-OS-Client"]
-	path = Harmony-OS-Client
+	path = harmony_os_client
 	url = git@github.com:Helix-Track/Harmony-OS-Client.git
 [submodule "Aurora-OS-Client"]
-	path = Aurora-OS-Client
+	path = aurora_os_client
 	url = git@github.com:Helix-Track/Aurora-Client.git
 [submodule "Screensaver"]
-	path = Screensaver
+	path = screensaver
 	url = git@github.com:Helix-Track/Screensaver.git
 [submodule "constitution"]
 	path = constitution
 	url = git@github.com:HelixDevelopment/HelixConstitution.git
+[submodule "containers"]
+	path = containers
+	url = git@github.com:vasic-digital/containers.git
+[submodule "docs_chain"]
+	path = docs_chain
+	url = git@github.com:vasic-digital/docs_chain.git
+[submodule "challenges"]
+	path = challenges
+	url = git@github.com:vasic-digital/challenges.git
+[submodule "helix_qa"]
+	path = helix_qa
+	url = git@github.com:HelixDevelopment/HelixQA.git
+[submodule "helix_agent"]
+	path = helix_agent
+	url = git@github.com:HelixDevelopment/HelixAgent.git
+[submodule "panoptic"]
+	path = panoptic
+	url = git@github.com:vasic-digital/Panoptic.git
+[submodule "doc_processor"]
+	path = doc_processor
+	url = git@github.com:HelixDevelopment/DocProcessor.git
+[submodule "llm_orchestrator"]
+	path = llm_orchestrator
+	url = git@github.com:HelixDevelopment/LLMOrchestrator.git
+[submodule "llm_provider"]
+	path = llm_provider
+	url = git@github.com:HelixDevelopment/LLMProvider.git
+[submodule "llms_verifier"]
+	path = llms_verifier
+	url = git@github.com:vasic-digital/LLMsVerifier.git
+[submodule "security"]
+	path = security
+	url = git@github.com:vasic-digital/security.git
+[submodule "vision_engine"]
+	path = vision_engine
+	url = git@github.com:HelixDevelopment/VisionEngine.git
+[submodule "dag_orchestrator"]
+	path = dag_orchestrator
+	url = git@github.com:HelixDevelopment/DagOrchestrator.git
+[submodule "agentic"]
+	path = agentic
+	url = git@github.com:vasic-digital/Agentic.git
+[submodule "auth"]
+	path = auth
+	url = git@github.com:vasic-digital/Auth.git
+[submodule "background_tasks"]
+	path = background_tasks
+	url = git@github.com:vasic-digital/BackgroundTasks.git
+[submodule "benchmark"]
+	path = benchmark
+	url = git@github.com:vasic-digital/Benchmark.git
+[submodule "concurrency"]
+	path = concurrency
+	url = git@github.com:vasic-digital/Concurrency.git
+[submodule "database"]
+	path = database
+	url = git@github.com:vasic-digital/Database.git
+[submodule "debate_orchestrator"]
+	path = debate_orchestrator
+	url = git@github.com:HelixDevelopment/DebateOrchestrator.git
+[submodule "embeddings"]
+	path = embeddings
+	url = git@github.com:vasic-digital/Embeddings.git
+[submodule "event_bus"]
+	path = event_bus
+	url = git@github.com:vasic-digital/EventBus.git
+[submodule "formatters"]
+	path = formatters
+	url = git@github.com:vasic-digital/Formatters.git
+[submodule "helix_memory"]
+	path = helix_memory
+	url = git@github.com:HelixDevelopment/HelixMemory.git
+[submodule "helix_specifier"]
+	path = helix_specifier
+	url = git@github.com:HelixDevelopment/HelixSpecifier.git
+[submodule "llm_ops"]
+	path = llm_ops
+	url = git@github.com:vasic-digital/LLMOps.git
+[submodule "mcp_module"]
+	path = mcp_module
+	url = git@github.com:vasic-digital/MCP_Module.git
+[submodule "memory"]
+	path = memory
+	url = git@github.com:vasic-digital/Memory.git
+[submodule "messaging"]
+	path = messaging
+	url = git@github.com:vasic-digital/Messaging.git
+[submodule "models"]
+	path = models
+	url = git@github.com:vasic-digital/Models.git
+[submodule "normalize"]
+	path = normalize
+	url = git@github.com:vasic-digital/Normalize.git
+[submodule "observability"]
+	path = observability
+	url = git@github.com:vasic-digital/Observability.git
+[submodule "optimization"]
+	path = optimization
+	url = git@github.com:vasic-digital/Optimization.git
+[submodule "planning"]
+	path = planning
+	url = git@github.com:vasic-digital/Planning.git
+[submodule "plugins"]
+	path = plugins
+	url = git@github.com:vasic-digital/Plugins.git
+[submodule "rag"]
+	path = rag
+	url = git@github.com:vasic-digital/RAG.git
+[submodule "red_team"]
+	path = red_team
+	url = git@github.com:vasic-digital/RedTeam.git
+[submodule "self_improve"]
+	path = self_improve
+	url = git@github.com:vasic-digital/SelfImprove.git
+[submodule "skill_registry"]
+	path = skill_registry
+	url = git@github.com:vasic-digital/SkillRegistry.git
+[submodule "storage"]
+	path = storage
+	url = git@github.com:vasic-digital/Storage.git
+[submodule "streaming"]
+	path = streaming
+	url = git@github.com:vasic-digital/Streaming.git
+[submodule "tool_schema"]
+	path = tool_schema
+	url = git@github.com:vasic-digital/ToolSchema.git
+[submodule "vector_db"]
+	path = vector_db
+	url = git@github.com:vasic-digital/VectorDB.git
+[submodule "conversation"]
+	path = conversation
+	url = git@github.com:vasic-digital/conversation.git
+[submodule "cache"]
+	path = cache
+	url = git@github.com:vasic-digital/Cache.git

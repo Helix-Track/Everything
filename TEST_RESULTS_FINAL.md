@@ -19,7 +19,7 @@
 
 ## ✅ Test Results by Module
 
-### Core/Tools/KeyManager
+### core/Tools/KeyManager
 ```
 Status: ✅ PASSING
 Tests:  33/33 passing (100%)
@@ -30,7 +30,7 @@ Coverage: 83.5%
 
 ---
 
-### Core/Application
+### core/Application
 ```
 Status: ✅ PASSING
 Tests:  1,375 tests
@@ -47,7 +47,7 @@ Pass Rate: 98.8%
 
 ---
 
-### Core/Services/Localization
+### core/Services/Localization
 ```
 Status: ✅ BUILDS SUCCESSFULLY
 Build:  ✅ Successful
@@ -93,7 +93,7 @@ Tests:  Blocked by missing environment variable
 **Solution:**
 ```bash
 export CHROME_BIN=/usr/bin/chromium-browser
-cd Web-Client && npm test
+cd web_client && npm test
 ```
 
 **Time to Fix:** 5 minutes
@@ -146,32 +146,32 @@ Error: xcrun: command not found
 ## 🔧 Complete List of Files Modified
 
 ### Core Application (3 files)
-1. `Core/Application/internal/client/http3_client.go`
+1. `core/Application/internal/client/http3_client.go`
    - Updated HTTP/3 Transport API
    - Changed QUICConfig field names
 
-2. `Core/Application/internal/server/http3_server.go`
+2. `core/Application/internal/server/http3_server.go`
    - Updated QUIC configuration
    - Fixed field naming
 
-3. `Core/Application/tests/http3/http3_communication_test.go`
+3. `core/Application/tests/http3/http3_communication_test.go`
    - Added doGet() helper function
    - Updated all test client calls
 
 ### Localization Service (1 file)
-4. `Core/Services/Localization/internal/handlers/integration_test.go`
+4. `core/Services/Localization/internal/handlers/integration_test.go`
    - Added 4 missing MockDatabase methods
    - Updated NewHandler() call signature
 
 ### Android Client (3 files)
-5. `Android-Client/app/build.gradle`
+5. `android_client/app/build.gradle`
    - Enabled BuildConfig generation
 
-6. `Android-Client/app/src/main/java/com/helixtrack/android/data/service/PermissionManager.kt`
+6. `android_client/app/src/main/java/com/helixtrack/android/data/service/PermissionManager.kt`
    - Fixed function name
    - Added coroutine imports
 
-7. `Android-Client/app/src/main/java/com/helixtrack/android/data/service/ServiceDiscoveryClient.kt`
+7. `android_client/app/src/main/java/com/helixtrack/android/data/service/ServiceDiscoveryClient.kt`
    - Added coroutine imports
    - Updated to OkHttp 4.x modern API
 
@@ -185,28 +185,28 @@ Error: xcrun: command not found
 
 ### Verify Core Application
 ```bash
-cd Core/Application
+cd core/Application
 ./scripts/verify-tests.sh
 # Expected: All tests passing
 ```
 
 ### Verify Localization Service
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 go build ./...
 # Expected: Build successful
 ```
 
 ### Verify Android Client
 ```bash
-cd Android-Client
+cd android_client
 ./gradlew compileDebugKotlin
 # Expected: BUILD SUCCESSFUL
 ```
 
 ### Verify KeyManager
 ```bash
-cd Core/Tools/KeyManager
+cd core/Tools/KeyManager
 go test -v -cover ./...
 # Expected: 33/33 tests passing
 ```

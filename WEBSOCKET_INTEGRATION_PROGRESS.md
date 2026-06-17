@@ -53,7 +53,7 @@ wsCancel()
 
 Command used:
 ```bash
-cd Core/Services/Localization
+cd core/Services/Localization
 go get github.com/gorilla/websocket
 ```
 
@@ -428,7 +428,7 @@ WebSocket manager logs:
 
 **Reference Documents:**
 - `WEBSOCKET_REAL_TIME_IMPLEMENTATION_PLAN.md` - Complete plan
-- `Core/Services/Localization/internal/websocket/events.go` - Event definitions
-- `Core/Services/Localization/internal/websocket/manager.go` - WebSocket manager
+- `core/Services/Localization/internal/websocket/events.go` - Event definitions
+- `core/Services/Localization/internal/websocket/manager.go` - WebSocket manager
 
 ✨ **WebSocket foundation is solid and ready for full integration!**

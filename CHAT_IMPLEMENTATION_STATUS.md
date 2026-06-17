@@ -201,7 +201,7 @@
 ## 📁 **File Structure**
 
 ```
-Web-Client/src/app/features/chat/
+web_client/src/app/features/chat/
 ├── models/
 │   └── chat.models.ts ✅
 ├── services/
@@ -329,7 +329,7 @@ Web-Client/src/app/features/chat/
 
 ### Development
 ```bash
-cd Web-Client
+cd web_client
 npm install
 npm start
 # Navigate to http://localhost:4200/chat

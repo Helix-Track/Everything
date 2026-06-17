@@ -48,7 +48,7 @@ run_client_tests() {
 
 # Ensure Core is running
 echo "📡 Ensuring HelixTrack Core is running..."
-cd Core/Application
+cd core/Application
 if [ ! -f "../htcore.pid" ] || ! kill -0 $(cat ../htcore.pid) 2>/dev/null; then
     echo "Starting HelixTrack Core..."
     nohup go run main.go > ../htcore.log 2>&1 &
@@ -154,7 +154,7 @@ Status: $(if $ANDROID_PASSED; then echo "✅ PASSED"; else echo "❌ FAILED"; fi
 - ✅ Touch and mouse interactions
 
 ### Icon Verification
-- ✅ All clients use icons from Core/Assets/Logo.png
+- ✅ All clients use icons from core/Assets/Logo.png
 - ✅ Proper icon sizes for each platform
 - ✅ Icon generation scripts functional
 - ✅ Adaptive icons (Android)

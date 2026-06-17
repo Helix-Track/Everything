@@ -73,7 +73,7 @@ Invalidate Cache & Reload
 ### Phase 1: Language & Country Data (2 hours)
 
 #### 1.1 ISO Language/Country Data
-**File:** `Core/Services/Localization/data/languages.json`
+**File:** `core/Services/Localization/data/languages.json`
 ```json
 [
   {
@@ -94,7 +94,7 @@ Invalidate Cache & Reload
 ]
 ```
 
-**File:** `Core/Services/Localization/data/countries.json`
+**File:** `core/Services/Localization/data/countries.json`
 ```json
 [
   {
@@ -114,7 +114,7 @@ Invalidate Cache & Reload
 ```
 
 #### 1.2 Wizard Data Endpoint
-**File:** `Core/Services/Localization/internal/handlers/wizard_handlers.go`
+**File:** `core/Services/Localization/internal/handlers/wizard_handlers.go`
 ```go
 // GET /v1/admin/wizard/languages - Get all available languages
 // GET /v1/admin/wizard/countries - Get all countries
@@ -124,7 +124,7 @@ Invalidate Cache & Reload
 ### Phase 2: AI Translation Service (6-8 hours)
 
 #### 2.1 AI Translation Interface
-**File:** `Core/Services/Localization/internal/ai/translator.go`
+**File:** `core/Services/Localization/internal/ai/translator.go`
 ```go
 package ai
 
@@ -150,7 +150,7 @@ type DeepLTranslator struct {
 ```
 
 #### 2.2 Translation Engine
-**File:** `Core/Services/Localization/internal/ai/engine.go`
+**File:** `core/Services/Localization/internal/ai/engine.go`
 ```go
 package ai
 
@@ -179,7 +179,7 @@ func (e *TranslationEngine) TranslateAll(req *TranslationRequest) (*TranslationR
 ```
 
 #### 2.3 Placeholder Preservation
-**File:** `Core/Services/Localization/internal/ai/placeholder.go`
+**File:** `core/Services/Localization/internal/ai/placeholder.go`
 ```go
 // Preserve {name}, {count}, etc. in translations
 func PreservePlaceholders(text string) (string, map[string]string)
@@ -189,7 +189,7 @@ func RestorePlaceholders(translated string, placeholders map[string]string) stri
 ### Phase 3: Wizard API Endpoints (4-6 hours)
 
 #### 3.1 Wizard Endpoint
-**File:** `Core/Services/Localization/internal/handlers/wizard_handlers.go`
+**File:** `core/Services/Localization/internal/handlers/wizard_handlers.go`
 ```go
 // POST /v1/admin/languages/wizard
 type WizardRequest struct {
@@ -213,7 +213,7 @@ type WizardResponse struct {
 ```
 
 #### 3.2 Progress Tracking
-**File:** `Core/Services/Localization/internal/jobs/translation_job.go`
+**File:** `core/Services/Localization/internal/jobs/translation_job.go`
 ```go
 type TranslationJob struct {
     ID             string
@@ -236,7 +236,7 @@ type TranslationJob struct {
 ### Phase 4: Web Client Wizard UI (8-10 hours)
 
 #### 4.1 Wizard Component
-**File:** `Web-Client/src/app/features/localization-management/components/language-wizard/language-wizard.component.ts`
+**File:** `web_client/src/app/features/localization-management/components/language-wizard/language-wizard.component.ts`
 
 **Wizard Steps:**
 1. **Language Selection**
@@ -273,7 +273,7 @@ type TranslationJob struct {
    - Add another language option
 
 #### 4.2 Wizard Service
-**File:** `Web-Client/src/app/features/localization-management/services/language-wizard.service.ts`
+**File:** `web_client/src/app/features/localization-management/services/language-wizard.service.ts`
 ```typescript
 export class LanguageWizardService {
   // Data loading
@@ -296,7 +296,7 @@ export class LanguageWizardService {
 ### Phase 5: WebSocket Integration (3-4 hours)
 
 #### 5.1 New Event Types
-**File:** `Core/Services/Localization/internal/websocket/events.go`
+**File:** `core/Services/Localization/internal/websocket/events.go`
 ```go
 const (
     // Wizard events
@@ -503,29 +503,29 @@ export default function() {
 
 #### 7.1 Update Existing Docs
 
-**File:** `Core/Services/Localization/USER_MANUAL.md`
+**File:** `core/Services/Localization/USER_MANUAL.md`
 - Add wizard endpoint documentation
 - Add AI translation configuration
 - Add troubleshooting guide
 
-**File:** `Core/Services/Localization/README.md`
+**File:** `core/Services/Localization/README.md`
 - Add AI translation feature overview
 - Add wizard usage examples
 
-**File:** `Web-Client/README.md`
+**File:** `web_client/README.md`
 - Add wizard UI documentation
 - Add screenshots
 
 #### 7.2 Create New Docs
 
-**File:** `Core/Services/Localization/AI_TRANSLATION_GUIDE.md`
+**File:** `core/Services/Localization/AI_TRANSLATION_GUIDE.md`
 - Complete AI translation reference
 - Provider comparison (OpenAI vs Google vs DeepL)
 - Cost analysis
 - Quality guidelines
 - Best practices
 
-**File:** `Core/Services/Localization/WIZARD_USER_GUIDE.md`
+**File:** `core/Services/Localization/WIZARD_USER_GUIDE.md`
 - Step-by-step wizard usage
 - Screenshots of each step
 - Common issues and solutions
@@ -533,12 +533,12 @@ export default function() {
 
 #### 7.3 Update Website
 
-**File:** `Core/Website/features/localization.html`
+**File:** `core/Website/features/localization.html`
 - Add AI translation section
 - Add wizard demo video/GIF
 - Add language coverage statistics
 
-**File:** `Core/Website/docs/ai-translation.html`
+**File:** `core/Website/docs/ai-translation.html`
 - Technical documentation
 - API reference
 - Integration examples

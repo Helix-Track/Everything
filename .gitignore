@@ -30,3 +30,6 @@ Thumbs.db
 
 # CodeGraph index (generated, §11.4.78)
 .codegraph/
+
+# cache/ is an own-org submodule at root (CONST-051); keep it tracked
+!/cache/

@@ -4,7 +4,7 @@
 
 ### Core Backend Tests (Go)
 **Status**: ✅ COMPLETED
-**Location**: `Core/Application`
+**Location**: `core/Application`
 **Command**: `./scripts/verify-tests.sh`
 
 **Results**:
@@ -99,7 +99,7 @@ Same status as Web Client since it shares the Angular frontend.
 ## Test Data Verification
 
 ### Test Users Created
-**File**: `Core/Application/Database/DDL/Test_Data_Users_Permissions.sql`
+**File**: `core/Application/Database/DDL/Test_Data_Users_Permissions.sql`
 
 **Loaded Successfully**: ✅ YES (script runs without errors)
 
@@ -174,7 +174,7 @@ Same status as Web Client since it shares the Angular frontend.
 ## Test Reports
 
 ### Core Backend
-**Location**: `Core/Application/test-reports/`
+**Location**: `core/Application/test-reports/`
 
 1. **TEST_REPORT.md** - Comprehensive markdown report
 2. **TEST_REPORT.html** - Interactive HTML report
@@ -182,7 +182,7 @@ Same status as Web Client since it shares the Angular frontend.
 4. **coverage.html** - Code coverage visualization
 
 ### Docker Infrastructure
-**Location**: `Core/Application/tests/docker-infrastructure/`
+**Location**: `core/Application/tests/docker-infrastructure/`
 
 **Test Script**: `test-infrastructure.sh`
 **Tests**: 35 comprehensive infrastructure tests

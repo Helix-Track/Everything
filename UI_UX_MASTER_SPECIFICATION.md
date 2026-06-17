@@ -84,7 +84,7 @@ HelixTrack is the **modern, open-source JIRA alternative for the free world** - 
 
 ### Primary Colors (from Website)
 
-Extracted from `Core/Website/docs/style.css`:
+Extracted from `core/Website/docs/style.css`:
 
 ```css
 --primary-color: #BCE63B;      /* Bright Lime Green - Main brand color */

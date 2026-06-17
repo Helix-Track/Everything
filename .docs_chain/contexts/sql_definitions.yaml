@@ -1,0 +1,120 @@
+# Docs Chain context — SQL definitions <-> System SQL-reference documentation
+#
+# Operator mandate (2026-06-17): ALL SQL definitions (the DDL under
+# core/Database/DDL/*.sql) MUST be bidirectionally synced with the System
+# documentation via docs_chain (§11.4.106).
+#
+# DRAFT status (§11.4.6 no-guessing): this context is SCHEMA-VALID against the
+# live CONFIG_SCHEMA.md (Revision 3, Phase-4 loader) but is a DRAFT pending two
+# operator/main-stream prerequisites that this background unit MUST NOT perform:
+#
+#   (1) The `Core` submodule rename to `core` (in flight on the main stream).
+#       Until that lands, the SQL paths below (core/Database/DDL/...) resolve
+#       INTO a submodule working tree. Docs Chain node `path:` values are
+#       project-root-relative; a submodule's internal files are reachable from
+#       the parent root at `core/Database/DDL/...` once the gitlink is named
+#       `core`. The paths below are written for the POST-RENAME `core/` layout
+#       (per task instruction) and will be WRONG until the rename completes.
+#
+#   (2) The bidirectional SQL<->doc transform pair is NOT a docs_chain builtin.
+#       The builtins md-to-sqlite / sqlite-to-md operate on TABULAR markdown
+#       pipe-tables <-> a sqlite DB; they do NOT understand DDL `CREATE TABLE`
+#       statements. The bidirectional SQL-definition <-> System-doc sync needs a
+#       project-owned `exec:` transform pair (sql-to-doc / doc-to-sql) that does
+#       NOT yet exist. Those scripts are declared below as `exec:` placeholders
+#       under scripts/dc/ and MUST be authored + 100%-test-covered (§11.4.27)
+#       before this context can `sync`/`verify` green. See
+#       docs/docs_chain/WIRING_DESIGN.md for the open question on whether the
+#       authoritative direction is doc->sql or sql->doc.
+#
+# Until (1) and (2) are resolved this file is registered-but-inert: `doctor`
+# will parse it (schema-valid), but `sync` cannot run because the exec
+# transforms are not yet implemented. NO faked transform (§11.4.106).
+
+context: sql_definitions
+description: >-
+  Bidirectional sync of Core's SQL DDL definitions with the System SQL-reference
+  documentation (operator mandate 2026-06-17). DB schema is authored in the .sql
+  DDL files; the human-readable System SQL-reference doc is derived from / kept
+  in sync with them. DRAFT — see header for the rename + exec-transform
+  prerequisites.
+
+nodes:
+  # ---- Authoritative SQL DDL sources (post-rename core/ layout) ----
+  # Core schema versions V1..V5
+  ddl_v1:        { kind: markdown, path: core/Database/DDL/Definition.V1.sql }
+  ddl_v2:        { kind: markdown, path: core/Database/DDL/Definition.V2.sql }
+  ddl_v3:        { kind: markdown, path: core/Database/DDL/Definition.V3.sql }
+  ddl_v4:        { kind: markdown, path: core/Database/DDL/Definition.V4.sql }
+  ddl_v5:        { kind: markdown, path: core/Database/DDL/Definition.V5.sql }
+  # Core migrations
+  mig_v1_2:      { kind: markdown, path: core/Database/DDL/Migration.V1.2.sql }
+  mig_v2_3:      { kind: markdown, path: core/Database/DDL/Migration.V2.3.sql }
+  mig_v3_4:      { kind: markdown, path: core/Database/DDL/Migration.V3.4.sql }
+  mig_v5_6:      { kind: markdown, path: core/Database/DDL/Migration.V5.6.sql }
+  # Indexes / seed
+  ddl_indexes:   { kind: markdown, path: core/Database/DDL/Indexes_Performance.sql }
+  ddl_seed:      { kind: markdown, path: core/Database/DDL/Seed_Data.sql }
+  # Extensions — Chats
+  ext_chats_v1:  { kind: markdown, path: core/Database/DDL/Extensions/Chats/Definition.V1.sql }
+  ext_chats_v2:  { kind: markdown, path: core/Database/DDL/Extensions/Chats/Definition.V2.sql }
+  ext_chats_m12: { kind: markdown, path: core/Database/DDL/Extensions/Chats/Migration.V1.2.sql }
+  # Extensions — Documents
+  ext_docs_v1:   { kind: markdown, path: core/Database/DDL/Extensions/Documents/Definition.V1.sql }
+  ext_docs_v2:   { kind: markdown, path: core/Database/DDL/Extensions/Documents/Definition.V2.sql }
+  ext_docs_m12:  { kind: markdown, path: core/Database/DDL/Extensions/Documents/Migration.V1.2.sql }
+  # Extensions — Times
+  ext_times_v1:  { kind: markdown, path: core/Database/DDL/Extensions/Times/Definition.V1.sql }
+  # Services — Authentication
+  svc_auth_v1:   { kind: markdown, path: core/Database/DDL/Services/Authentication/Definition.V1.sql }
+  # Services — Localization
+  svc_loc_v1:    { kind: markdown, path: core/Database/DDL/Services/Localization/Definition.V1.sql }
+  svc_loc_m12:   { kind: markdown, path: core/Database/DDL/Services/Localization/Migration.V1.2.sql }
+
+  # ---- The System SQL-reference documentation (the synced doc surface) ----
+  sql_reference_md:   { kind: markdown, path: docs/database/SQL_REFERENCE.md }
+  sql_reference_html: { kind: html,     path: docs/database/SQL_REFERENCE.html }
+  sql_reference_pdf:  { kind: pdf,      path: docs/database/SQL_REFERENCE.pdf }
+
+edges:
+  # Bidirectional sync: the .sql DDL set is the authority; the System
+  # SQL-reference doc is regenerated from it, and edits to the doc that change
+  # schema can be projected back. authority = the DDL set (here represented by
+  # the V5 latest-schema node as the canonical anchor; see WIRING_DESIGN.md
+  # open question Q2 on multi-source authority modelling).
+  #
+  # NOTE: docs_chain `sync` edges are pairwise (a <-> b). With many sql sources
+  # and one doc, the cleanest modelling is a multi-input `derive-from`
+  # (sql set -> doc) plus a separate `sync` for the round-trippable subset. This
+  # DRAFT uses a multi-input derive-from (sql -> doc) which IS supported
+  # (`from:` may be a list), and documents the back-direction as an open
+  # question. Flip to `sync` per-file once the exec pair + authority model are
+  # decided with the operator.
+  - { type: derive-from,
+      from: [ddl_v1, ddl_v2, ddl_v3, ddl_v4, ddl_v5,
+              mig_v1_2, mig_v2_3, mig_v3_4, mig_v5_6,
+              ddl_indexes, ddl_seed,
+              ext_chats_v1, ext_chats_v2, ext_chats_m12,
+              ext_docs_v1, ext_docs_v2, ext_docs_m12,
+              ext_times_v1,
+              svc_auth_v1, svc_loc_v1, svc_loc_m12],
+      to: sql_reference_md,
+      transform: sql-to-doc }
+
+  # Derived exports of the System SQL-reference doc (§11.4.65).
+  - { type: derive-from, from: sql_reference_md,   to: sql_reference_html, transform: md-to-html }
+  - { type: derive-from, from: sql_reference_html, to: sql_reference_pdf,  transform: html-to-pdf }
+
+transforms:
+  # DRAFT exec placeholders — NOT YET IMPLEMENTED. Must be authored + 100%
+  # test-covered (§11.4.27) and must be byte-stable (§11.4.50) before sync.
+  # Contract (CONFIG_SCHEMA §5.2): Docs Chain passes staged input temp path(s)
+  # then the staged output temp path; `args:` entries are appended after those.
+  sql-to-doc: { exec: "scripts/dc/sql_to_doc.sh" }
+  # The reverse projection (doc -> sql) is intentionally NOT wired in this DRAFT
+  # until the operator decides whether the doc may be authoritative for schema
+  # (open question Q1 in WIRING_DESIGN.md). When approved, convert the
+  # multi-input derive-from above to per-file `sync` edges with:
+  #   doc-to-sql: { exec: "scripts/dc/doc_to_sql.sh" }
+  md-to-html: { builtin: pandoc-html }
+  html-to-pdf: { builtin: weasyprint-pdf }

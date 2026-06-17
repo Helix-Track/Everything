@@ -190,7 +190,7 @@ A **production-ready, real-time chat system** has been successfully implemented 
 ## 📁 **File Structure** (Complete)
 
 ```
-Web-Client/src/app/features/chat/
+web_client/src/app/features/chat/
 ├── models/
 │   └── chat.models.ts ✅ (450 lines)
 │
@@ -259,7 +259,7 @@ Web-Client/src/app/features/chat/
 ### **3. Run the App**
 
 ```bash
-cd Web-Client
+cd web_client
 npm install
 npm start
 

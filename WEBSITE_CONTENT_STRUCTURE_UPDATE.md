@@ -911,11 +911,11 @@ cd helixtrack
       <div class="option">
         <h4>Quick Build</h4>
         <pre><code># Backend
-cd Core/Application
+cd core/Application
 go build -o htCore main.go
 
 # Web Client
-cd Web-Client
+cd web_client
 npm install
 npm run build</code></pre>
       </div>

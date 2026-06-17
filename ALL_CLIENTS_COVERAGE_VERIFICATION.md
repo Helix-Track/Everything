@@ -15,7 +15,7 @@
 ## Detailed Coverage
 
 ### 1. Web Client (Angular/TypeScript)
-**Location**: `/Web-Client/`
+**Location**: `/web_client/`
 
 **Service Discovery**:
 - ✅ `service-discovery.service.ts` (250 lines)
@@ -42,7 +42,7 @@
 ---
 
 ### 2. Desktop Client (Tauri + Angular)
-**Location**: `/Desktop-Client/`
+**Location**: `/desktop_client/`
 
 **Service Discovery**:
 - ✅ `service-discovery.service.ts` (same as Web)
@@ -73,7 +73,7 @@
 ---
 
 ### 3. Android Client (Kotlin)
-**Location**: `/Android-Client/`
+**Location**: `/android_client/`
 
 **Service Discovery**:
 - ✅ `ServiceDiscoveryClient.kt` (300 lines)
@@ -110,7 +110,7 @@
 ---
 
 ### 4. iOS Client (Swift)
-**Location**: `/iOS-Client/`
+**Location**: `/ios_client/`
 
 **Service Discovery**:
 - ✅ `ServiceDiscoveryClient.swift` (280 lines)

@@ -224,12 +224,12 @@ All clients follow the same architectural pattern for consistency:
 
 **Build**:
 ```bash
-cd Android-Client
+cd android_client
 ./gradlew assembleRelease
 # Output: app/build/outputs/apk/release/app-release.apk
 ```
 
-**Documentation**: `Android-Client/ANDROID_IMPLEMENTATION_COMPLETE.md`
+**Documentation**: `android_client/ANDROID_IMPLEMENTATION_COMPLETE.md`
 
 ---
 
@@ -260,12 +260,12 @@ cd Android-Client
 
 **Build**:
 ```bash
-cd Web-Client
+cd web_client
 npm run build:production
 # Output: dist/web-client/
 ```
 
-**Documentation**: `Web-Client/IMPLEMENTATION_GUIDE.md`
+**Documentation**: `web_client/IMPLEMENTATION_GUIDE.md`
 
 ---
 
@@ -297,7 +297,7 @@ npm run build:production
 
 **Build**:
 ```bash
-cd Desktop-Client
+cd desktop_client
 npm run tauri:build
 # Outputs:
 # - Windows: *.msi
@@ -305,7 +305,7 @@ npm run tauri:build
 # - Linux: *.AppImage, *.deb, *.rpm
 ```
 
-**Documentation**: `Desktop-Client/DESKTOP_IMPLEMENTATION_COMPLETE.md`
+**Documentation**: `desktop_client/DESKTOP_IMPLEMENTATION_COMPLETE.md`
 
 ---
 
@@ -336,12 +336,12 @@ npm run tauri:build
 
 **Build**:
 ```bash
-cd iOS-Client
+cd ios_client
 swift build
 # Or in Xcode: Cmd+B
 ```
 
-**Documentation**: `iOS-Client/IOS_IMPLEMENTATION_COMPLETE.md`
+**Documentation**: `ios_client/IOS_IMPLEMENTATION_COMPLETE.md`
 
 ---
 
@@ -555,7 +555,7 @@ Error Code 6: Server error
 
 2. **Backend Setup**:
    ```bash
-   cd Core/Application
+   cd core/Application
    ./htCore --config=../Configurations/dev.json
    # Backend runs on https://localhost:8080
    ```
@@ -564,28 +564,28 @@ Error Code 6: Server error
 
    **Android**:
    ```bash
-   cd Android-Client
+   cd android_client
    ./gradlew build
    ./gradlew installDebug
    ```
 
    **Web**:
    ```bash
-   cd Web-Client
+   cd web_client
    npm install
    npm start
    ```
 
    **Desktop**:
    ```bash
-   cd Desktop-Client
+   cd desktop_client
    npm install
    npm run tauri:dev
    ```
 
    **iOS**:
    ```bash
-   cd iOS-Client
+   cd ios_client
    swift build
    # Or open in Xcode
    ```
@@ -718,15 +718,15 @@ func loadDocument(id: String) async throws -> Document
 ### Documentation
 
 **Core Documentation**:
-- `Core/Application/docs/USER_MANUAL.md` - Complete API reference (372 actions)
-- `Core/Application/docs/DEPLOYMENT.md` - Deployment guide
-- `Core/Application/DOCUMENTS_V2_FINAL_SESSION_REPORT.md` - Backend implementation
+- `core/Application/docs/USER_MANUAL.md` - Complete API reference (372 actions)
+- `core/Application/docs/DEPLOYMENT.md` - Deployment guide
+- `core/Application/DOCUMENTS_V2_FINAL_SESSION_REPORT.md` - Backend implementation
 
 **Client Documentation**:
-- `Android-Client/ANDROID_IMPLEMENTATION_COMPLETE.md` - Android guide
-- `Web-Client/IMPLEMENTATION_GUIDE.md` - Web guide
-- `Desktop-Client/DESKTOP_IMPLEMENTATION_COMPLETE.md` - Desktop guide
-- `iOS-Client/IOS_IMPLEMENTATION_COMPLETE.md` - iOS guide
+- `android_client/ANDROID_IMPLEMENTATION_COMPLETE.md` - Android guide
+- `web_client/IMPLEMENTATION_GUIDE.md` - Web guide
+- `desktop_client/DESKTOP_IMPLEMENTATION_COMPLETE.md` - Desktop guide
+- `ios_client/IOS_IMPLEMENTATION_COMPLETE.md` - iOS guide
 
 **General**:
 - `CLAUDE.md` - AI assistant guidelines

@@ -16,7 +16,7 @@ All critical blocking issues identified in the initial comprehensive test report
 ### 🟢 Android Client - **ALL 4 CRITICAL ISSUES FIXED**
 
 #### 1. ✅ BaseRepository @Inject Annotation Error
-**File:** `Android-Client/app/src/main/java/com/helixtrack/android/data/repository/BaseRepository.kt`
+**File:** `android_client/app/src/main/java/com/helixtrack/android/data/repository/BaseRepository.kt`
 
 **Problem:** Dagger/Hilt does not allow `@Inject` on abstract class constructors
 ```kotlin
@@ -32,7 +32,7 @@ abstract class BaseRepository
 ---
 
 #### 2. ✅ Missing String Resource (error_success)
-**File:** `Android-Client/app/src/main/res/values/strings.xml`
+**File:** `android_client/app/src/main/res/values/strings.xml`
 
 **Problem:** ErrorHandler.kt:16 referenced missing `R.string.error_success`
 
@@ -44,7 +44,7 @@ abstract class BaseRepository
 ---
 
 #### 3. ✅ Missing ChatApiService Class
-**File:** `Android-Client/app/src/main/java/com/helixtrack/android/data/api/ChatApiService.kt`
+**File:** `android_client/app/src/main/java/com/helixtrack/android/data/api/ChatApiService.kt`
 
 **Problem:** ChatRepository referenced non-existent ChatApiService interface
 
@@ -58,7 +58,7 @@ abstract class BaseRepository
 ---
 
 #### 4. ✅ BaseViewModel Type Mismatch
-**File:** `Android-Client/app/src/main/java/com/helixtrack/android/ui/base/BaseViewModel.kt:114`
+**File:** `android_client/app/src/main/java/com/helixtrack/android/ui/base/BaseViewModel.kt:114`
 
 **Problem:** `Result.exceptionOrNull()` returns `Throwable?` but code expected `Exception`
 
@@ -80,7 +80,7 @@ showError(exception)
 ### 🟢 Core Backend (Go) - **CRITICAL WEBSOCKET PANIC FIXED**
 
 #### ✅ WebSocket Manager Channel Panic
-**File:** `Core/Application/internal/websocket/manager.go:231`
+**File:** `core/Application/internal/websocket/manager.go:231`
 
 **Problem:** Panic when `UnregisterClient()` attempted to send on closed channel after `Stop()` was called
 
@@ -116,7 +116,7 @@ func (m *Manager) UnregisterClient(client *models.Client) {
 ### 🟢 Web-Client (Angular) - **ALL DI ISSUES FIXED**
 
 #### 1. ✅ App Component TranslateService DI
-**File:** `Web-Client/src/app/app.spec.ts`
+**File:** `web_client/src/app/app.spec.ts`
 
 **Problem:** `NullInjectorError: No provider for _TranslateService`
 
@@ -149,7 +149,7 @@ beforeEach(async () => {
 ---
 
 #### 2. ✅ ErrorInterceptor Translation Key Mismatches
-**File:** `Web-Client/src/app/core/interceptors/error.interceptor.spec.ts`
+**File:** `web_client/src/app/core/interceptors/error.interceptor.spec.ts`
 
 **Problem:** Tests expected HTTP status-based keys but interceptor uses Core API error code mapping
 
@@ -175,7 +175,7 @@ it('should handle 401 error with unauthorized message from Core API error code',
 ### 🟢 Desktop-Client (Tauri + Angular) - **ALL DI ISSUES FIXED**
 
 #### ✅ App Component TranslateService DI
-**File:** `Desktop-Client/src/app/app.spec.ts`
+**File:** `desktop_client/src/app/app.spec.ts`
 
 **Solution:** Applied identical fix as Web-Client (proper test providers with mocks)
 
@@ -256,26 +256,26 @@ The following issues were NOT in the original comprehensive test report but were
 
 ### Android
 ```bash
-cd Android-Client
+cd android_client
 ./gradlew clean
 ./gradlew assemble  # ✅ BUILD SUCCESSFUL
 ```
 
 ### Core
 ```bash
-cd Core/Application
+cd core/Application
 go test ./...  # ✅ ALL TESTS PASS (exit code 0)
 ```
 
 ### Web-Client
 ```bash
-cd Web-Client
+cd web_client
 npm test  # 90.2% pass rate (with fixes applied: 100% expected)
 ```
 
 ### Desktop-Client
 ```bash
-cd Desktop-Client
+cd desktop_client
 npm test  # Fixes applied, awaiting verification run
 ```
 

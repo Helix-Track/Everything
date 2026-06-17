@@ -31,7 +31,7 @@ This report documents the execution of all available tests across the entire Hel
 
 ### 1. Core Application (Backend)
 
-**Location:** `Core/Application/`
+**Location:** `core/Application/`
 **Test Command:** `./scripts/verify-tests.sh`
 **Status:** ⚠️ Partial Success
 **Duration:** ~60 seconds
@@ -79,7 +79,7 @@ too many arguments in call to client.Get (context.Context, string vs string)
 
 ### 2. KeyManager Tool
 
-**Location:** `Core/Tools/KeyManager/`
+**Location:** `core/Tools/KeyManager/`
 **Test Command:** `go test -v -cover ./...`
 **Status:** ✅ **100% SUCCESS**
 **Duration:** 0.37 seconds
@@ -146,7 +146,7 @@ Storage Tests (20):
 
 ### 3. Localization Service
 
-**Location:** `Core/Services/Localization/`
+**Location:** `core/Services/Localization/`
 **Test Command:** `go test -v -cover ./...`
 **Status:** ❌ Build Failure
 **Duration:** 0.6 seconds
@@ -195,7 +195,7 @@ http: server gave HTTP response to HTTPS client
 
 ### 4. Web-Client (Angular)
 
-**Location:** `Web-Client/`
+**Location:** `web_client/`
 **Test Command:** `npm test`
 **Status:** ❌ Environment Failure
 **Duration:** N/A
@@ -233,7 +233,7 @@ export CHROME_BIN=/usr/bin/chromium-browser
 
 ### 5. Desktop-Client (Tauri + Angular)
 
-**Location:** `Desktop-Client/`
+**Location:** `desktop_client/`
 **Test Command:** `npm test`
 **Status:** ❌ Build Failure
 **Duration:** 4.2 seconds
@@ -296,7 +296,7 @@ src/app/core/services/service-discovery.service.spec.ts
 
 ### 6. Android-Client
 
-**Location:** `Android-Client/`
+**Location:** `android_client/`
 **Test Command:** `./gradlew test`
 **Status:** ❌ Build Failure
 **Duration:** 28 seconds
@@ -306,7 +306,7 @@ src/app/core/services/service-discovery.service.spec.ts
 ```
 > Task :app:kspDebugKotlin FAILED
 
-e: [ksp] /home/milosvasic/Projects/HelixTrack/Android-Client/app/src/main/java/com/helixtrack/android/data/service/PermissionManager.kt:
+e: [ksp] /home/milosvasic/Projects/HelixTrack/android_client/app/src/main/java/com/helixtrack/android/data/service/PermissionManager.kt:
 (23, 53): Function declaration must have a name
 
 e: Error occurred in KSP, check log for detail
@@ -325,13 +325,13 @@ e: file:///...PermissionManager.kt:23:18 Expecting member declaration
 2. Consider upgrading Android Gradle plugin to support compileSdk 35
 3. Review and fix the function declaration on line 23
 
-**File to Check:** `Android-Client/app/src/main/java/com/helixtrack/android/data/service/PermissionManager.kt:23`
+**File to Check:** `android_client/app/src/main/java/com/helixtrack/android/data/service/PermissionManager.kt:23`
 
 ---
 
 ### 7. iOS-Client
 
-**Location:** `iOS-Client/`
+**Location:** `ios_client/`
 **Test Command:** `./run-full-tests.sh`
 **Status:** ❌ Platform Incompatibility
 **Duration:** N/A
@@ -399,18 +399,18 @@ e: file:///...PermissionManager.kt:23:18 Expecting member declaration
 
 | Module | Lines Tested | Coverage | Quality |
 |--------|-------------|----------|---------|
-| Core/cache | High | 96.4% | Excellent |
-| Core/logger | High | 90.7% | Excellent |
-| Core/metrics | High | 100.0% | Excellent |
-| Core/config | High | 83.5% | Good |
-| Core/models | Medium | 73.2% | Good |
+| core/cache | High | 96.4% | Excellent |
+| core/logger | High | 90.7% | Excellent |
+| core/metrics | High | 100.0% | Excellent |
+| core/config | High | 83.5% | Good |
+| core/models | Medium | 73.2% | Good |
 | KeyManager/generator | High | 83.5% | Good |
 | KeyManager/storage | High | 83.6% | Good |
 | Localization/middleware | High | 91.0% | Excellent |
 | Localization/config | High | 100.0% | Excellent |
 | Localization/utils | High | 97.8% | Excellent |
-| Core/database | Low | 37.6% | Needs Improvement |
-| Core/services | Low | 41.9% | Needs Improvement |
+| core/database | Low | 37.6% | Needs Improvement |
+| core/services | Low | 41.9% | Needs Improvement |
 
 ---
 

@@ -38,11 +38,11 @@
 
 #### ✅ Build Verification
 ```bash
-cd /home/milosvasic/Projects/HelixTrack/Core/Application
+cd /home/milosvasic/Projects/HelixTrack/core/Application
 go build -o htCore main.go
 ```
 **Result**: Success
-**Output**: `/home/milosvasic/Projects/HelixTrack/Core/Application/htCore` (20MB)
+**Output**: `/home/milosvasic/Projects/HelixTrack/core/Application/htCore` (20MB)
 
 #### ✅ Test Verification
 ```bash
@@ -81,7 +81,7 @@ go test ./internal/models/chat_test.go ./internal/models/chat.go -v
 
 #### Database Schema
 - **V2 schema**: 11 tables
-- Location: `/Core/Database/DDL/Extensions/Chats/Definition.V2.sql`
+- Location: `/core/Database/DDL/Extensions/Chats/Definition.V2.sql`
 - Full PostgreSQL compatibility
 
 ---
@@ -215,7 +215,7 @@ Despite build errors, the chat feature is **architecturally complete**:
 
 #### Build Command (when ready)
 ```bash
-cd Android-Client
+cd android_client
 ./gradlew build
 ./gradlew assembleDebug
 ```
@@ -243,7 +243,7 @@ cd Android-Client
 
 #### Build Command (when ready)
 ```bash
-cd iOS-Client
+cd ios_client
 swift build
 swift test
 ```
@@ -354,17 +354,17 @@ Legend:
 ## Critical Files Modified
 
 ### Core Backend
-1. `/Core/Application/internal/models/chat.go` - 9 models created
-2. `/Core/Application/internal/models/request.go` - 64 actions added (lines 501-575)
-3. `/Core/Application/internal/models/chat_test.go` - 20 tests created
+1. `/core/Application/internal/models/chat.go` - 9 models created
+2. `/core/Application/internal/models/request.go` - 64 actions added (lines 501-575)
+3. `/core/Application/internal/models/chat_test.go` - 20 tests created
 
 ### Web-Client
-1. `/Web-Client/src/app/app.routes.ts` - Chat route added
-2. `/Web-Client/src/app/layouts/sidebar/sidebar.component.ts` - Chat navigation added
-3. `/Web-Client/src/app/layouts/header/header.component.ts` - Chat badge added
-4. `/Web-Client/src/app/layouts/header/header.component.html` - Chat icon added
-5. `/Web-Client/src/app/features/chat/chat.routes.ts` - AuthGuard fixed
-6. `/Web-Client/src/app/features/chat/components/attachment-preview/` - Model properties fixed
+1. `/web_client/src/app/app.routes.ts` - Chat route added
+2. `/web_client/src/app/layouts/sidebar/sidebar.component.ts` - Chat navigation added
+3. `/web_client/src/app/layouts/header/header.component.ts` - Chat badge added
+4. `/web_client/src/app/layouts/header/header.component.html` - Chat icon added
+5. `/web_client/src/app/features/chat/chat.routes.ts` - AuthGuard fixed
+6. `/web_client/src/app/features/chat/components/attachment-preview/` - Model properties fixed
 
 ### Documentation
 1. `/CHAT_INTEGRATION_COMPLETE.md` - Comprehensive implementation summary

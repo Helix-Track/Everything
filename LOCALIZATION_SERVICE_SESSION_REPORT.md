@@ -129,7 +129,7 @@ The HelixTrack Localization Service has been **successfully implemented** as a p
 ## 📁 Complete File Structure
 
 ```
-Core/
+core/
 ├── Database/DDL/Services/Localization/
 │   └── Definition.V1.sql                    # Database schema (450+ lines)
 │
@@ -196,7 +196,7 @@ Core/
 │
 └── LOCALIZATION_SERVICE_SESSION_REPORT.md   # This file
 
-Web-Client/src/app/core/services/
+web_client/src/app/core/services/
 └── localization.service.ts                   # Angular client (280 lines)
 ```
 
@@ -376,7 +376,7 @@ Web-Client/src/app/core/services/
 - [x] Code comments
 - [ ] User manual (Markdown) - **PENDING**
 - [ ] User manual (HTML) - **PENDING**
-- [ ] Update Core/CLAUDE.md - **PENDING**
+- [ ] Update core/CLAUDE.md - **PENDING**
 - [ ] Update root CLAUDE.md - **PENDING**
 - [ ] Website updates - **PENDING**
 
@@ -413,10 +413,10 @@ Web-Client/src/app/core/services/
 
 5. **Documentation Completion** ⏱️ Estimated: 6-8 hours
    - User manual (Markdown + HTML)
-   - Update Core/CLAUDE.md
+   - Update core/CLAUDE.md
    - Update root CLAUDE.md
    - Document test results
-   - Update Core/Website
+   - Update core/Website
 
 ### Future Enhancements
 

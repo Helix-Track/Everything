@@ -36,9 +36,9 @@ The following color scheme is officially used across ALL HelixTrack platforms:
 
 ## ✅ Platform Verification Results
 
-### 1. Website (Core/Website)
+### 1. Website (core/Website)
 
-**File:** `Core/Website/docs/style.css`
+**File:** `core/Website/docs/style.css`
 
 ```css
 :root {
@@ -60,7 +60,7 @@ The following color scheme is officially used across ALL HelixTrack platforms:
 
 ### 2. Web Client (Angular 19)
 
-**File:** `Web-Client/src/styles.scss`
+**File:** `web_client/src/styles.scss`
 
 ```scss
 $helixtrack-primary: (
@@ -76,7 +76,7 @@ $helixtrack-accent: (
 );
 ```
 
-**Theme Service:** `Web-Client/src/app/core/services/theme.service.ts`
+**Theme Service:** `web_client/src/app/core/services/theme.service.ts`
 
 **Features:**
 - ✅ Light theme
@@ -99,7 +99,7 @@ $helixtrack-accent: (
 
 ### 3. Desktop Client (Tauri + Angular)
 
-**File:** `Desktop-Client/src/styles.scss`
+**File:** `desktop_client/src/styles.scss`
 
 ```scss
 $helixtrack-primary: (
@@ -115,7 +115,7 @@ $helixtrack-accent: (
 );
 ```
 
-**Theme Service:** `Desktop-Client/src/app/core/services/theme.service.ts`
+**Theme Service:** `desktop_client/src/app/core/services/theme.service.ts`
 
 **Features:**
 - ✅ Light theme
@@ -131,10 +131,10 @@ $helixtrack-accent: (
 
 ### 4. Android Client (Kotlin + Jetpack Compose)
 
-**File:** `Android-Client/app/src/main/res/values/colors.xml`
+**File:** `android_client/app/src/main/res/values/colors.xml`
 
 ```xml
-<!-- HelixTrack Brand Colors (from Core/Website) -->
+<!-- HelixTrack Brand Colors (from core/Website) -->
 <color name="primary">#BCE63B</color>          ✅ MATCHES
 <color name="secondary">#7AA590</color>        ✅ MATCHES
 <color name="accent">#B2E3C2</color>           ✅ MATCHES
@@ -148,7 +148,7 @@ $helixtrack-accent: (
 <color name="surface_dark">#1A1A1A</color>     ✅ MATCHES
 ```
 
-**Theme File:** `Android-Client/app/src/main/res/values/themes.xml`
+**Theme File:** `android_client/app/src/main/res/values/themes.xml`
 
 **Features:**
 - ✅ Material Design 3 theme
@@ -164,7 +164,7 @@ $helixtrack-accent: (
 
 ### 5. iOS Client (Swift + SwiftUI)
 
-**File:** `iOS-Client/Sources/HelixTrack/Utilities/ThemeManager.swift`
+**File:** `ios_client/Sources/HelixTrack/Utilities/ThemeManager.swift`
 
 ```swift
 struct HelixTrackTheme {
@@ -356,11 +356,11 @@ var backgroundColor: Color {
 
 For future reference, the official colors are defined in:
 
-1. **Website:** `Core/Website/docs/style.css`
-2. **Web Client:** `Web-Client/src/styles.scss`
-3. **Desktop Client:** `Desktop-Client/src/styles.scss`
-4. **Android:** `Android-Client/app/src/main/res/values/colors.xml`
-5. **iOS:** `iOS-Client/Sources/HelixTrack/Utilities/ThemeManager.swift`
+1. **Website:** `core/Website/docs/style.css`
+2. **Web Client:** `web_client/src/styles.scss`
+3. **Desktop Client:** `desktop_client/src/styles.scss`
+4. **Android:** `android_client/app/src/main/res/values/colors.xml`
+5. **iOS:** `ios_client/Sources/HelixTrack/Utilities/ThemeManager.swift`
 
 **Important:** Any color changes should be propagated to ALL platforms to maintain consistency.
 

@@ -221,7 +221,7 @@ Comprehensive enterprise-grade chat system integrated across all HelixTrack clie
 
 ```
 HelixTrack/
-├── Web-Client/src/app/features/chat/
+├── web_client/src/app/features/chat/
 │   ├── models/
 │   │   └── chat.models.ts (450 lines) ✅
 │   ├── services/
@@ -251,13 +251,13 @@ HelixTrack/
 │   ├── IMPLEMENTATION_GUIDE.md (2400 lines) ✅
 │   └── README.md (coming) 📋
 │
-├── Desktop-Client/ (reuses Web-Client)
+├── desktop_client/ (reuses Web-Client)
 │   └── src-tauri/src/chat/
 │       ├── local_storage.rs 📋
 │       ├── sync.rs 📋
 │       └── notifications.rs 📋
 │
-├── Android-Client/app/src/main/java/com/helixtrack/chat/ 📋
+├── android_client/app/src/main/java/com/helixtrack/chat/ 📋
 │   ├── ui/ (Compose)
 │   ├── viewmodel/
 │   ├── repository/
@@ -265,7 +265,7 @@ HelixTrack/
 │   ├── database/ (Room)
 │   └── service/ (FCM, Sync)
 │
-├── iOS-Client/Sources/HelixTrack/Features/Chat/ 📋
+├── ios_client/Sources/HelixTrack/Features/Chat/ 📋
 │   ├── Views/ (SwiftUI)
 │   ├── ViewModels/
 │   ├── Models/
@@ -442,7 +442,7 @@ npm run test:e2e
 
 ### Created
 - ✅ `CHAT_INTEGRATION_SUMMARY.md` (this file)
-- ✅ `Web-Client/src/app/features/chat/IMPLEMENTATION_GUIDE.md` (2400 lines)
+- ✅ `web_client/src/app/features/chat/IMPLEMENTATION_GUIDE.md` (2400 lines)
 - ✅ Service documentation (JSDoc comments)
 
 ### To Create

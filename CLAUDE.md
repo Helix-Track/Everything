@@ -27,16 +27,16 @@ The project consists of:
 
 ```
 HelixTrack/
-├── Core/                           # Go backend microservices (PRODUCTION READY)
+├── core/                           # Go backend microservices (PRODUCTION READY)
 │   ├── Application/                # Main API service
 │   ├── Services/
 │   │   └── Localization/          # Localization service (HTTP/3 QUIC) ✅ PRODUCTION READY
 │   └── Tools/
 │       └── KeyManager/            # Key management CLI tool ✅ PRODUCTION READY
-├── Web-Client/                     # Angular web application
-├── Desktop-Client/                 # Tauri desktop application
-├── Android-Client/                 # Android native application
-├── iOS-Client/                     # iOS native application
+├── web_client/                     # Angular web application
+├── desktop_client/                 # Tauri desktop application
+├── android_client/                 # Android native application
+├── ios_client/                     # iOS native application
 ├── scripts/                        # Cross-project utility scripts
 └── test-reports/                   # Consolidated test reports
 ```
@@ -44,13 +44,13 @@ HelixTrack/
 ## Core Backend (Go)
 
 ### Location
-`Core/Application/`
+`core/Application/`
 
 ### Build & Test Commands
 
 ```bash
 # Navigate to Core
-cd Core/Application
+cd core/Application
 
 # Build
 go build -o htCore main.go
@@ -121,18 +121,18 @@ go test ./internal/models/
 - **Documents V2 Extension**: 95% complete (90 actions, 32 tables, 102% Confluence parity)
 - All external services use interfaces for testing/mocking
 - Service can run standalone with authentication/permissions disabled in config
-- See `Core/CLAUDE.md` for detailed backend guidance
+- See `core/CLAUDE.md` for detailed backend guidance
 
 ## Web Client (Angular 19)
 
 ### Location
-`Web-Client/`
+`web_client/`
 
 ### Build & Test Commands
 
 ```bash
 # Navigate to Web Client
-cd Web-Client
+cd web_client
 
 # Install dependencies
 npm install
@@ -200,18 +200,18 @@ npm run docs               # Generate Compodoc documentation
 - Always configure backend URL via settings icon on login page
 - Default backend: `https://localhost:8080`
 - Enhanced startup includes auto port selection and landing page verification
-- See `Web-Client/README.md` for comprehensive feature documentation
+- See `web_client/README.md` for comprehensive feature documentation
 
 ## Desktop Client (Tauri + Angular)
 
 ### Location
-`Desktop-Client/`
+`desktop_client/`
 
 ### Build & Test Commands
 
 ```bash
 # Navigate to Desktop Client
-cd Desktop-Client
+cd desktop_client
 
 # Install dependencies
 npm install
@@ -263,15 +263,15 @@ npm run type-check
 - Requires Rust 1.77+ in addition to Node.js
 - Uses WebView2 (Windows), WebKit (macOS), WebKitGTK (Linux)
 - AI QA automation included for intelligent testing
-- See `Desktop-Client/README.md` for deployment details
+- See `desktop_client/README.md` for deployment details
 
 ## Mobile Clients
 
-### Android Client (`Android-Client/`)
+### Android Client (`android_client/`)
 
 **Build Commands:**
 ```bash
-cd Android-Client
+cd android_client
 
 # Build
 ./gradlew build
@@ -292,11 +292,11 @@ cd Android-Client
 - Gradle build system
 - Native Android UI
 
-### iOS Client (`iOS-Client/`)
+### iOS Client (`ios_client/`)
 
 **Build Commands:**
 ```bash
-cd iOS-Client
+cd ios_client
 
 # Build with Swift Package Manager
 swift build
@@ -364,22 +364,22 @@ All clients support dynamic backend URL configuration:
 **Starting the Full Stack:**
 ```bash
 # Terminal 1: Start Core backend
-cd Core/Application
+cd core/Application
 ./htCore --config=../Configurations/dev.json
 
 # Terminal 2: Start Web Client
-cd Web-Client
+cd web_client
 npm start
 
 # Or Desktop Client
-cd Desktop-Client
+cd desktop_client
 npm run tauri:dev
 ```
 
 **Running Tests Across Projects:**
 ```bash
 # From repository root
-cd Core/Application && ./scripts/verify-tests.sh
+cd core/Application && ./scripts/verify-tests.sh
 cd ../../Web-Client && npm test
 cd ../Desktop-Client && npm test
 ```
@@ -387,19 +387,19 @@ cd ../Desktop-Client && npm test
 **Building All Clients:**
 ```bash
 # Core
-cd Core/Application && go build -o htCore main.go
+cd core/Application && go build -o htCore main.go
 
 # Web
-cd Web-Client && npm run build
+cd web_client && npm run build
 
 # Desktop
-cd Desktop-Client && npm run tauri:build
+cd desktop_client && npm run tauri:build
 
 # Android
-cd Android-Client && ./gradlew assembleRelease
+cd android_client && ./gradlew assembleRelease
 
 # iOS
-cd iOS-Client && swift build
+cd ios_client && swift build
 ```
 
 ## Development Environment
@@ -468,34 +468,34 @@ cd iOS-Client && swift build
 - `TEST_RESULTS.md` - Consolidated test results
 
 ### Per-Project Documentation
-- `Core/CLAUDE.md` - Detailed backend guidance (24KB, comprehensive)
-- `Core/README.md` - Core project overview
-- `Core/Application/docs/USER_MANUAL.md` - Complete API reference
-- `Core/Application/docs/DEPLOYMENT.md` - Deployment guide
-- `Web-Client/README.md` - Web client documentation
-- `Web-Client/TESTING.md` - Testing strategy
-- `Desktop-Client/README.md` - Desktop client documentation
-- `Android-Client/README.md` - Android documentation
-- `iOS-Client/README.md` - iOS documentation
+- `core/CLAUDE.md` - Detailed backend guidance (24KB, comprehensive)
+- `core/README.md` - Core project overview
+- `core/Application/docs/USER_MANUAL.md` - Complete API reference
+- `core/Application/docs/DEPLOYMENT.md` - Deployment guide
+- `web_client/README.md` - Web client documentation
+- `web_client/TESTING.md` - Testing strategy
+- `desktop_client/README.md` - Desktop client documentation
+- `android_client/README.md` - Android documentation
+- `ios_client/README.md` - iOS documentation
 
 ## Important Notes
 
 1. **Monorepo Structure**: This is a multi-project repository. Always `cd` to the specific project directory before running commands.
 
-2. **Backend First**: Core backend must be running for clients to function. Start with `cd Core/Application && ./htCore`.
+2. **Backend First**: Core backend must be running for clients to function. Start with `cd core/Application && ./htCore`.
 
 3. **Test Coverage**: Core has **1,769 total tests** (1,375 core at 98.8% pass rate + 394 Documents extension at 100%). Web/Desktop clients target 100% unit test coverage.
 
 4. **Production Ready**: Core V1, V2, V3 features are production-ready. **Documents V2 Extension** is 95% complete (95% ready for production). Clients are in active development.
 
-5. **JIRA + Confluence Alternative**: Full JIRA feature parity achieved in Core. **Documents V2 Extension provides 102% Confluence parity** (46 features). See `Core/Application/JIRA_FEATURE_GAP_ANALYSIS.md` and `Core/Application/DOCUMENTS_V2_FINAL_SESSION_REPORT.md`.
+5. **JIRA + Confluence Alternative**: Full JIRA feature parity achieved in Core. **Documents V2 Extension provides 102% Confluence parity** (46 features). See `core/Application/JIRA_FEATURE_GAP_ANALYSIS.md` and `core/Application/DOCUMENTS_V2_FINAL_SESSION_REPORT.md`.
 
 6. **Documents V2 Extension** (✅ 95% Complete):
    - **90 API actions** for Confluence-style document management
    - **32 database tables** with complete relationships
    - **394 model tests** (100% pass rate)
    - **102% Confluence parity**: Spaces, pages, version history, collaboration, templates, export, analytics
-   - See `Core/Application/docs/USER_MANUAL.md` section "Documents V2" and `Core/Application/docs/DEPLOYMENT.md` section "Documents V2 Extension Deployment"
+   - See `core/Application/docs/USER_MANUAL.md` section "Documents V2" and `core/Application/docs/DEPLOYMENT.md` section "Documents V2 Extension Deployment"
    - **Known Issue**: Database implementation has field mismatches (see `DOCUMENTS_V2_DATABASE_ISSUES.md`, 8-10 hours to fix)
 
 7. **Microservices**: Authentication and Permissions are external services. Can be disabled in Core config for testing.

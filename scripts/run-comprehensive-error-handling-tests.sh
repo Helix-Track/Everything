@@ -154,7 +154,7 @@ EOF
 echo -e "\n${BLUE}🔧 Testing Core API${NC}"
 echo "-------------------"
 
-cd "Core/Application"
+cd "core/Application"
 
 # Run Core API tests
 if go test ./... -v > "$TEST_RESULTS_DIR/core-error-tests.log" 2>&1; then
